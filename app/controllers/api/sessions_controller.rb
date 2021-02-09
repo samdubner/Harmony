@@ -8,11 +8,16 @@ class Api::SessionsController < ApplicationController
         if @user
             login(@user)
         else
-            render json: ["No matching credentials were found in the DB"], status: 404
+            render json: ["Invalid Credentials"], status: 404
         end
     end
 
     def destroy
-        logout(@user)
+        if current_user == nil
+            render :destroy, status: 404
+        else 
+            logout
+            render :destroy, status: 200
+        end
     end
 end
