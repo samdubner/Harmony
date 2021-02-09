@@ -28,19 +28,19 @@ const receiveErrors = errors => {
 
 //Thunk Action Creators
 export const login = formUser => dispatch => {
-    loginReq(formUser)
+    return loginReq(formUser)
         .then(user => dispatch(receiveCurrentUser(user)))
-        .error(err => dispatch(receiveErrors(err)));
+        .fail(err => dispatch(receiveErrors(err)));
 }
 
 export const logout = () => dispatch => {
     return logoutReq()
         .then(() => dispatch(logoutCurrentUser()))
-        .error(err => dispatch(receiveErrors(err)))
+        .fail(err => dispatch(receiveErrors(err)))
 }
 
 export const signup = formUser => dispatch => {
     return signupReq(formUser)
-    .then(user => dispatch(receiveCurrentUser(user)))
-    .error(err => dispatch(receiveErrors(err)))
+        .then(user => dispatch(receiveCurrentUser(user)))
+        .fail(err => dispatch(receiveErrors(err)))
 }

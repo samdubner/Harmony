@@ -1,12 +1,9 @@
-import { combineReducers } from "redux"
+import { combineReducers } from "redux";
 
-const errorsReducer = (prevState={}, action) => {
-    Object.freeze(prevState)
+import sessionErrorsReducer from "./errors/session_errors_reducer";
 
-    switch(action.type) {
-        default: 
-            return prevState;
-    }
-}
+const errorsReducer = combineReducers({
+  session: sessionErrorsReducer,
+});
 
-export default errorsREducer
+export default errorsReducer;
