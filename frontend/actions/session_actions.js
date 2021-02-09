@@ -28,7 +28,7 @@ const receiveErrors = errors => {
 
 //Thunk Action Creators
 export const login = formUser => dispatch => {
-    return loginReq(formUser)
+    loginReq(formUser)
         .then(user => dispatch(receiveCurrentUser(user)))
         .error(err => dispatch(receiveErrors(err)));
 }
