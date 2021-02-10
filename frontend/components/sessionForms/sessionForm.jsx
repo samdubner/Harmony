@@ -11,6 +11,12 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    componentDidMount() {
+        if (this.props.errors.length != 0) {
+            this.props.clearErrors();
+        }
+    }
+
     handleInput(input)  {
         return (e) => {
             this.setState({[input]: e.target.value})
@@ -19,13 +25,23 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // debugger
-        this.props.submitForm(this.state);
+        console.log(e.currentTarget)
+        if ((this.state.username === "" && this.state.password === "") || e.target.value == "Demo Login" ) {
+            const user = {
+                username: "test",
+                password: "123456"
+            }
+
+            this.props.submitForm(user);
+        } else {
+            this.props.submitForm(this.state)
+        }
     }
 
     render() {
         // debugger
         // debugger
+        const demoLogin = this.props.formType === "Login" ? <input type="submit" value="Demo Login" /> : null;
         return (
             <div className="session-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
@@ -44,6 +60,8 @@ class SessionForm extends React.Component {
                     })}
 
                     <input type="submit" value={this.props.formType} />
+                    {demoLogin}
+                    
                     <span>{this.props.outsideLinkText}</span><Link to={this.props.linkTo}>{this.props.insideLinkText}</Link>
                 </form>
             </div>

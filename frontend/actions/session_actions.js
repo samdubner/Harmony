@@ -3,7 +3,8 @@ import { signupReq, loginReq, logoutReq } from "../util/session_api_util"
 //Action Types
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const CLEAR_ERRORS = "CLEAR_SESSION_ERRORS"
 
 //Regular Action Creators
 const receiveCurrentUser = user => {
@@ -23,6 +24,12 @@ const receiveErrors = errors => {
     return {
         type: RECEIVE_ERRORS,
         errors: errors.responseJSON
+    }
+}
+
+export const clearErrors = () => {
+    return {
+        type: CLEAR_ERRORS
     }
 }
 

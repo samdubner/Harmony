@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import SessionForm from "./sessionForm"
 
-import { login } from "../../actions/session_actions"
+import { login, clearErrors } from "../../actions/session_actions"
 
 const mapStateToProps = state => {
     return {
@@ -17,7 +17,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        submitForm: user => dispatch(login(user))
+        submitForm: user => dispatch(login(user)),
+        clearErrors: () => dispatch(clearErrors())
     }
 }
 
@@ -33,6 +34,7 @@ class LoginForm extends React.Component {
             insideLinkText={this.props.insideLinkText}
             flavorText={this.props.flavorText}
             submitForm={this.props.submitForm}
+            clearErrors={this.props.clearErrors}
             formType={this.props.formType}
             linkTo={this.props.linkTo}
             errors={this.props.errors}
