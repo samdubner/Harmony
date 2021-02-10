@@ -64,11 +64,13 @@ class SessionForm extends React.Component {
                     <label>PASSWORD</label>
                     <input type="password" onChange={this.handleInput("password")} value={this.state.password} />
 
-                    {this.props.errors.map((err, idx) => {
-                        return (
-                            <p key={idx} className="error">{err}</p>
-                        )
-                    })}
+                    <div className="errorBox">
+                        {this.props.errors.map((err, idx) => {
+                            return (
+                                <p key={idx} className="error">{err}</p>
+                            )
+                        })}
+                    </div>
 
                     <input type="submit" value={this.props.formType} />
                     {demoLogin}

@@ -88,5 +88,11 @@
 
     .error {
         color: #f04747;
+        z-index: 2;
+        display: inline-block;
+    }
+
+    .errorBox {
+        height: 1em;
     }
 }
