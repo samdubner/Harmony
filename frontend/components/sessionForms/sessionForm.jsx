@@ -23,6 +23,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        // debugger
         return (
             <div className="session-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
@@ -33,6 +34,12 @@ class SessionForm extends React.Component {
 
                     <label>PASSWORD</label>
                     <input type="password" onChange={this.handleInput("password")} value={this.state.password} />
+
+                    {this.props.errors.map((err, idx) => {
+                        return (
+                            <p key={idx} className="error">{err}</p>
+                        )
+                    })}
 
                     <input type="submit" value={this.props.formType} />
                     <span>{this.props.outsideLinkText}</span><Link to={this.props.linkTo}>{this.props.insideLinkText}</Link>

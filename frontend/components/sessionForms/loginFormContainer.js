@@ -10,7 +10,8 @@ const mapStateToProps = state => {
         flavorText: "Welcome back!",
         outsideLinkText: "Need an account?",
         insideLinkText: "Register",
-        linkTo: "/signup"
+        linkTo: "/signup",
+        errors: state.errors.session.errors
     }
 }
 
@@ -27,15 +28,16 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <SessionForm 
-                outsideLinkText={this.props.outsideLinkText}
-                insideLinkText={this.props.insideLinkText}
-                flavorText={this.props.flavorText}
-                submitForm={this.props.submitForm}
-                formType={this.props.formType}
-                linkTo={this.props.linkTo}
-            />
-        )
+          <SessionForm
+            outsideLinkText={this.props.outsideLinkText}
+            insideLinkText={this.props.insideLinkText}
+            flavorText={this.props.flavorText}
+            submitForm={this.props.submitForm}
+            formType={this.props.formType}
+            linkTo={this.props.linkTo}
+            errors={this.props.errors}
+          />
+        );
     }
 }
 

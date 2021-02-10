@@ -9,9 +9,7 @@
 
 .session-form {
     box-shadow: -1px -1px 8px 0 #2c2d32;
-    height: 24em;
     width: 30em;
-    // margin-bottom: 15px;
     background-color: #36393f;
     border-radius: 5px;
     padding: 25px;
@@ -84,6 +82,8 @@
         font-size: 1.5em;
         padding: 1.5em;
     }
+
+    .error {
+        color: #f04747;
+    }
 }
-
-

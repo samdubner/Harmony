@@ -6,14 +6,15 @@ import LoginFormContainer from "./sessionForms/loginFormContainer"
 import SignupFormContainer from "./sessionForms/signupFormContainer"
 
 //temporary
-import LoggedIn from "./loggedIn"
+import LoggedIn from "./logged_in_container"
+import LoggedInContainer from "./logged_in_container";
 
 class App extends React.Component {
 
     render() {
         return(
             <div>
-                <ProtectedRoute path="/" component={LoggedIn} />
+                <ProtectedRoute path="/" component={LoggedInContainer} />
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
             </div>
