@@ -45,7 +45,8 @@
         border-color: #5a69a0;
     }
     
-    input[type=submit] {
+    input[type=submit],
+    input[type=button] {
         width: 100%;
         text-align: center;
         height: 3em;
@@ -61,7 +62,8 @@
         cursor: pointer;
     }
 
-    input[type=submit]:hover {
+    input[type=submit]:hover
+    input[type=button]:hover {
         background-color: #677bc4;
     }
 
