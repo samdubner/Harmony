@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
                     <input type="password" onChange={this.handleInput("password")} value={this.state.password} />
 
                     <input type="submit" value={this.props.formType} />
-                    <span>Need an account?</span><Link to="/signup">Register</Link>
+                    <span>{this.props.outsideLinkText}</span><Link to={this.props.linkTo}>{this.props.insideLinkText}</Link>
                 </form>
             </div>
         )

@@ -1,16 +1,42 @@
 import React from "react";
 import { connect } from "react-redux";
+import SessionForm from "./sessionForm";
+
+import { signup } from "../../actions/session_actions";
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    formType: "Continue",
+    flavorText: "Create an account",
+    outsideLinkText: "",
+    insideLinkText: "Already have an account?",
+    linkTo: "/login"
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    submitForm: (user) => dispatch(signup(user)),
+  };
 };
 
-const SignupForm = (props) => {
-  return <h1>hi</h1>;
-};
+class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
+  render() {
+    return (
+      <SessionForm
+        outsideLinkText={this.props.outsideLinkText}
+        insideLinkText={this.props.insideLinkText}
+        flavorText={this.props.flavorText}
+        submitForm={this.props.submitForm}
+        formType={this.props.formType}
+        linkTo={this.props.linkTo}
+      />
+    );
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
