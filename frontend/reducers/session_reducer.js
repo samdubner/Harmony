@@ -1,9 +1,17 @@
-import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS } from "../actions/session_actions"
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/session_actions"
 
-const sessionReducer = (prevState={}, action) => {
+const _nullState = {
+    id: null
+}
+
+const sessionReducer = (prevState=_nullState, action) => {
     Object.freeze(prevState)
 
-    switch(action) {
+    switch(action.type) {
+        case RECEIVE_CURRENT_USER:
+            return { id: action.user.id }
+        case LOGOUT_CURRENT_USER:
+            return _nullState;
         default:
             return prevState;
     }
