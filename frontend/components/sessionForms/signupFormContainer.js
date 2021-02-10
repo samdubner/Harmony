@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
   return {
     formType: "Continue",
     flavorText: "Create an account",
-    outsideLinkText: "",
+    outsideLinkText: "null",
     insideLinkText: "Already have an account?",
     linkTo: "/login"
   };

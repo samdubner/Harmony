@@ -3257,3 +3257,15 @@ Processing by Api::SessionsController#create as JSON
 Completed 200 OK in 207ms (Views: 6.8ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2021-02-09 20:31:21 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/samdubner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "CHKo3yapQ6dnnfv5h_jkTw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 1394ms (Views: 1384.8ms | ActiveRecord: 7.1ms)
+
+
