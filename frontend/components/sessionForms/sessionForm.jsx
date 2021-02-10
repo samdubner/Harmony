@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
             password: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.demoLogin = this.demoLogin.bind(this)
     }
 
     componentDidMount() {
@@ -25,8 +26,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(e.currentTarget)
-        if ((this.state.username === "" && this.state.password === "") || e.target.value == "Demo Login" ) {
+        if (this.state.username === "" && this.state.password === "") {
             const user = {
                 username: "test",
                 password: "123456"
@@ -38,10 +38,21 @@ class SessionForm extends React.Component {
         }
     }
 
+    demoLogin(e) {
+        e.preventDefault();
+                    const user = {
+                username: "test",
+                password: "123456"
+            }
+
+            this.props.submitForm(user);
+    }
+
     render() {
-        // debugger
-        // debugger
-        const demoLogin = this.props.formType === "Login" ? <input type="submit" value="Demo Login" /> : null;
+        const demoLogin = this.props.formType === "Login" ? (
+            <input type="submit" onClick={this.demoLogin} value="Demo Login" />
+        ) : null;
+
         return (
             <div className="session-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
