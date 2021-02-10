@@ -4,6 +4,10 @@ const sessionErrorsReducer = (prevState={}, action) => {
     Object.freeze(prevState)
 
     switch (action.type) {
+        case RECEIVE_ERRORS:
+            return {errors: action.errors};
+        case RECEIVE_CURRENT_USER:
+            return {};
         default:
             return prevState;
     }

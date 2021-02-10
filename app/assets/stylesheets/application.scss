@@ -13,7 +13,11 @@
  *= require_self
  */
 
+//Roboto Font Import
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
  //CSS Reset
 @import "reset.scss";
 
 //Components
+@import "components/*";

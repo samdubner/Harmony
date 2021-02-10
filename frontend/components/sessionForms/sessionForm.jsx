@@ -17,22 +17,25 @@ class SessionForm extends React.Component {
     }
 
     handleSubmit(e) {
-        this.props.submitForm(this.state)
+        e.preventDefault();
+        this.props.submitForm(this.state);
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>Username:
-                    <input type="text" onChange={this.handleInput("username")} value={this.state.username}/>
-                </label>
+            <div className="session-container">
+                <form className="session-form" onSubmit={this.handleSubmit}>
+                    <h2 className="session-form-text">{this.props.flavorText}</h2>
 
-                <label>Password:
-                    <input type="password" onChange={this.handleInput("password")} value={this.state.password} />
-                </label>
+                    <label>Username</label>
+                    <input className="session-input" type="text" onChange={this.handleInput("username")} value={this.state.username}/>
 
-                <input type="submit" value={this.props.formType} />
-            </form>
+                    <label>Password</label>
+                    <input className="session-input" type="password" onChange={this.handleInput("password")} value={this.state.password} />
+
+                    <input type="submit" value={this.props.formType} />
+                </form>
+            </div>
         )
     }
 }
