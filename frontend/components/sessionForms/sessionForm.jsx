@@ -27,16 +27,17 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        if (this.state.username === "" && this.state.password === "") {
-            const user = {
-                username: "test",
-                password: "123456"
-            }
+        // if (this.state.username === "" && this.state.password === "") {
+        //     const user = {
+        //         username: "test",
+        //         password: "123456"
+        //     }
 
-            this.props.submitForm(user);
-        } else {
-            this.props.submitForm(this.state)
-        }
+        //     this.props.submitForm(user);
+        // } else {
+        // this.props.submitForm(this.state)
+        // }
+        // console.log("submit")
     }
 
     demoLogin(e) {
@@ -47,16 +48,18 @@ class SessionForm extends React.Component {
             }
 
             this.props.submitForm(user);
+        // console.log("click demo login button")
     }
 
     login(e) {
         e.preventDefault();
         this.props.submitForm(this.state);
+        // console.log("click login button")
     }
 
     render() {
         const demoLogin = this.props.formType === "Login" ? (
-            <input type="submit" onClick={this.demoLogin} value="Demo Login" />
+            <input type="button" onClick={this.demoLogin} value="Demo Login" />
         ) : null;
 
         return (
@@ -78,8 +81,8 @@ class SessionForm extends React.Component {
                         })}
                     </div>
 
+                    <input type="submit" onClick={this.login} value={this.props.formType} />
                     {demoLogin}
-                    <input type="button" onClick={this.login} value={this.props.formType} />
                     
                     <span>{this.props.outsideLinkText}</span><Link to={this.props.linkTo}>{this.props.insideLinkText}</Link>
                 </form>
