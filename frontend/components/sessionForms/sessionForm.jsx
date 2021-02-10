@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -25,15 +26,16 @@ class SessionForm extends React.Component {
         return (
             <div className="session-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
-                    <h2 className="session-form-text">{this.props.flavorText}</h2>
+                    <h2 >{this.props.flavorText}</h2>
 
-                    <label>Username</label>
-                    <input className="session-input" type="text" onChange={this.handleInput("username")} value={this.state.username}/>
+                    <label>USERNAME</label>
+                    <input type="text" onChange={this.handleInput("username")} value={this.state.username}/>
 
-                    <label>Password</label>
-                    <input className="session-input" type="password" onChange={this.handleInput("password")} value={this.state.password} />
+                    <label>PASSWORD</label>
+                    <input type="password" onChange={this.handleInput("password")} value={this.state.password} />
 
                     <input type="submit" value={this.props.formType} />
+                    <span>Need an account?</span><Link to="/signup">Register</Link>
                 </form>
             </div>
         )
