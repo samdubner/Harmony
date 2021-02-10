@@ -28,6 +28,7 @@ const receiveErrors = errors => {
 
 //Thunk Action Creators
 export const login = formUser => dispatch => {
+    console.log(formUser)
     return loginReq(formUser)
         .then(user => dispatch(receiveCurrentUser(user)))
         .fail(err => dispatch(receiveErrors(err)));

@@ -19,10 +19,12 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        // debugger
         this.props.submitForm(this.state);
     }
 
     render() {
+        // debugger
         // debugger
         return (
             <div className="session-container">
