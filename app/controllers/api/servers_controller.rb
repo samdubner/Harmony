@@ -1,6 +1,6 @@
-class ServersController < ApplicationController
+class Api::ServersController < ApplicationController
     def index
-        @servers = Server.all
+        @servers = User.find_by_id(params[:user_id]).servers
         render :index
     end
 
@@ -13,6 +13,10 @@ class ServersController < ApplicationController
         @server = Server.new(server_params)
 
         if @server.save
+            UserServer.create(
+                server_id: @server.id,
+                user_id: @server.owner_id
+            )
             render :show
         else
             render json: @server.errors.full_messages, status: 422

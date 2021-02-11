@@ -3,7 +3,11 @@ import ReactDOM from "react-dom"
 import configureStore from "./store/store"
 import Root from "./components/root"
 
-import { logout } from "./actions/session_actions"
+import { getUserServerReq,
+         createServerReq, 
+         serverInfoReq,
+         updateServerReq,
+         deleteServerReq } from "./util/server_api_util";
 
 document.addEventListener("DOMContentLoaded", (e) => {
     let store;
@@ -19,9 +23,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     } else {
         store = configureStore();
     }
+
+    window.getUserServerReq = getUserServerReq
+    window.createServerReq = createServerReq
+    window.serverInfoReq = serverInfoReq;
+    window.updateServerReq = updateServerReq;
+    window.deleteServerReq = deleteServerReq;
     
-    window.store = store
-    window.logout = logout
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);
 })

@@ -48,8 +48,17 @@ class User < ApplicationRecord
         self.session_token ||= SecureRandom::urlsafe_base64
     end
 
-    has_many :servers,
+    has_many :owned_servers,
         primary_key: :id,
         foreign_key: :owner_id,
         class_name: :Server
+
+    has_many :user_servers,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :UserServer
+
+    has_many :joined_servers,
+        through: :user_servers,
+        source: :user
 end
