@@ -60,5 +60,5 @@ class User < ApplicationRecord
 
     has_many :joined_servers,
         through: :user_servers,
-        source: :user
+        source: :server
 end
