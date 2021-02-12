@@ -8287,3 +8287,367 @@ Completed 200 OK in 26ms (Views: 16.8ms | ActiveRecord: 2.3ms)
 
 
   [1m[36mServer Load (0.3ms)[0m  [1m[34mSELECT "servers".* FROM "servers"[0m
+Started GET "/" for 127.0.0.1 at 2021-02-11 17:16:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4T14xH6BCSXsKCPFxn6UFw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 1296ms (Views: 1292.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-11 17:18:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4T14xH6BCSXsKCPFxn6UFw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 327ms (Views: 323.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users/1/servers" for 127.0.0.1 at 2021-02-11 17:18:19 -0800
+Processing by Api::ServersController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:3
+  Rendering api/servers/index.json.jbuilder
+  [1m[36mServer Load (1.2ms)[0m  [1m[34mSELECT "servers".* FROM "servers" INNER JOIN "user_servers" ON "servers"."id" = "user_servers"."server_id" WHERE "user_servers"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/servers/index.json.jbuilder:1
+  Rendered api/servers/index.json.jbuilder (3.0ms)
+Completed 200 OK in 15ms (Views: 10.0ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/api/servers" for 127.0.0.1 at 2021-02-11 17:19:35 -0800
+Processing by Api::ServersController#create as JSON
+  Parameters: {"server"=>{"name"=>"happy", "owner_id"=>"5"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mServer Create (0.6ms)[0m  [1m[32mINSERT INTO "servers" ("name", "owner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "happy"], ["owner_id", 5], ["created_at", "2021-02-12 01:19:35.075793"], ["updated_at", "2021-02-12 01:19:35.075793"]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mServer Load (0.2ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUserServer Create (0.4ms)[0m  [1m[32mINSERT INTO "user_servers" ("server_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["server_id", 5], ["user_id", 5], ["created_at", "2021-02-12 01:19:35.093958"], ["updated_at", "2021-02-12 01:19:35.093958"]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 5]]
+  ↳ app/views/api/servers/show.json.jbuilder:9
+  Rendered api/servers/show.json.jbuilder (3.2ms)
+Completed 200 OK in 38ms (Views: 10.6ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-11 17:30:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4T14xH6BCSXsKCPFxn6UFw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 332ms (Views: 327.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/servers" for 127.0.0.1 at 2021-02-11 17:30:25 -0800
+Processing by Api::ServersController#create as JSON
+  Parameters: {"server"=>{"name"=>"adsfasdf", "owner_id"=>"5"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mServer Create (0.9ms)[0m  [1m[32mINSERT INTO "servers" ("name", "owner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "adsfasdf"], ["owner_id", 5], ["created_at", "2021-02-12 01:30:25.397432"], ["updated_at", "2021-02-12 01:30:25.397432"]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mServer Load (0.4ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUserServer Create (0.5ms)[0m  [1m[32mINSERT INTO "user_servers" ("server_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["server_id", 6], ["user_id", 5], ["created_at", "2021-02-12 01:30:25.402531"], ["updated_at", "2021-02-12 01:30:25.402531"]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 6]]
+  ↳ app/views/api/servers/show.json.jbuilder:9
+  Rendered api/servers/show.json.jbuilder (2.8ms)
+Completed 200 OK in 21ms (Views: 9.1ms | ActiveRecord: 4.4ms)
+
+
+  [1m[36mServer Load (1.0ms)[0m  [1m[34mSELECT "servers".* FROM "servers"[0m
+  [1m[36mServer Load (0.3ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" ORDER BY "servers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mServer Load (0.4ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" ORDER BY "servers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 6]]
+Started POST "/api/servers" for 127.0.0.1 at 2021-02-11 17:34:08 -0800
+Processing by Api::ServersController#create as JSON
+  Parameters: {"server"=>{"name"=>"thisisaserver", "owner_id"=>"5"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mServer Create (0.4ms)[0m  [1m[32mINSERT INTO "servers" ("name", "owner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "thisisaserver"], ["owner_id", 5], ["created_at", "2021-02-12 01:34:08.010938"], ["updated_at", "2021-02-12 01:34:08.010938"]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mServer Load (0.3ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUserServer Create (0.3ms)[0m  [1m[32mINSERT INTO "user_servers" ("server_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["server_id", 7], ["user_id", 5], ["created_at", "2021-02-12 01:34:08.015918"], ["updated_at", "2021-02-12 01:34:08.015918"]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 7]]
+  ↳ app/views/api/servers/show.json.jbuilder:7
+  Rendered api/servers/show.json.jbuilder (2.2ms)
+Completed 200 OK in 21ms (Views: 10.4ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/api/servers" for 127.0.0.1 at 2021-02-11 17:37:04 -0800
+Processing by Api::ServersController#create as JSON
+  Parameters: {"server"=>{"name"=>"testagain", "owner_id"=>"5"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mServer Create (0.3ms)[0m  [1m[32mINSERT INTO "servers" ("name", "owner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "testagain"], ["owner_id", 5], ["created_at", "2021-02-12 01:37:04.065804"], ["updated_at", "2021-02-12 01:37:04.065804"]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mServer Load (0.4ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUserServer Create (0.3ms)[0m  [1m[32mINSERT INTO "user_servers" ("server_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["server_id", 8], ["user_id", 5], ["created_at", "2021-02-12 01:37:04.070887"], ["updated_at", "2021-02-12 01:37:04.070887"]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 8]]
+  ↳ app/views/api/servers/show.json.jbuilder:7
+  Rendered api/servers/show.json.jbuilder (2.2ms)
+Completed 200 OK in 20ms (Views: 9.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-11 17:38:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4T14xH6BCSXsKCPFxn6UFw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 337ms (Views: 334.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/servers" for 127.0.0.1 at 2021-02-11 17:39:18 -0800
+Processing by Api::ServersController#create as JSON
+  Parameters: {"server"=>{"name"=>"asdfasdfasdfasdfasf", "owner_id"=>"5"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mServer Create (1.0ms)[0m  [1m[32mINSERT INTO "servers" ("name", "owner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "asdfasdfasdfasdfasf"], ["owner_id", 5], ["created_at", "2021-02-12 01:39:18.784725"], ["updated_at", "2021-02-12 01:39:18.784725"]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mServer Load (0.5ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUserServer Create (0.6ms)[0m  [1m[32mINSERT INTO "user_servers" ("server_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["server_id", 9], ["user_id", 5], ["created_at", "2021-02-12 01:39:18.791777"], ["updated_at", "2021-02-12 01:39:18.791777"]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 9]]
+  ↳ app/views/api/servers/show.json.jbuilder:7
+  Rendered api/servers/show.json.jbuilder (3.1ms)
+Completed 200 OK in 23ms (Views: 10.2ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-11 17:40:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4T14xH6BCSXsKCPFxn6UFw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 332ms (Views: 329.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/servers" for 127.0.0.1 at 2021-02-11 17:40:40 -0800
+Processing by Api::ServersController#create as JSON
+  Parameters: {"server"=>{"name"=>"asdfasdfasdfasdfasf", "owner_id"=>"5"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mServer Create (1.0ms)[0m  [1m[32mINSERT INTO "servers" ("name", "owner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "asdfasdfasdfasdfasf"], ["owner_id", 5], ["created_at", "2021-02-12 01:40:40.294120"], ["updated_at", "2021-02-12 01:40:40.294120"]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mServer Load (0.4ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUserServer Create (0.7ms)[0m  [1m[32mINSERT INTO "user_servers" ("server_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["server_id", 10], ["user_id", 5], ["created_at", "2021-02-12 01:40:40.299500"], ["updated_at", "2021-02-12 01:40:40.299500"]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 10]]
+  ↳ app/views/api/servers/show.json.jbuilder:7
+  Rendered api/servers/show.json.jbuilder (3.0ms)
+Completed 200 OK in 31ms (Views: 9.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-11 17:40:58 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4T14xH6BCSXsKCPFxn6UFw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 363ms (Views: 359.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/servers" for 127.0.0.1 at 2021-02-11 17:41:03 -0800
+Processing by Api::ServersController#create as JSON
+  Parameters: {"server"=>{"name"=>"asdfasdfasdfasdfasf", "owner_id"=>"5"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mServer Create (0.8ms)[0m  [1m[32mINSERT INTO "servers" ("name", "owner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "asdfasdfasdfasdfasf"], ["owner_id", 5], ["created_at", "2021-02-12 01:41:03.450177"], ["updated_at", "2021-02-12 01:41:03.450177"]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mServer Load (0.5ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUserServer Create (0.7ms)[0m  [1m[32mINSERT INTO "user_servers" ("server_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["server_id", 11], ["user_id", 5], ["created_at", "2021-02-12 01:41:03.454762"], ["updated_at", "2021-02-12 01:41:03.454762"]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 11]]
+  ↳ app/views/api/servers/show.json.jbuilder:7
+  Rendered api/servers/show.json.jbuilder (2.5ms)
+Completed 200 OK in 21ms (Views: 9.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-11 17:42:27 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4T14xH6BCSXsKCPFxn6UFw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 323ms (Views: 320.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/servers" for 127.0.0.1 at 2021-02-11 17:42:30 -0800
+Processing by Api::ServersController#create as JSON
+  Parameters: {"server"=>{"name"=>"asdfasdfasdfasdfasf", "owner_id"=>"5"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[36mServer Create (0.7ms)[0m  [1m[32mINSERT INTO "servers" ("name", "owner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "asdfasdfasdfasdfasf"], ["owner_id", 5], ["created_at", "2021-02-12 01:42:30.342127"], ["updated_at", "2021-02-12 01:42:30.342127"]]
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mServer Load (0.4ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[36mUserServer Create (0.5ms)[0m  [1m[32mINSERT INTO "user_servers" ("server_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["server_id", 12], ["user_id", 5], ["created_at", "2021-02-12 01:42:30.346655"], ["updated_at", "2021-02-12 01:42:30.346655"]]
+  ↳ app/controllers/api/servers_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/servers_controller.rb:22
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 12]]
+  ↳ app/views/api/servers/show.json.jbuilder:7
+  Rendered api/servers/show.json.jbuilder (2.5ms)
+Completed 200 OK in 20ms (Views: 9.8ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/users/5/servers" for 127.0.0.1 at 2021-02-11 17:44:39 -0800
+Processing by Api::ServersController#index as JSON
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:3
+  Rendering api/servers/index.json.jbuilder
+  [1m[36mServer Load (0.5ms)[0m  [1m[34mSELECT "servers".* FROM "servers" INNER JOIN "user_servers" ON "servers"."id" = "user_servers"."server_id" WHERE "user_servers"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/api/servers/index.json.jbuilder:1
+  Rendered api/servers/_server.json.jbuilder (0.3ms)
+  Rendered api/servers/_server.json.jbuilder (0.0ms)
+  Rendered api/servers/_server.json.jbuilder (0.0ms)
+  Rendered api/servers/_server.json.jbuilder (0.0ms)
+  Rendered api/servers/_server.json.jbuilder (0.0ms)
+  Rendered api/servers/_server.json.jbuilder (0.0ms)
+  Rendered api/servers/_server.json.jbuilder (0.0ms)
+  Rendered api/servers/_server.json.jbuilder (0.0ms)
+  Rendered api/servers/_server.json.jbuilder (0.0ms)
+  Rendered api/servers/index.json.jbuilder (9.8ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2021-02-11 17:44:59 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"IsoVoyd", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "IsoVoyd"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "IsoVoyd"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "Z3g9Rs3C0f5V5qp5vcmoSg"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (1.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "Z3g9Rs3C0f5V5qp5vcmoSg"], ["updated_at", "2021-02-12 01:44:59.539090"], ["id", 2]]
+  ↳ app/models/user.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.4ms)
+Completed 200 OK in 212ms (Views: 8.0ms | ActiveRecord: 3.0ms)
+
+
+Started DELETE "/api/session" for 127.0.0.1 at 2021-02-11 17:45:10 -0800
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Z3g9Rs3C0f5V5qp5vcmoSg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "IsoVoyd"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "D_bMrv8cQ9LmgQbWpEsolA"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "D_bMrv8cQ9LmgQbWpEsolA"], ["updated_at", "2021-02-12 01:45:10.366714"], ["id", 2]]
+  ↳ app/models/user.rb:42
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+  Rendering api/sessions/destroy.json.jbuilder
+  Rendered api/sessions/destroy.json.jbuilder (0.2ms)
+Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 1.6ms)
+
+
