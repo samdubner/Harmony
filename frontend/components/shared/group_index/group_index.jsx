@@ -6,7 +6,6 @@ class GroupIndex extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div className="group-index">
                 <div></div>
