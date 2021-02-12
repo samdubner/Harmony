@@ -1,0 +1,34 @@
+.server-index {
+    background-color: #202225;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: auto;
+    padding-top: 1em;
+}
+
+.server-index::-webkit-scrollbar {
+  display: none;
+}
+
+.server-index-item {
+    width: 3.5em;
+    height: 3.5em;
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+    background-color: #36393f;
+    border-radius: 50%;
+    transition: border-radius 0.25s;
+    display: flex;
+
+    h2 {
+        margin: auto;
+        color: white;
+    }
+}
+
+.server-index-item:hover {
+    border-radius: 15px;
+}
