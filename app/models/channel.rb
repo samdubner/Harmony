@@ -11,5 +11,5 @@
 #
 class Channel < ApplicationRecord
     validates :name, :server_id, presence: true
-    validaites :name, uniqueness: { scope: :server_id }
+    validates :name, uniqueness: { scope: :server_id }
 end

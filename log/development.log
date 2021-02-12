@@ -8651,3 +8651,17 @@ Processing by Api::SessionsController#destroy as JSON
 Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 1.6ms)
 
 
+Started DELETE "/api/servers/4" for 127.0.0.1 at 2021-02-11 17:49:47 -0800
+Processing by Api::ServersController#destroy as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mServer Load (0.3ms)[0m  [1m[34mSELECT  "servers".* FROM "servers" WHERE "servers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/servers_controller.rb:43
+  [1m[36mServer Destroy (0.7ms)[0m  [1m[31mDELETE FROM "servers" WHERE "servers"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/api/servers_controller.rb:46
+  Rendering api/servers/show.json.jbuilder
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_servers" ON "users"."id" = "user_servers"."user_id" WHERE "user_servers"."server_id" = $1[0m  [["server_id", 4]]
+  ↳ app/views/api/servers/show.json.jbuilder:7
+  Rendered api/servers/show.json.jbuilder (2.0ms)
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 1.5ms)
+
+
