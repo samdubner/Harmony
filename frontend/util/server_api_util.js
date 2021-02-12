@@ -1,4 +1,4 @@
-export const getUserServerReq = user => {
+export const getUserServersReq = user => {
     return $.ajax({
         url: `/api/users/${user.id}/servers`,
         method: "GET"
