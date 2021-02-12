@@ -13,12 +13,12 @@ import {
 import { createServerReq } from "./util/server_api_util";
 
 document.addEventListener("DOMContentLoaded", (e) => {
-    window.getUserServers = getUserServers
-    window.createServer = createServer
-    window.serverInfo = serverInfo
-    window.updateServer = updateServer
-    window.deleteServer = deleteServer
-    window.createServerReq = createServerReq
+    // window.getUserServers = getUserServers
+    // window.createServer = createServer
+    // window.serverInfo = serverInfo
+    // window.updateServer = updateServer
+    // window.deleteServer = deleteServer
+    // window.createServerReq = createServerReq
 
     let store;
     if (window.currentUser) {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     } else {
         store = configureStore();
     }
-    window.store = store
+    // window.store = store
     
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);
