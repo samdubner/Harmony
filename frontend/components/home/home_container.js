@@ -3,8 +3,15 @@ import {logout} from "../../actions/session_actions"
 import Home from "./home"
 
 const mapStateToProps = (state) => {
+    let servers = []
+
+    for(let server in state.entities.servers) {
+        servers << server
+    }
+
     return {
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        servers
     }
 }
 

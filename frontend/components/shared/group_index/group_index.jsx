@@ -15,9 +15,9 @@ class GroupIndex extends React.Component {
                         <div className="user-pfp"></div>
                         <h3>{this.props.currentUser.username}</h3>
                     </div>
-                    <div>
-                        <input type="button" onClick={this.props.logout}/>
-                        <input type="button" />
+                    <div className="user-options">
+                        <i class="fas fa-sign-out-alt" onClick={this.props.logout}></i>
+                        <i class="fas fa-cog"></i>
                     </div>
                 </div>
             </div>

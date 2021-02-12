@@ -23,11 +23,27 @@
             margin-right: 0.5em;
         }
 
+        .user-options {
+            display:flex;
+            align-items: center;
+        }
+
         h3 {
             color: white;
             font-size: 0.8em;
             font-weight: bold;
             overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        i {
+            padding: 0.5em;
+            border-radius: 5px;
+            color: white;
+        }
+
+        i:hover {
+            background-color: #34383d;
         }
     }
 }

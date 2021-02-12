@@ -7,7 +7,7 @@ class Home extends React.Component {
     render() {
         return(
             <div className="home-container">
-                <ServerIndex />
+                <ServerIndex servers={this.props.servers}/>
                 <GroupIndex 
                     currentUser={this.props.currentUser} 
                     logout={this.props.logout}

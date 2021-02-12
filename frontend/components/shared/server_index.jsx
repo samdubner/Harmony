@@ -13,8 +13,15 @@ class ServerIndex extends React.Component {
 
                 <div className="index-separator"></div>
 
-                <ServerIndexItem />
-                <ServerIndexItem />
+                {this.props.servers.map(server => {
+                    return (
+                        <ServerIndexItem />
+                    )
+                })}
+
+                <div className="add-server-index-item">
+                    <p>+</p>
+                </div>
             </div>
         )
     }

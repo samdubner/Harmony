@@ -32,3 +32,30 @@
 .server-index-item:hover {
     border-radius: 15px;
 }
+
+.add-server-index-item {
+    width: 3.5em;
+    height: 3.5em;
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+    background-color: #36393f;
+    border-radius: 50%;
+    transition: border-radius 0.25s;
+    display: flex;
+    font-size: 1em;
+
+    p {
+        margin: auto;
+        color: #43b581;
+        font-size: 25pt;
+        font-weight: 300;
+    }
+}
+
+.add-server-index-item:hover {
+    border-radius: 15px;
+    background-color: #43b581;
+    p {
+        color: white;
+    }
+}

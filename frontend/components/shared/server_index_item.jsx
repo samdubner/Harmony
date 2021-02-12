@@ -4,7 +4,7 @@ class ServerIndexItem extends React.Component {
     render() {
         return (
             <div className="server-index-item">
-                <h2>T</h2>
+                <h2>H</h2>
             </div>
         )
     }
