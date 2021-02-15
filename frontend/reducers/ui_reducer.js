@@ -1,10 +1,8 @@
-const uiReducer = (prevState={}, action) => {
-    Object.freeze(prevState)
+import { combineReducers } from "redux"
+import server_ui_reducer from "./ui/server_ui_reducer"
 
-    switch(action.type) {
-        default: 
-            return prevState;
-    }
-}
+const uiReducer = combineReducers({
+    server: server_ui_reducer
+})
 
 export default uiReducer
