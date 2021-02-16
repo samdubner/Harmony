@@ -4,12 +4,6 @@ import ServerIndexItem from "./server_index_item"
 class ServerIndex extends React.Component {
     constructor(props) {
         super(props)
-        this.toggleAddModal = this.toggleAddModal.bind(this)
-    }
-
-    toggleAddModal(e) {
-        this.props.toggleModal()
-        console.log(this.props.modalOpen)
     }
 
     render() {
@@ -25,7 +19,7 @@ class ServerIndex extends React.Component {
                     )
                 })}
 
-                <div className="add-server-index-item" onClick={this.toggleAddModal}>
+                <div className="add-server-index-item" onClick={this.props.toggleModal}>
                     <p>+</p>
                 </div>
             </div>

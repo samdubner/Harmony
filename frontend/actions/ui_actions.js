@@ -1,4 +1,4 @@
-export const TOGGLE_MODAL = "TOGGLE_MODAL";
+export const TOGGLE_MODAL = "TOGGLE_SERVER_ADD_MODAL";
 
 export const toggleModal = () => {
     return {
