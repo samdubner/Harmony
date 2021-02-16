@@ -59,3 +59,17 @@
         color: white;
     }
 }
+
+.server-modal-background {
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.server-modal {
+
+}
