@@ -78,7 +78,14 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     width: 450px;
-    height: 325px
+
+    i {
+        float: right;
+        margin: 20px 20px 10px 0;
+        font-size: 20px;
+        color: lightgray;
+        cursor: pointer;
+    }
 }
 
 .server-modal-footer {
@@ -86,7 +93,40 @@
     border-bottom-right-radius: 15px;
     background-color: #41444b;
     width: 450px;
-    height: 75px
+}
+
+.prompt-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    h1 {
+        font-size: 25px;
+        margin-top: 35px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    p {
+        font-weight: 200;
+        margin-bottom: 20px;
+    }
+
+    .server-modal-button {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+
 }
 
 .prompt-footer {
@@ -99,11 +139,24 @@
     h2 {
         color: white;
         font-size: 20px;
+        margin-bottom: 10px;
+        margin-top: 15px;
     }
 
     input {
-        width: 85%;
+        width: 90%;
         background-color: #747f8d;
+        border: none;
+        padding: 7px;
+        border-radius: 3px;
+        color: white;
+        font-size: 13px;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    input:hover {
+        background-color: #68727f;
     }
 
 }
