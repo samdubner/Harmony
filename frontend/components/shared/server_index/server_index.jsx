@@ -1,6 +1,8 @@
 import React from "react"
 import ServerIndexItem from "./server_index_item"
-import ServerModal from "./server_modal"
+import ServerModal from "./server_modal/server_modal"
+
+import PromptServerModal from "./server_modal/prompt_server_modal_container"
 
 class ServerIndex extends React.Component {
     constructor(props) {
@@ -8,7 +10,21 @@ class ServerIndex extends React.Component {
     }
 
     render() {
-        let modal = this.props.modalOpen ? <ServerModal toggleModal={this.props.toggleModal} /> : null ;
+        let modal;
+
+        // console.log(this.props.modalState)
+
+        switch (this.props.modalState) {
+            case "closed":
+                modal = null;
+                break;
+            case "prompt":
+                modal = <PromptServerModal closeModal={this.props.closeModal} /> 
+                break;
+            default:
+                modal = null;
+        }
+        
         return (
             <div className="server-index">
                 <ServerIndexItem />
@@ -21,7 +37,7 @@ class ServerIndex extends React.Component {
                     )
                 })}
 
-                <div className="add-server-index-item" onClick={this.props.toggleModal}>
+                <div className="add-server-index-item" onClick={this.props.promptModal}>
                     <p>+</p>
                 </div>
 

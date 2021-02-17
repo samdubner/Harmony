@@ -1,7 +1,8 @@
-export const TOGGLE_MODAL = "TOGGLE_SERVER_ADD_MODAL";
+export const SET_MODAL = "SET_SERVER_MODAL";
 
-export const toggleModal = () => {
+export const setModal = (state) => {
     return {
-        type: TOGGLE_MODAL
+        type: SET_MODAL,
+        state
     }
 }

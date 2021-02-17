@@ -8,7 +8,7 @@ class ServerModal extends React.Component {
 
     closeModal(e) {
         if(e.target.classList[0] === "server-modal-background") {
-            this.props.toggleModal()
+            this.props.closeModal()
         }
     }
 
@@ -16,10 +16,10 @@ class ServerModal extends React.Component {
         return (
             <div onClick={this.closeModal} className="server-modal-background">
                 <div className="server-modal">
-
+                    {this.props.info}
                 </div>
                 <div className="server-modal-footer">
-
+                    {this.props.footer}
                 </div>
             </div>
         )

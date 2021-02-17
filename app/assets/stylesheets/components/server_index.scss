@@ -86,5 +86,24 @@
     border-bottom-right-radius: 15px;
     background-color: #41444b;
     width: 450px;
-    height: 50px
+    height: 75px
+}
+
+.prompt-footer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+        color: white;
+        font-size: 20px;
+    }
+
+    input {
+        width: 85%;
+        background-color: #747f8d;
+    }
+
 }

@@ -1,16 +1,17 @@
 import { connect } from "react-redux"
-import { toggleModal } from "../../../actions/ui_actions"
+import { setModal } from "../../../actions/ui_actions"
 import ServerIndex from "./server_index"
 
 const mapStateToProps = state => {
     return {
-        modalOpen: state.ui.server.modalOpen
+        modalState: state.ui.server.modalState
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        toggleModal: () => dispatch(toggleModal())
+        promptModal: () => dispatch(setModal("prompt")),
+        closeModal: () => dispatch(setModal("closed"))
     }
 }
 

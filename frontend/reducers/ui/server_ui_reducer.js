@@ -1,15 +1,15 @@
-import { TOGGLE_MODAL } from "../../actions/ui_actions"
+import { SET_MODAL } from "../../actions/ui_actions"
 
 const _closed = {
-    modalOpen: false
+    modalState: "closed"
 }
 
 const uiReducer = (prevState=_closed, action) => {
   Object.freeze(prevState);
 
   switch (action.type) {
-    case TOGGLE_MODAL:
-        return {modalOpen: !prevState.modalOpen}
+    case SET_MODAL:
+        return {modalState: action.state}
     default:
         return prevState;
   }
