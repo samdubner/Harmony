@@ -61,15 +61,30 @@
 }
 
 .server-modal-background {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
     width: 100vw;
     height: 100vh;
 }
 
 .server-modal {
+    background-color: #36393f;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    width: 450px;
+    height: 325px
+}
 
+.server-modal-footer {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #41444b;
+    width: 450px;
+    height: 50px
 }

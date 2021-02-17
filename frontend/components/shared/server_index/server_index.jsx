@@ -8,6 +8,7 @@ class ServerIndex extends React.Component {
     }
 
     render() {
+        let modal = this.props.modalOpen ? <ServerModal toggleModal={this.props.toggleModal} /> : null ;
         return (
             <div className="server-index">
                 <ServerIndexItem />
@@ -24,7 +25,7 @@ class ServerIndex extends React.Component {
                     <p>+</p>
                 </div>
 
-                <ServerModal />
+                {modal}
             </div>
         )
     }
