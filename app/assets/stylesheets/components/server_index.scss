@@ -7,6 +7,10 @@
     scrollbar-width: none;
     padding: auto;
     padding-top: 1em;
+
+    a {
+        text-decoration: none;
+    }
 }
 
 .server-index::-webkit-scrollbar {
@@ -81,7 +85,7 @@
 
     #close {
         float: right;
-        margin: 20px 20px 10px 0;
+        margin: 15px 15px 10px 0;
         font-size: 20px;
         color: lightgray;
         cursor: pointer;
@@ -96,16 +100,16 @@
 }
 
 .prompt-info {
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
+    margin-top: 3.2em;
 
     h1 {
         font-size: 25px;
-        margin-top: 35px;
         margin-bottom: 10px;
         font-weight: bold;
     }
@@ -120,11 +124,24 @@
         width: 90%;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
-        border-radius: 3px;
+        padding: 20px 10px;
+        border-radius: 5px;
         border: 1px solid rgba(255,255,255,0.1);
-        margin-bottom: 15px;
+        margin-bottom: 2em;
         cursor: pointer;
+
+        div {
+            display: flex;
+            font-weight: bold;
+
+            i {
+                padding: 0 1em 0 0.5em;
+            }
+        }
+    }
+
+    .server-modal-button:hover {
+        background-color: #3b3f46;
     }
 
 }
@@ -157,6 +174,77 @@
 
     input:hover {
         background-color: #68727f;
+    }
+
+}
+
+.create-info {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 3.2em;
+
+    h1 {
+        font-size: 25px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    p {
+        font-weight: 200;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    input {
+        margin-bottom: 2em;
+        width: 90%;
+        border-radius: 5px;
+        border: 1px solid rgba(91, 96, 105, 0.3);
+        background-color: inherit;
+        padding: 1em 0.5em;
+        font-weight: 200;
+        font-size: 1em;
+        color: white;
+    }
+
+    input:focus {
+        outline: none;
+    }
+}
+
+.create-footer {
+    display: flex;
+    padding: 1em;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+        color: white;
+        cursor: pointer;
+    }
+
+    input {
+        background-color: #7289da;
+        border: none;
+        padding: 7px;
+        border-radius: 3px;
+        color: white;
+        font-size: 13px;
+        cursor: pointer;
+        padding: 10px 30px;
+        font-weight: bold;
+    }
+
+    input:hover {
+        background-color: #677bc4;
     }
 
 }

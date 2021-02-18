@@ -27,17 +27,6 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // if (this.state.username === "" && this.state.password === "") {
-        //     const user = {
-        //         username: "test",
-        //         password: "123456"
-        //     }
-
-        //     this.props.submitForm(user);
-        // } else {
-        // this.props.submitForm(this.state)
-        // }
-        // console.log("submit")
     }
 
     demoLogin(e) {
@@ -48,13 +37,11 @@ class SessionForm extends React.Component {
             }
 
             this.props.submitForm(user);
-        // console.log("click demo login button")
     }
 
     login(e) {
         e.preventDefault();
         this.props.submitForm(this.state);
-        // console.log("click login button")
     }
 
     render() {

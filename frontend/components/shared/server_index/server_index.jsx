@@ -1,18 +1,22 @@
 import React from "react"
 import ServerIndexItem from "./server_index_item"
 import ServerModal from "./server_modal/server_modal"
+import {NavLink} from "react-router-dom"
 
 import PromptServerModal from "./server_modal/prompt_server_modal_container"
+import CreateServerModal from "./server_modal/create_server_modal_container"
 
 class ServerIndex extends React.Component {
     constructor(props) {
         super(props)
     }
 
+    componentDidMount() {
+        this.props.fetchServers(this.props.currentUser)
+    }
+
     render() {
         let modal;
-
-        // console.log(this.props.modalState)
 
         switch (this.props.modalState) {
             case "closed":
@@ -21,19 +25,30 @@ class ServerIndex extends React.Component {
             case "prompt":
                 modal = <PromptServerModal closeModal={this.props.closeModal} /> 
                 break;
+            case "join":
+                modal = <CreateServerModal />
+                break;
+            case "create":
+                modal = <CreateServerModal closeModal={this.props.closeModal} />
+                break;
             default:
                 modal = null;
         }
         
+        console.log(this.props.servers)
         return (
             <div className="server-index">
-                <ServerIndexItem />
+                <NavLink to="/home">
+                    <div className="server-index-item">
+                        <h2>H</h2>
+                    </div>
+                </NavLink>
 
                 <div className="index-separator"></div>
 
                 {this.props.servers.map(server => {
                     return (
-                        <ServerIndexItem />
+                        <ServerIndexItem key={server.id} server={server}/>
                     )
                 })}
 
