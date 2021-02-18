@@ -31,7 +31,7 @@ class PromptServerModal extends React.Component {
                             <i class="fas fa-chevron-right"></i>
                         </div>
                     </div>
-                    </>a
+                    </>
                 )}
                 footer={(
                     <div className="prompt-footer">
