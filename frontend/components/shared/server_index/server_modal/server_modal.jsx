@@ -16,7 +16,6 @@ class ServerModal extends React.Component {
         return (
             <div onClick={this.closeModal} className="server-modal-background">
                 <div className="server-modal">
-                    <i class="fas fa-times"></i>
                     {this.props.info}
                 </div>
                 <div className="server-modal-footer">

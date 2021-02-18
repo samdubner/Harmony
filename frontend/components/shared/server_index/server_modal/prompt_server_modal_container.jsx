@@ -21,6 +21,8 @@ class PromptServerModal extends React.Component {
             <ServerModal 
                 closeModal={this.props.closeModal}
                 info={(
+                    <>
+                    <i id="close" class="fas fa-times"></i>
                     <div className="prompt-info">
                         <h1>Create a server</h1>
                         <p>Your server is a place for you and your friends to talk</p>
@@ -29,6 +31,7 @@ class PromptServerModal extends React.Component {
                             <i class="fas fa-chevron-right"></i>
                         </div>
                     </div>
+                    </>a
                 )}
                 footer={(
                     <div className="prompt-footer">
