@@ -3,3 +3,4 @@ bundle.js
 bundle.js.map
 tmp/
 /public/assets
+development.log
