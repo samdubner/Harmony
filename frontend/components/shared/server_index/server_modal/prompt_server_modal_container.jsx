@@ -42,7 +42,7 @@ class PromptServerModal extends React.Component {
                 footer={(
                     <div className="prompt-footer">
                         <h2>Have an invite already?</h2>
-                        <input type="button" value="Join a server"/>
+                        <input type="button" onClick={this.props.joinModal} value="Join a server"/>
                     </div>
                 )}
             />

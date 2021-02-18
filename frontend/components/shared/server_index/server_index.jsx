@@ -5,6 +5,7 @@ import {NavLink} from "react-router-dom"
 
 import PromptServerModal from "./server_modal/prompt_server_modal_container"
 import CreateServerModal from "./server_modal/create_server_modal_container"
+import JoinServerModal from "./server_modal/join_server-modal_container"
 
 class ServerIndex extends React.Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class ServerIndex extends React.Component {
                 modal = <PromptServerModal closeModal={this.props.closeModal} /> 
                 break;
             case "join":
-                modal = <CreateServerModal />
+                modal = <JoinServerModal closeModal={this.props.closeModal} />
                 break;
             case "create":
                 modal = <CreateServerModal closeModal={this.props.closeModal} />
