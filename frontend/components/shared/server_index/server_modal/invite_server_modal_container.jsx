@@ -1,14 +1,11 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import ServerModal from "./server_modal"
+import ServerModal from "./server_modal_container"
 
 class JoinServerModal extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
+        console.log(this.props)
         return (
             <ServerModal 
                 closeModal={this.props.closeModal}

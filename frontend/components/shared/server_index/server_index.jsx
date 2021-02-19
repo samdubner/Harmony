@@ -1,6 +1,5 @@
 import React from "react"
 import ServerIndexItem from "./server_index_item"
-import ServerModal from "./server_modal/server_modal"
 import {NavLink} from "react-router-dom"
 
 import PromptServerModal from "./server_modal/prompt_server_modal_container"
@@ -34,7 +33,7 @@ class ServerIndex extends React.Component {
                 modal = <CreateServerModal closeModal={this.props.closeModal} />
                 break;
             case "invite":
-                modal = <InviteServerModal closeModal={this.props.closeModal} />
+                modal = <InviteServerModal closeModal={this.props.closeModal} invite={this.props.invite}/>
                 break;
             default:
                 modal = null;
