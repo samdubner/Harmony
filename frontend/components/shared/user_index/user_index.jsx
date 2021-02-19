@@ -4,8 +4,6 @@ import UserIndexItem from "./user_index_item"
 
 class UserIndex extends React.Component {
     render() {
-        console.log(this.props)
-
         let div;
 
         if(this.props.server != undefined && this.props.server.user_ids != undefined) {
