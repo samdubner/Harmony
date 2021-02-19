@@ -1,4 +1,5 @@
 import React from "react"
+
 import ServerIndexContainer from "../shared/server_index/server_index_container";
 import GroupIndex from "../shared/group_index/group_index";
 import MessageIndex from "../shared/message_index/message_index";

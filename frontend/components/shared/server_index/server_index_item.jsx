@@ -7,10 +7,18 @@ class ServerIndexItem extends React.Component {
     }
 
     render() {
+         let initializedServerName = this.props.server.name.split(" ")
+         if (initializedServerName.length > 1) {
+            initializedServerName = initializedServerName[0].charAt(0) + initializedServerName[1].charAt(0)
+        } else {
+            initializedServerName = initializedServerName[0].charAt(0)
+        }
+            
+            initializedServerName = initializedServerName.toUpperCase()
         return (
             <NavLink to={`/servers/${this.props.server.id}`}>
                 <div className="server-index-item">
-                    <h2>H</h2>
+                    <h2>{initializedServerName}</h2>
                 </div>
             </NavLink>
         )

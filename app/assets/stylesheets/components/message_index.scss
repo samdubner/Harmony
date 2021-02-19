@@ -1,3 +1,33 @@
 .message-index {
+    display: grid;
     background-color: #36393f;
+    grid-template-rows: 3em 1fr 5em;
+
+    .message-header {
+        box-shadow: 0 1px rgba(4, 4, 5, 0.2);
+    }
+
+    .message-area {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: 1em;
+        padding-bottom: 1.5em;
+
+        input {
+            font-size: 0.9em;
+            color: white;
+            border-radius: 5px;
+            width: 98%;
+            border: none;
+            background-color: #40444b;
+            font-weight: 200;
+            // height: 1.75em;
+            padding: 0 1em;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    }
 }

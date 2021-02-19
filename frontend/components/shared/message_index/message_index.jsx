@@ -8,7 +8,15 @@ class MessageIndex extends React.Component {
     render() {
         return (
             <div className="message-index">
+                <div className="message-header">
 
+                </div>
+                <div>
+
+                </div>
+                <div className="message-area">
+                    <input type="text" />
+                </div>
             </div>
         )
     }

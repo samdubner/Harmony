@@ -1,7 +1,15 @@
 .group-index {
     background-color: #2f3136;
     display: grid;
-    grid-template-rows: 4em 1fr 3em;
+    grid-template-rows: 3em 1fr 3em;
+
+    .server-info {
+        padding: 1em;
+        color: white;
+        display: flex;
+        box-shadow: 0 1px rgba(4, 4, 5, 0.2);
+        // position: absolute;
+    }
 
     .user-box {
         background-color: #292b2f;

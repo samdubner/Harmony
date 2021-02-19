@@ -6,9 +6,24 @@ class GroupIndex extends React.Component {
     }
 
     render() {
+        let serverInfo;
+        if (this.props.server != undefined) {
+            serverInfo = (
+                <>
+                <h2>{this.props.server.name}</h2>
+                <div className="dropdown">
+
+                </div>
+                </>
+            )
+        } else {
+            serverInfo = null
+        }
         return (
             <div className="group-index">
-                <div></div>
+                <div className="server-info">
+                    {serverInfo}
+                </div>
                 <div></div>
                 <div className="user-box">
                     <div className="user-info">
@@ -17,7 +32,7 @@ class GroupIndex extends React.Component {
                     </div>
                     <div className="user-options">
                         <i className="fas fa-sign-out-alt" onClick={this.props.logout}></i>
-                        <i className="fas fa-cog"></i>
+                        {/* <i className="fas fa-cog"></i> */}
                     </div>
                 </div>
             </div>

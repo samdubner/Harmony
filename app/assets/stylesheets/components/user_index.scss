@@ -1,0 +1,10 @@
+.user-index {
+    display: grid;
+    background-color: #2f3136;
+    grid-template-rows: 3em 1fr;
+
+    .user-header {
+        box-shadow: 0 1px rgba(4, 4, 5, 0.2);
+        background-color: #36393f;
+    }
+}
