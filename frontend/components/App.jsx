@@ -20,7 +20,6 @@ class App extends React.Component {
             <Switch>
                 <ProtectedRoute exact path="/" component={HomeContainer} />
                 <ProtectedRoute exact path="/servers/:serverId" component={ServerContainer} />
-                <ProtectedRoute exact path="/home" component={HomeContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <Route path="/" component={MissingRoute} />
