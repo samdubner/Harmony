@@ -11,6 +11,14 @@
 class Server < ApplicationRecord
     validates :name, :owner_id, presence: true
 
+    before_create :create_invite
+
+    def create_invite
+        begin
+            self[:invite] = SecureRandom.urlsafe_base64 6
+        end while Server.exists?(:invite => self[:invite])
+    end
+
     belongs_to :owner,
         primary_key: :id,
         foreign_key: :owner_id,

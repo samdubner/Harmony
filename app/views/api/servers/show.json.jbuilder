@@ -1,6 +1,4 @@
-json.id @server.id
-json.name @server.name
-json.owner_id @server.owner_id
+json.extract! @server, :id, :name, :owner_id, :invite
 
 json.user_ids do
     user_ids = []

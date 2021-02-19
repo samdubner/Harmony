@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :servers, only: [:index]
     end
     resources :servers, except: [:index, :new, :edit]
+    resources :user_servers, only: [:create, :destroy]
 
     resource :session, only: [:create, :destroy]
   end

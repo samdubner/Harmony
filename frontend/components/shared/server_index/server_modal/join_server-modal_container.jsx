@@ -4,7 +4,8 @@ import { connect } from "react-redux"
 import ServerModal from "./server_modal"
 
 import { setModal } from "../../../../actions/ui_actions"
-import { createServer } from "../../../../actions/server_actions"
+import { joinServer } from "../../../../actions/user_server"
+import { getUserServers } from "../../../../actions/server_actions"
 
 const mapStateToProps = state => {
     return {
@@ -15,7 +16,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         promptModal: () => dispatch(setModal("prompt")),
-        createServer: (server) => dispatch(createServer(server))
+        joinServer: (user, invite) => dispatch(joinServer(user, invite)),
+        getUserServers: (user) => dispatch(getUserServers(user))
     }
 }
 
@@ -23,20 +25,23 @@ class JoinServerModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: `${this.props.currentUser.username}'s Server`,
-            owner_id: this.props.currentUser.id
+            invite: '',
+            user_id: this.props.currentUser.id
         }
-        this.updateName = this.updateName.bind(this)
+        this.updateInvite = this.updateInvite.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    updateName(e) {
-        this.setState({name: e.target.value})
+    updateInvite(e) {
+        this.setState({invite: e.target.value})
     }
 
     handleSubmit(e) {
-        this.props.createServer(this.state)
-        this.props.closeModal()
+        this.props.joinServer(this.state)
+            .then(() => {
+                this.props.getUserServers(this.props.currentUser)
+                this.props.closeModal()
+            })
     }
 
     render() {
@@ -46,18 +51,19 @@ class JoinServerModal extends React.Component {
                 info={(
                     <>
                     <i id="close" onClick={this.props.closeModal} className="fas fa-times"></i>
-                    <div className="create-info">
+                    <div className="join-info">
                         <h1>Join a server</h1>
                         <p>Enter an invite below to join an existing server!</p>
-                        <label>Invite Link</label>
-                        <input type="text" onChange={this.updateName} value={this.state.name} />
+                        <label>Invite Code</label>
+                        <input type="text" onChange={this.updateInvite} value={this.state.invite} />
+                        <span>Invites should look like: RKCu9UXB</span>
                     </div>
                     </>
                 )}
                 footer={(
-                    <div className="create-footer">
+                    <div className="join-footer">
                         <h2 onClick={this.props.promptModal}>Back</h2>
-                        <input onClick={this.handleSubmit} type="button" value="Create"/>
+                        <input onClick={this.handleSubmit} type="button" value="Join Server"/>
                     </div>
                 )}
             />

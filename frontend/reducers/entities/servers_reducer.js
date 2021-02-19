@@ -10,16 +10,17 @@ const serversReducer = (prevState={}, action) => {
     
     switch(action.type) {
         case RECEIVE_SERVERS:
+            let newState = {}
             action.servers.forEach(server => {
                 server = {
                     id: server.id,
                     name: server.name,
                     owner_id: server.owner_id,
-                    user_ids: server.user_ids
+                    invite: server.invite
                 }
-                nextState = Object.assign(nextState, {[server.id]: server})
+                newState = Object.assign(newState, { [server.id]: server });
             })
-            return nextState;
+            return newState;
         case RECEIVE_SERVER:
             const server = {
                 id: action.server.id,

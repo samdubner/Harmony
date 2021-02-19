@@ -35,7 +35,6 @@ class CreateServerModal extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log('test')
         this.props.createServer(this.state)
         this.props.closeModal()
     }
