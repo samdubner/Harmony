@@ -4,6 +4,11 @@ import { NavLink } from "react-router-dom"
 class ServerIndexItem extends React.Component {
     constructor(props) {
         super(props)
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+        this.props.serverInfo(this.props.server);
     }
 
     render() {
@@ -16,7 +21,7 @@ class ServerIndexItem extends React.Component {
             
             initializedServerName = initializedServerName.toUpperCase()
         return (
-            <NavLink to={`/servers/${this.props.server.id}`}>
+            <NavLink onClick={this.handleClick} to={`/servers/${this.props.server.id}`}>
                 <div className="server-index-item">
                     <h2>{initializedServerName}</h2>
                 </div>

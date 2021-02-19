@@ -3,17 +3,57 @@ import React from "react"
 class GroupIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            dropdown: false
+        }
+        this.toggleInviteDropDown = this.toggleInviteDropDown.bind(this)
+    }
+
+    toggleInviteDropDown(e) {
+        if(this.props.server != undefined) {
+            if (!this.state.dropdown) {
+                this.props.setCurrentInvite(this.props.server.invite)
+            }
+    
+            this.setState({dropdown: !this.state.dropdown})
+        }
     }
 
     render() {
+        let dropdown;
+        if(this.state.dropdown) {
+            dropdown = (
+                <div className="dropdown">
+                    <ul>
+                        <li className="invite-li" onClick={this.props.openInvite}>
+                            <h2>Invite People</h2>
+                            <i className="fas fa-user-plus"></i>
+                        </li>
+
+                        <li>
+                            <h2>Server Settings</h2>
+                            <i className="fas fa-cog"></i>
+                        </li>
+                    </ul>
+                </div>
+            )
+        } else {
+            dropdown = null;
+        }
+
         let serverInfo;
         if (this.props.server != undefined) {
             serverInfo = (
-                <>
-                <h2>{this.props.server.name}</h2>
-                <div className="dropdown">
-
-                </div>
+                <>  
+                    <div className="server-name">
+                        <h2>{this.props.server.name}</h2>
+                        {this.state.dropdown ? (
+                            <i className="fas fa-chevron-up"></i>
+                        ) : (
+                            <i className="fas fa-chevron-down"></i>
+                        )}
+                    </div>
+                    {dropdown}
                 </>
             )
         } else {
@@ -21,7 +61,7 @@ class GroupIndex extends React.Component {
         }
         return (
             <div className="group-index">
-                <div className="server-info">
+                <div className="server-info" onClick={this.toggleInviteDropDown}>
                     {serverInfo}
                 </div>
                 <div></div>

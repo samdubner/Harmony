@@ -1,7 +1,7 @@
 import React from "react"
 
 import ServerIndexContainer from "../shared/server_index/server_index_container";
-import GroupIndex from "../shared/group_index/group_index";
+import GroupIndexContainer from "../shared/group_index/group_index_container";
 import MessageIndex from "../shared/message_index/message_index";
 
 class Home extends React.Component {
@@ -9,11 +9,15 @@ class Home extends React.Component {
         return(
             <div className="home-container">
                 <ServerIndexContainer servers={this.props.servers}/>
-                <GroupIndex 
+                <GroupIndexContainer 
                     currentUser={this.props.currentUser} 
                     logout={this.props.logout}
                 />
-                <MessageIndex />
+                <div className="home-instructions">
+                    <h2>This is your home!</h2>
+                    <h5>Select a Server or Group to get started!</h5>
+                </div>
+                {/* <MessageIndex /> */}
                 {/* <h1>Welcome, {this.props.currentUser.username}!</h1> */}
                 {/* <input type="button" value="Logout" onClick={this.props.logout} /> */}
             </div>

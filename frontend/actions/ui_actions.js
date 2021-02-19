@@ -1,4 +1,5 @@
 export const SET_MODAL = "SET_SERVER_MODAL";
+export const SET_CURRENT_INVITE = "SET_CURRENT_INVITE"
 
 export const setModal = (state) => {
     return {
@@ -6,3 +7,11 @@ export const setModal = (state) => {
         state
     }
 }
+
+export const setCurrentInvite = (invite) => {
+    return {
+        type: SET_CURRENT_INVITE,
+        invite
+    }
+}
+
