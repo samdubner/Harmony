@@ -5,7 +5,6 @@ import ServerModal from "./server_modal_container"
 
 class JoinServerModal extends React.Component {
     render() {
-        console.log(this.props)
         return (
             <ServerModal 
                 closeModal={this.props.closeModal}
