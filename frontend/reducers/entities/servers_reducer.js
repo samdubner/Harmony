@@ -27,6 +27,7 @@ const serversReducer = (prevState={}, action) => {
                 name: action.server.name,
                 owner_id: action.server.owner_id,
                 user_ids: action.server.user_ids,
+                invite: action.server.invite
             };
             return Object.assign(nextState, {[server.id]: server});
         case DELETE_SERVER:

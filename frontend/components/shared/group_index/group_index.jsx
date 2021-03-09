@@ -7,6 +7,7 @@ class GroupIndex extends React.Component {
             dropdown: false
         }
         this.toggleInviteDropDown = this.toggleInviteDropDown.bind(this)
+        this.handleDeleteServer = this.handleDeleteServer.bind(this)
     }
 
     toggleInviteDropDown(e) {
@@ -17,6 +18,10 @@ class GroupIndex extends React.Component {
     
             this.setState({dropdown: !this.state.dropdown})
         }
+    }
+
+    handleDeleteServer (e) {
+        this.props.deleteServer(this.props.server)
     }
 
     render() {
@@ -31,8 +36,13 @@ class GroupIndex extends React.Component {
                         </li>
 
                         <li>
-                            <h2>Server Settings</h2>
-                            <i className="fas fa-cog"></i>
+                            <h2>Add Channel</h2>
+                            <i className="fas fa-plus"></i>
+                        </li>
+
+                        <li className="delete-li" onClick={this.handleDeleteServer}>
+                            <h2>Delete Server</h2>
+                            <i className="fas fa-trash"></i>
                         </li>
                     </ul>
                 </div>
