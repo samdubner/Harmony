@@ -14,7 +14,7 @@ class Api::ChannelsController < ApplicationController
 
         if @server
             @server.delete
-            :show
+            render :show
         else
             render json: {}, status: 404
         end
