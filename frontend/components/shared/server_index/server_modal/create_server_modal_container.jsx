@@ -23,7 +23,7 @@ class CreateServerModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: `${this.props.currentUser.username}'s Server`,
+            name: ``,
             owner_id: this.props.currentUser.id
         }
         this.updateName = this.updateName.bind(this)

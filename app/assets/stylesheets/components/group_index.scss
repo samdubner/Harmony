@@ -38,15 +38,22 @@
                     border-radius: 3px;
                     padding: 5px 10px;
                     color: #d2d4d6;
+                    padding: 2px 0;
+                    margin: 5px 0;
                 }
 
                 li:hover {
                     background-color: #4e5d94;
                     color: #d2d4d6;
+                    cursor: pointer;
                 }
 
                 .invite-li {
                     color: #677bc4
+                }
+
+                .delete-li {
+                    color: rgb(219, 18, 0);
                 }
             }
         }
