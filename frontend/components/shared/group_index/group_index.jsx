@@ -14,6 +14,7 @@ class GroupIndex extends React.Component {
         if(this.props.server != undefined) {
             if (!this.state.dropdown) {
                 this.props.setCurrentInvite(this.props.server.invite)
+                console.log(this.props.server.invite)
             }
     
             this.setState({dropdown: !this.state.dropdown})
@@ -21,7 +22,6 @@ class GroupIndex extends React.Component {
     }
 
     handleDeleteServer (e) {
-        // console.log(this.props.server)
         this.props.deleteServer(this.props.server)
     }
 
