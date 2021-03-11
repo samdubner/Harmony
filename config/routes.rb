@@ -4,10 +4,14 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update] do
       resources :servers, only: [:index]
     end
-    resources :servers, except: [:index, :new, :edit]
-    resources :user_servers, only: [:create, :destroy]
-    resources :channels, only: [:create, :destroy]
 
+    resources :servers, except: [:index, :new, :edit] do
+      resources :channels, only: [:index]
+    end
+    
+    resources :channels, only: [:create, :destroy]
+    resources :user_servers, only: [:create, :destroy]
+    
     resource :session, only: [:create, :destroy]
   end
 
