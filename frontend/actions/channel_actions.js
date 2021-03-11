@@ -1,4 +1,4 @@
-import { createCHannelReq, deleteChannelReq } from "../util/channel_api_util";
+import { createChannelReq, createCHannelReq, deleteChannelReq, getServerChannelsReq } from "../util/channel_api_util";
 
 //Action Types
 export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
@@ -29,5 +29,16 @@ const removeChannel = channel => {
 
 //Thunk Action Creators
 export const getServerChannels = server => dispatch => {
-    return 
+    return getServerChannelsReq(server)
+        .then(channels => dispatch(receiveChannels(channels)))
+}
+
+export const createChannel = channelData => dispatch => {
+    return createChannelReq(channelData)
+        .then(channel => dispatch(receiveChannel(channel)))
+}
+
+export const deleteChannel = channelData => dispatch => {
+    return deleteChannelReq(channelData)
+        .then(channel => dispatch(removeChannel(channel)))
 }
