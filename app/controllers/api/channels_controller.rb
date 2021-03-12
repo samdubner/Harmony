@@ -1,4 +1,14 @@
 class Api::ChannelsController < ApplicationController
+    def index 
+        @channels = Server.find_by_id(params[:server_id]).channels
+
+        if @channels 
+            render :index
+        else
+            render json: ["Server was not found"]
+        end
+    end
+
     def create
         @channel = Channel.new(channel_params)
 

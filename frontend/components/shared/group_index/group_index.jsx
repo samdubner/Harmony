@@ -20,6 +20,12 @@ class GroupIndex extends React.Component {
         }
     }
 
+    componentDidUpdate() {
+        if(this.props.display === "channels" && this.props.server != undefined) {
+            this.props.getServerChannels(this.props.server)
+        }
+    }
+
     handleDeleteServer (e) {
         this.props.deleteServer(this.props.server)
     }
@@ -52,6 +58,7 @@ class GroupIndex extends React.Component {
         }
 
         let serverInfo;
+        console.log(this.props.server)
         if (this.props.server != undefined) {
             serverInfo = (
                 <>  
@@ -74,7 +81,8 @@ class GroupIndex extends React.Component {
                 <div className="server-info" onClick={this.toggleInviteDropDown}>
                     {serverInfo}
                 </div>
-                <div></div>
+                <div>
+                </div>
                 <div className="user-box">
                     <div className="user-info">
                         <div className="user-pfp"></div>

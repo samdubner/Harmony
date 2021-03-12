@@ -32,4 +32,9 @@ class Server < ApplicationRecord
     has_many :users,
         through: :user_servers,
         source: :user
+
+    has_many :channels,
+        primary_key: :id,
+        foreign_key: :server_id,
+        class_name: :Channel
 end
