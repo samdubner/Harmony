@@ -1,4 +1,4 @@
-import { createChannelReq, createCHannelReq, deleteChannelReq, getServerChannelsReq } from "../util/channel_api_util";
+import { createChannelReq, deleteChannelReq, getServerChannelsReq } from "../util/channel_api_util";
 
 //Action Types
 export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";

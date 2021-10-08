@@ -16,6 +16,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         openInvite: () => dispatch(setModal("invite")),
+        createChannel: () => dispatch(setModal("createChannel")),
         setCurrentInvite: (invite) => dispatch(setCurrentInvite(invite)),
         deleteServer: (server) => dispatch(deleteServer(server)),
         getServerChannels: (server) => dispatch(getServerChannels(server))

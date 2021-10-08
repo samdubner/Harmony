@@ -41,7 +41,7 @@ class GroupIndex extends React.Component {
                             <i className="fas fa-user-plus"></i>
                         </li>
 
-                        <li>
+                        <li className="channel-li" onClick={this.props.createChannel}>
                             <h2>Add Channel</h2>
                             <i className="fas fa-plus"></i>
                         </li>
@@ -82,6 +82,7 @@ class GroupIndex extends React.Component {
                     {serverInfo}
                 </div>
                 <div>
+
                 </div>
                 <div className="user-box">
                     <div className="user-info">
