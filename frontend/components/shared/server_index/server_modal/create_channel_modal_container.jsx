@@ -7,7 +7,7 @@ import { createChannel } from "../../../../actions/channel_actions"
 
 const mapStateToProps = state => {
     return {
-        invite: state.ui.server.serverInvite
+        currentServer: state.ui.server.currentServer
     }
 }
 
@@ -21,7 +21,8 @@ class CreateChannelModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: ''
+            name: '',
+            server_id: this.props.currentServer
         }
         this.updateName = this.updateName.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -34,6 +35,7 @@ class CreateChannelModal extends React.Component {
 
     handleSubmit(e) {
         this.props.createChannel(this.state)
+        // console.log(this.props)
         this.props.closeModal()
     }
 

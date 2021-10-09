@@ -9,11 +9,11 @@ const channelsReducer = (prevState={}, action) => {
 
     switch(action.type) {
         case RECEIVE_CHANNELS:
-            console.log(action.channels)
+            // console.log(action.channels)
             return Object.assign({}, prevState, action.channels);
         case RECEIVE_CHANNEL:
-            console.log(action.channel)
-            return;
+            // console.log(action.channel)
+            return Object.assign({}, prevState, action.channel);
         case DELETE_CHANNEL:
             console.log(action.channel)
             return;

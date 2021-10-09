@@ -1,4 +1,5 @@
 import React from "react"
+import GroupIndexItem from "./group_index_item"
 
 class GroupIndex extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class GroupIndex extends React.Component {
         if(this.props.server != undefined) {
             if (!this.state.dropdown) {
                 this.props.setCurrentInvite(this.props.server.invite)
+                this.props.setCurrentServer(this.props.server);
             }
     
             this.setState({dropdown: !this.state.dropdown})
@@ -82,7 +84,9 @@ class GroupIndex extends React.Component {
                     {serverInfo}
                 </div>
                 <div>
+                    {this.props.channels.filter(channel => channel.server_id == this.props.server.id).map(channel => {
 
+                    })}
                 </div>
                 <div className="user-box">
                     <div className="user-info">
