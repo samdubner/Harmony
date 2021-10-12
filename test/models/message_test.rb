@@ -7,6 +7,7 @@
 #  owner_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  channel_id :string
 #
 require 'test_helper'
 

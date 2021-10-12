@@ -1,9 +1,24 @@
 import React from "react"
 
+import MessageItem from "./message_item"
+
 class MessageIndex extends React.Component {
     constructor(props) {
         super(props)
     }
+
+    // componentWillReceiveProps(newProps) {
+    //     console.log(this.props.currentChannel)
+    //     console.log(newProps)
+    // }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(this.props.currentChannel)
+    }
+
+    // componentDidMount() {
+    //     console.log(this.props.currentChannel)
+    // }
 
     render() {
         return (
