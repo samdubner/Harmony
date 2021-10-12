@@ -1,5 +1,5 @@
 import React from "react";
-import GroupIndexItem from "./group_index_item";
+import GroupIndexItem from "./group_index_item_container";
 
 class GroupIndex extends React.Component {
   constructor(props) {
@@ -85,21 +85,21 @@ class GroupIndex extends React.Component {
       channels = (
         <>
           {this.props.server.channels
-            .filter((channel) => channel.server_id == this.props.server.id)
             .map((channel, idx) => {
-                return <GroupIndexItem key={idx}/>;
+                return <GroupIndexItem name={channel.name} id={channel.id} key={idx}/>;
             })}
         </>
       );
     } else {
       channels = null;
     }
+
     return (
       <div className="group-index">
         <div className="server-info" onClick={this.toggleInviteDropDown}>
           {serverInfo}
         </div>
-        <div>{channels}</div>
+        <div className="channels-container">{channels}</div>
         <div className="user-box">
           <div className="user-info">
             <div className="user-pfp"></div>
