@@ -1,6 +1,17 @@
 class Api::ChannelsController < ApplicationController
+    def index 
+        @channels = Server.find_by_id(params[:server_id]).channels
+
+        if @channels 
+            render :index
+        else
+            render json: ["Server was not found"]
+        end
+    end
+
     def create
         @channel = Channel.new(channel_params)
+        puts channel_params
 
         if @channel.save
             render :show
@@ -14,7 +25,7 @@ class Api::ChannelsController < ApplicationController
 
         if @server
             @server.delete
-            :show
+            render :show
         else
             render json: {}, status: 404
         end
@@ -23,6 +34,6 @@ class Api::ChannelsController < ApplicationController
     private
 
     def channel_params
-        params.permit(:channel).permit(:name, :server_id)
+        params.require(:channel).permit(:name, :server_id)
     end
 end

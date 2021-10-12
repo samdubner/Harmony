@@ -1,41 +1,41 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import ServerModal from "./server_modal"
+import ServerModal from "./server_modal_container"
 
-import { setModal } from "../../../../actions/ui_actions"
-import { createServer } from "../../../../actions/server_actions"
+import { createChannel } from "../../../../actions/channel_actions"
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.entities.users[state.session.id]
+        currentServer: state.ui.server.currentServer
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        promptModal: () => dispatch(setModal("prompt")),
-        createServer: (server) => dispatch(createServer(server))
+        createChannel: (channel) => dispatch(createChannel(channel))
     }
 }
 
-class CreateServerModal extends React.Component {
+class CreateChannelModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: ``,
-            owner_id: this.props.currentUser.id
+            name: '',
+            server_id: this.props.currentServer
         }
         this.updateName = this.updateName.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     updateName(e) {
+        console.l
         this.setState({name: e.target.value})
     }
 
     handleSubmit(e) {
-        this.props.createServer(this.state)
+        this.props.createChannel(this.state)
+        // console.log(this.props)
         this.props.closeModal()
     }
 
@@ -46,17 +46,16 @@ class CreateServerModal extends React.Component {
                 info={(
                     <>
                     <i id="close" onClick={this.props.closeModal} className="fas fa-times"></i>
-                    <div className="create-info">
-                        <h1>Customize your server</h1>
-                        <p>Give your server personality with a cool name!</p>
-                        <label>Server Name</label>
-                        <input type="text" onChange={this.updateName} value={this.state.name} />
+                    <div className="channel-info">
+                        <h1>Create Channel</h1>
+                        <p>Give your new channel a name!</p>
+                        <input type="text" onChange={this.updateName} value={this.state.name}/>
                     </div>
                     </>
                 )}
                 footer={(
-                    <div className="create-footer">
-                        <h2 onClick={this.props.promptModal}>Back</h2>
+                    <div className="channel-footer">
+                        <h2 onClick={this.props.closeModal}>Back</h2>
                         <input className="createButton" onClick={this.handleSubmit} type="button" value="Create"/>
                     </div>
                 )}
@@ -65,4 +64,5 @@ class CreateServerModal extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateServerModal)
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateChannelModal)

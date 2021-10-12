@@ -6,6 +6,7 @@ import PromptServerModal from "./server_modal/prompt_server_modal_container"
 import CreateServerModal from "./server_modal/create_server_modal_container"
 import JoinServerModal from "./server_modal/join_server-modal_container"
 import InviteServerModal from "./server_modal/invite_server_modal_container"
+import CreateChannelModal from "./server_modal/create_channel_modal_container"
 
 class ServerIndex extends React.Component {
     constructor(props) {
@@ -34,6 +35,9 @@ class ServerIndex extends React.Component {
                 break;
             case "invite":
                 modal = <InviteServerModal closeModal={this.props.closeModal} invite={this.props.invite}/>
+                break;
+            case "createChannel":
+                modal = <CreateChannelModal closeModal={this.props.closeModal} />
                 break;
             default:
                 modal = null;

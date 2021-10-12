@@ -38,7 +38,7 @@
                     border-radius: 3px;
                     padding: 5px 10px;
                     color: #d2d4d6;
-                    padding: 2px 0;
+                    padding: 5px 5px;
                     margin: 5px 0;
                 }
 
@@ -102,4 +102,42 @@
             background-color: #34383d;
         }
     }
+}
+
+.channels-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.channel {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 5px;
+
+    .text-indicator {
+        font-size: 24px;
+        color: #8e9297;
+        margin-right: 10px;
+    }
+
+    p {
+        color: #8e9297;
+        font-size: 16px;
+    }
+}
+
+.channel:hover {
+    background-color: #393d42;
+}
+
+.channel:hover > p {
+    color: white;
 }
