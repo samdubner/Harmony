@@ -14,6 +14,6 @@ json.users do
     end
 end
 
-json.channels do
-    json.array! @server.channels
-end
+# json.channels do
+#     json.array! @server.channels
+# end

@@ -9,11 +9,19 @@ const channelsReducer = (prevState={}, action) => {
 
     switch(action.type) {
         case RECEIVE_CHANNELS:
-            // console.log(action.channels)
-            return Object.assign({}, prevState, action.channels);
+            let newState = {}
+            for (let [key, channel] of Object.entries(action.channels)) {
+                console.log(channel)
+                newState = Object.assign({}, newState, channel)
+            }
+            return newState;
         case RECEIVE_CHANNEL:
-            // console.log(action.channel)
-            return Object.assign({}, prevState, action.channel);
+            let channel = {
+                id: action.channel.id,
+                name: action.channel.name,
+                server_id: action.channel.server_id
+            }
+            return Object.assign({}, prevState, {[action.channel.id]: channel})
         case DELETE_CHANNEL:
             console.log(action.channel)
             return;

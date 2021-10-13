@@ -59,6 +59,8 @@ class ServerIndex extends React.Component {
                             key={server.id} 
                             server={server} 
                             serverInfo={this.props.serverInfo}
+                            setCurrentServer={this.props.setCurrentServer}
+                            getServerChannels={this.props.getServerChannels}
                         />
                     )
                 })}

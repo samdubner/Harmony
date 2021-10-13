@@ -1,6 +1,6 @@
 class TextChannel < ApplicationCable::Channel
   def subscribed
-    stream_from params[:room_id]
+    # stream_from params[:room_id]
   end
 
   def unsubscribed

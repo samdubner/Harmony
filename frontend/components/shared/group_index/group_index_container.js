@@ -10,7 +10,8 @@ import GroupIndex from "./group_index"
 const mapStateToProps = state => {
     return {
         display: "channels",
-        channels: state.entities.channels
+        channels: state.entities.channels,
+        currentServer: state.ui.server.currentServer
     }
 }
 
@@ -19,7 +20,6 @@ const mapDispatchToProps = dispatch => {
         openInvite: () => dispatch(setModal("invite")),
         createChannel: () => dispatch(setModal("createChannel")),
         setCurrentInvite: (invite) => dispatch(setCurrentInvite(invite)),
-        setCurrentServer: (server) => dispatch(setCurrentServer(server)),
         deleteServer: (server) => dispatch(deleteServer(server)),
         getServerChannels: (server) => dispatch(getServerChannels(server))
     }
