@@ -83,8 +83,7 @@ class GroupIndex extends React.Component {
 
         for (let [key, channel] of Object.entries(this.props.channels)) {
             if (channel.server_id == this.props.server.id)
-             {  
-                 console.log(channel)
+             { 
                  channels.push(<GroupIndexItem name={channel.name} id={channel.id} key={key}/>)
              }
         }
