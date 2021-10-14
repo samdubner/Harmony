@@ -11,6 +11,9 @@ class GroupIndexItem extends React.Component {
 
     setCurrentChannel() {
         this.props.setCurrentChannel(this.props.id)
+
+        let textArea = document.getElementById("message-content")
+        textArea.focus()
     }
 
     render() {

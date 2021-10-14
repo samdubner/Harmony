@@ -21,12 +21,6 @@ class GroupIndex extends React.Component {
     }
   }
 
-//   componentDidUpdate() {
-//     if (this.props.display === "channels" && this.props.server != undefined) {
-//       // this.props.getServerChannels(this.props.server)
-//     }
-//   }
-
   handleDeleteServer(e) {
     this.props.deleteServer(this.props.server);
   }
@@ -87,16 +81,6 @@ class GroupIndex extends React.Component {
                  channels.push(<GroupIndexItem name={channel.name} id={channel.id} key={key}/>)
              }
         }
-
-        // console.log(channels)
-    //   channels = (
-    //     <>
-    //       {this.props.channels.filter(channel => channel.server_id == this.props.currentServer)
-    //         .map((channel, idx) => {
-    //             return <GroupIndexItem name={channel.name} id={channel.id} key={idx}/>;
-    //         })}
-    //     </>
-    //   );
     } else {
       channels = null;
     }

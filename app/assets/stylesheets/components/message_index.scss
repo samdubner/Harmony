@@ -12,21 +12,22 @@
         align-content: center;
         justify-content: center;
         padding: 1em;
-        padding-bottom: 1.5em;
+        padding-bottom: 1.4em;
 
-        input {
-            font-size: 0.9em;
-            color: white;
+        #message-content {
+            display: flex;
+            font-size: 1em;
+            color: #dcddde;
             border-radius: 5px;
             width: 98%;
             border: none;
             background-color: #40444b;
             font-weight: 200;
-            // height: 1.75em;
-            padding: 0 1em;
+            padding: 10px 1em;
+            resize: none;
         }
 
-        input:focus {
+        #message-content:focus {
             outline: none;
         }
     }

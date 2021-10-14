@@ -7,12 +7,8 @@ class MessageIndex extends React.Component {
         super(props)
         this.createConsumer = this.createConsumer.bind(this)
         this.sendMessage = this.sendMessage.bind(this)
+        this.checkSendMessage = this.checkSendMessage.bind(this)
     }
-
-    // componentWillReceiveProps(newProps) {
-    //     console.log(this.props.currentChannel)
-    //     console.log(newProps)
-    // }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(this.props.currentChannel)
@@ -21,40 +17,49 @@ class MessageIndex extends React.Component {
 
     createConsumer() {
         this.cable = ActionCable.createConsumer("ws://localhost:3000/cable")
-        this.channel = this.cable.subscriptions.create({
+        this.channel = this.cable.subscriptions.create(
+          {
             channel: "TextChannel",
-            channel_id: `${this.props.currentChannel}`
-        }, {
+            channel_id: `${this.props.currentChannel}`,
+          },
+          {
             connected: () => {},
             received: (data) => {
-                console.log(data)
+              console.log(data);
             },
-            sendMessage: function(userId, messageContent, channelId) {
-                this.perform("sendMessage", {
-                    user_id: userId,
-                    content: messageContent,
-                    channel_id: channelId
-                })
-            }
-        })
+            sendMessage: function (userId, channelId, messageContent) {
+              this.perform("sendMessage", {
+                user_id: userId,
+                content: messageContent,
+                channel_id: channelId,
+              });
+            },
+          }
+        );
     }
 
-    sendMessage() {
-        this.channel.sendMessage(1, "hello world :)", 1)
+    sendMessage(messageContent) {
+        this.channel.sendMessage(this.props.currentUser, this.props.currentChannel, "hello world :)")
+    }
+
+    checkSendMessage(e) {
+        if (!e.shiftKey && e.key == "Enter") {
+            e.preventDefault()
+            let messageContent = e.target.value.trim()
+            e.target.value = "";
+            console.log(messageContent)
+        }
     }
 
     render() {
         return (
             <div className="message-index">
                 <div className="message-header">
-
                 </div>
-                    <button onClick={this.sendMessage}/>
                 <div>
-
                 </div>
                 <div className="message-area">
-                    <input type="text" />
+                    <textarea onKeyPress={this.checkSendMessage} id="message-content" />
                 </div>
             </div>
         )
