@@ -15,7 +15,7 @@ class TextChannel < ApplicationCable::Channel
     )
 
     if newMessage.save
-      ActionCable.server.broadcast "channel_#{newMessage.channel_id}", message: data['content']
+      ActionCable.server.broadcast "channel_#{newMessage.channel_id}", message: newMessage
     end
   end
 

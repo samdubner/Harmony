@@ -7,10 +7,10 @@
 #  owner_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  channel_id :string
+#  channel_id :integer
 #
 class Message < ApplicationRecord
-    validates :content, :owner_id, presence: true
+    validates :content, :owner_id, :channel_id presence: true
 
     belongs_to :channel,
         primary_key: :id,
