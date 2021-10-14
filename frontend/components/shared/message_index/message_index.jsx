@@ -11,8 +11,9 @@ class MessageIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.props.currentChannel)
-        this.createConsumer()
+        if(this.props.currentChannel != prevProps.currentChannel) {
+            this.createConsumer()
+        }
     }
 
     createConsumer() {
@@ -39,7 +40,7 @@ class MessageIndex extends React.Component {
     }
 
     sendMessage(messageContent) {
-        this.channel.sendMessage(this.props.currentUser, this.props.currentChannel, "hello world :)")
+        this.channel.sendMessage(this.props.currentUser, this.props.currentChannel, messageContent)
     }
 
     checkSendMessage(e) {
@@ -47,7 +48,7 @@ class MessageIndex extends React.Component {
             e.preventDefault()
             let messageContent = e.target.value.trim()
             e.target.value = "";
-            console.log(messageContent)
+            this.sendMessage(messageContent)
         }
     }
 
