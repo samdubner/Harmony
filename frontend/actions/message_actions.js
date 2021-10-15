@@ -2,11 +2,11 @@ import { getChannelMessagesReq, deleteMessageReq } from "../util/messages_api_ut
 
 //Action Types
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
-export const RECEIVE_MESSAGE = "REVEIVE_MESSAGE";
+export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
 //Action Creators
-const receiveMessage = message => {
+export const receiveMessage = message => {
     return {
         type: RECEIVE_MESSAGE,
         message

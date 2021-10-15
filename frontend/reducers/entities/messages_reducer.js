@@ -11,7 +11,13 @@ const messagesReducer = (prevState={}, action) => {
         case RECEIVE_MESSAGES:
             return prevState;
         case RECEIVE_MESSAGE:
-            return prevState;
+            let message = {
+                id: action.message.id,
+                content: action.message.content,
+                author: action.message.owner_id,
+                createdAt: action.message.created_at
+            }
+            return Object.assign({}, prevState, {[message.id]: message});
         case DELETE_MESSAGE:
             return prevState;
         default: 

@@ -32,3 +32,48 @@
         }
     }
 }
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.message-item {
+    display: flex;
+    width: 100%;
+    padding: 0px 1em;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 15px;
+
+    .message-pfp {
+        background-color: #d3d3d3;
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        margin-right: 10px;
+    }
+
+    .message-details {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .message-info {
+            p {
+                font-weight: 500;
+                color: #bdbebe;
+            }
+        }
+    
+        .message-content {
+            p {
+                font-weight: 300;
+                color: #dcddde;
+                cursor: default;
+            }
+        }
+    }
+}
