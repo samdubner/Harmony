@@ -10,7 +10,7 @@
 #  channel_id :integer
 #
 class Message < ApplicationRecord
-    validates :content, :owner_id, :channel_id presence: true
+    validates :content, :owner_id, :channel_id, presence: true
 
     belongs_to :channel,
         primary_key: :id,

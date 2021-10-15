@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     end
     
     resources :channels, only: [:create, :destroy] do 
-      resources :messages, only: [:show, :index]
+      resources :messages, only: [:index]
     end
+    resources :messages, only: [:destroy]
 
     resources :user_servers, only: [:create, :destroy]
     
