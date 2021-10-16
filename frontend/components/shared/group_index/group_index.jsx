@@ -15,18 +15,11 @@ class GroupIndex extends React.Component {
     if (this.props.server != undefined) {
       if (!this.state.dropdown) {
         this.props.setCurrentInvite(this.props.server.invite);
-        this.props.setCurrentServer(this.props.server);
       }
 
       this.setState({ dropdown: !this.state.dropdown });
     }
   }
-
-//   componentDidUpdate() {
-//     if (this.props.display === "channels" && this.props.server != undefined) {
-//       // this.props.getServerChannels(this.props.server)
-//     }
-//   }
 
   handleDeleteServer(e) {
     this.props.deleteServer(this.props.server);
@@ -61,7 +54,6 @@ class GroupIndex extends React.Component {
 
     let serverInfo;
     let channels;
-    // console.log(this.props.server)
     if (this.props.server != undefined) {
       serverInfo = (
         <>
@@ -80,16 +72,15 @@ class GroupIndex extends React.Component {
       serverInfo = null;
     }
 
-    if (this.props.server != undefined && this.props.server.channels != undefined) {
-      console.log(this.props.server);
-      channels = (
-        <>
-          {this.props.server.channels
-            .map((channel, idx) => {
-                return <GroupIndexItem name={channel.name} id={channel.id} key={idx}/>;
-            })}
-        </>
-      );
+    if (this.props.server != undefined && Object.keys(this.props.channels).length != 0) {
+        channels = []
+
+        for (let [key, channel] of Object.entries(this.props.channels)) {
+            if (channel.server_id == this.props.server.id)
+             { 
+                 channels.push(<GroupIndexItem name={channel.name} id={channel.id} key={key}/>)
+             }
+        }
     } else {
       channels = null;
     }

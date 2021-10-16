@@ -7,27 +7,76 @@
         box-shadow: 0 1px rgba(4, 4, 5, 0.2);
     }
 
-    .message-area {
+    .message-form {
         display: flex;
         align-content: center;
         justify-content: center;
         padding: 1em;
-        padding-bottom: 1.5em;
+        padding-bottom: 1.4em;
 
-        input {
-            font-size: 0.9em;
-            color: white;
+        #message-content {
+            display: flex;
+            font-size: 1em;
+            color: #dcddde;
             border-radius: 5px;
             width: 98%;
             border: none;
             background-color: #40444b;
             font-weight: 200;
-            // height: 1.75em;
-            padding: 0 1em;
+            padding: 10px 1em;
+            resize: none;
         }
 
-        input:focus {
+        #message-content:focus {
             outline: none;
+        }
+    }
+}
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+    height: calc(100vh - 8em);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.message-item {
+    display: flex;
+    width: 100%;
+    padding: 0px 1em;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 15px;
+
+    .message-pfp {
+        background-color: #d3d3d3;
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        margin-right: 10px;
+    }
+
+    .message-details {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .message-info {
+            p {
+                font-weight: 500;
+                color: #bdbebe;
+            }
+        }
+    
+        .message-content {
+            p {
+                font-weight: 300;
+                color: #dcddde;
+                cursor: default;
+            }
         }
     }
 }

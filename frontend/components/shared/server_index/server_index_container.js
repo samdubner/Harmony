@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
-import { setModal } from "../../../actions/ui_actions"
+import { setModal, setCurrentServer } from "../../../actions/ui_actions"
 import { getUserServers, serverInfo } from "../../../actions/server_actions"
+import { getServerChannels } from "../../../actions/channel_actions"
 import ServerIndex from "./server_index"
 
 const mapStateToProps = state => {
@@ -22,7 +23,9 @@ const mapDispatchToProps = dispatch => {
         promptModal: () => dispatch(setModal("prompt")),
         closeModal: () => dispatch(setModal("closed")),
         fetchServers: (user) => dispatch(getUserServers(user)),
-        serverInfo: (server) => dispatch(serverInfo(server))
+        serverInfo: (server) => dispatch(serverInfo(server)),
+        setCurrentServer: (server) => dispatch(setCurrentServer(server)),
+        getServerChannels: (server) => dispatch(getServerChannels(server))
     }
 }
 
