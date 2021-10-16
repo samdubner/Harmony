@@ -7,7 +7,7 @@
         box-shadow: 0 1px rgba(4, 4, 5, 0.2);
     }
 
-    .message-area {
+    .message-form {
         display: flex;
         align-content: center;
         justify-content: center;
@@ -38,6 +38,9 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 15px;
+    height: calc(100vh - 8em);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .message-item {

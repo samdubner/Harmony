@@ -5,7 +5,7 @@ class Api::ChannelsController < ApplicationController
         if @channels 
             render :index
         else
-            render json: ["Server was not found"]
+            render json: ["Server was not found"], status: 404
         end
     end
 

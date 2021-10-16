@@ -1,6 +1,6 @@
 import {connect} from "react-redux"
 
-import { receiveMessage } from "../../../actions/message_actions"
+import { getChannelMessages, receiveMessage,  } from "../../../actions/message_actions"
 
 import MessageIndex from "./message_index"
 
@@ -15,7 +15,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        receiveMessage: (message) => dispatch(receiveMessage(message))
+        receiveMessage: (message) => dispatch(receiveMessage(message)),
+        getChannelMessages: (channel) => dispatch(getChannelMessages(channel))
     }
 }
 

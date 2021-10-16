@@ -9,7 +9,17 @@ const messagesReducer = (prevState={}, action) => {
 
     switch(action.type) {
         case RECEIVE_MESSAGES:
-            return prevState;
+            let nextState = {}
+            for (let message of action.messages) {
+                let newMessage = {
+                    id: message.id,
+                    content: message.content,
+                    author: message.owner_id,
+                    createdAt: message.created_at
+                }
+                nextState = Object.assign(nextState, {[message.id]: newMessage})
+            }
+            return nextState;
         case RECEIVE_MESSAGE:
             let message = {
                 id: action.message.id,

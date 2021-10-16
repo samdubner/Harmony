@@ -8,12 +8,20 @@ class MessageIndex extends React.Component {
     this.createConsumer = this.createConsumer.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
     this.checkSendMessage = this.checkSendMessage.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this)
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.currentChannel != prevProps.currentChannel) {
+      this.props.getChannelMessages(this.props.currentChannel);
       this.createConsumer();
     }
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    var messagesContainer = document.getElementsByClassName("messages-container")[0];
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 
   createConsumer() {
@@ -64,7 +72,6 @@ class MessageIndex extends React.Component {
           author={this.props.users[message.author]}
           content={message.content}
           key={key}
-
         />
       );
     }
@@ -73,7 +80,7 @@ class MessageIndex extends React.Component {
       <div className="message-index">
         <div className="message-header"></div>
         <div className="messages-container">{messages}</div>
-        <div className="message-area">
+        <div className="message-form">
           <textarea onKeyPress={this.checkSendMessage} id="message-content" />
         </div>
       </div>

@@ -6,7 +6,6 @@ class MessageItem extends React.Component {
   }
 
   render() {
-    console.log(this.props.author.username);
     return (
       <div className="message-item">
         <div className="message-pfp" />

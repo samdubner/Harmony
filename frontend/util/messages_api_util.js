@@ -1,6 +1,6 @@
 export const getChannelMessagesReq = channel => {
     return $.ajax({
-        url: `/api/channels/${channel.id}/messages`
+        url: `/api/channels/${channel}/messages`
     })
 }
 
