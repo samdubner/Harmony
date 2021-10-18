@@ -1,18 +1,20 @@
 import { connect } from "react-redux";
 
-// import { logout } from "../../actions/session_actions";
 import { setCurrentChannel } from "../../../actions/ui_actions";
+import { deleteChannel } from "../../../actions/channel_actions";
 
 import GroupIndexItem from "./group_index_item";
 
 const mapStateToProps = (state) => {
   return {
+    currentChannel: state.ui.server.currentChannel
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentChannel: (channel) => dispatch(setCurrentChannel(channel)),
+    deleteChannel: (channel) => dispatch(deleteChannel(channel))
   };
 };
 

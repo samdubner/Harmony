@@ -23,8 +23,8 @@ class Api::ChannelsController < ApplicationController
     def destroy 
         @channel = Channel.find_by_id(params[:id])
 
-        if @server
-            @server.delete
+        if @channel
+            @channel.delete
             render :show
         else
             render json: {}, status: 404
