@@ -10,6 +10,7 @@ const mapStateToProps = state => {
         currentUser: state.session.id,
         messages: state.entities.messages,
         users: state.entities.users,
+        channels: state.entities.channels
     }
 }
 
