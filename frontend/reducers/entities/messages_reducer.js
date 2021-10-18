@@ -29,7 +29,9 @@ const messagesReducer = (prevState={}, action) => {
             }
             return Object.assign({}, prevState, {[message.id]: message});
         case DELETE_MESSAGE:
-            return prevState;
+            let newState = Object.assign({}, prevState)
+            delete newState[action.message.id];
+            return newState;
         default: 
             return prevState;
     }

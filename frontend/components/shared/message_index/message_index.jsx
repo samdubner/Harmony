@@ -71,7 +71,9 @@ class MessageIndex extends React.Component {
         <MessageItem
           author={this.props.users[message.author]}
           content={message.content}
+          id={message.id}
           key={key}
+          deleteMessage={this.props.deleteMessage}
         />
       );
     }

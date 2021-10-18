@@ -30,11 +30,8 @@ class GroupIndexItem extends React.Component {
           <h1 className="text-indicator">#</h1>
           <p>{this.props.name}</p>
         </div>
-        <div className="channel-options">
-          <i
-            className="channel-delete fas fa-trash-alt"
-            onClick={this.deleteChannel}
-          ></i>
+        <div className="channel-options" onClick={this.deleteChannel}>
+          <i className="channel-delete fas fa-trash-alt"></i>
         </div>
       </div>
     );

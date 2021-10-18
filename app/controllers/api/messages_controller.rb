@@ -8,4 +8,15 @@ class Api::MessagesController < ApplicationController
       render json: ["Channel was not found"], status: 404
     end
   end
+
+  def destroy
+    @message = Message.find_by_id(params[:id])
+
+    if @message
+      @message.delete
+      render :show
+    else
+      render json: {}, status: 404
+    end
+  end
 end

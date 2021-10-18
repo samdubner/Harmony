@@ -39,44 +39,75 @@
     justify-content: flex-start;
     gap: 15px;
     height: calc(100vh - 8em);
+    width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .message-item {
     display: flex;
-    width: 100%;
-    padding: 0px 1em;
+    width: calc(100% - 3em);
+    padding: 10px 1em;
+    padding-right: 2em;
     flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1px;
 
-    .message-pfp {
-        background-color: #d3d3d3;
-        border-radius: 50%;
-        width: 2.5em;
-        height: 2.5em;
-        margin-right: 10px;
-    }
-
-    .message-details {
+    .message-info {
         display: flex;
-        flex-direction: column;
-        gap: 8px;
+        flex-direction: row;
+        justify-content: flex-start;
 
-        .message-info {
-            p {
-                font-weight: 500;
-                color: #bdbebe;
-            }
+        .message-pfp {
+            background-color: #d3d3d3;
+            border-radius: 50%;
+            width: 2.5em;
+            height: 2.5em;
+            margin-right: 10px;
         }
     
-        .message-content {
-            p {
-                font-weight: 300;
-                color: #dcddde;
-                cursor: default;
+        .message-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+    
+            .message-author {
+                p {
+                    font-weight: 500;
+                    color: #bdbebe;
+                }
+            }
+        
+            .message-content {
+                p {
+                    font-weight: 300;
+                    color: #dcddde;
+                    cursor: default;
+                }
             }
         }
     }
+
+    .message-options {
+        display: flex;
+        align-items: center;
+
+        i {
+            color: #36393f;
+        }
+    }
+}
+
+.message-item:hover {
+    background-color: #32353b;
+}
+
+.message-item:hover > .message-options > i {
+    color: #8e9297;
+}
+
+.message-options:hover > i {
+    color: white !important;
+    cursor: pointer !important;
 }

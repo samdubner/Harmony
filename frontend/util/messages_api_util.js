@@ -6,7 +6,7 @@ export const getChannelMessagesReq = channel => {
 
 export const deleteMessageReq = message => {
     return $.ajax({
-        url: `/api/messages/${message.id}`,
+        url: `/api/messages/${message}`,
         method: "DELETE"
     })
 }

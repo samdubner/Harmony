@@ -14,7 +14,8 @@ const mapStateToProps = state => {
     return {
         modalState: state.ui.server.modalState,
         servers,
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        currentServer: state.ui.server.currentServer
     }
 }
 
