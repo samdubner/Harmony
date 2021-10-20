@@ -45,7 +45,7 @@ class ServerIndex extends React.Component {
 
         return (
             <div className="server-index">
-                <NavLink to="/">
+                <NavLink to="/home">
                     <div className="server-index-item">
                         <h2>H</h2>
                     </div>
