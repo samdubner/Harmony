@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   namespace :api do
+    get 'groups/index'
+    get 'groups/show'
+    get 'groups/create'
+    get 'groups/destroy'
+  end
+  namespace :api do
     get 'messages/index'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -20,6 +26,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:destroy]
 
     resources :user_servers, only: [:create, :destroy]
+    resources :user_groups, only: [:create, :destroy]
     
     resource :session, only: [:create, :destroy]
   end
