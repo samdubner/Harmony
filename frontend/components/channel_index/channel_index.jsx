@@ -1,7 +1,7 @@
 import React from "react";
-import GroupIndexItem from "./group_index_item_container";
+import GroupIndexItem from "./channel_index_item_container";
 
-class GroupIndex extends React.Component {
+class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,7 +98,6 @@ class GroupIndex extends React.Component {
           </div>
           <div className="user-options">
             <i className="fas fa-sign-out-alt" onClick={this.props.logout}></i>
-            {/* <i className="fas fa-cog"></i> */}
           </div>
         </div>
       </div>
@@ -106,4 +105,4 @@ class GroupIndex extends React.Component {
   }
 }
 
-export default GroupIndex;
+export default ChannelIndex;

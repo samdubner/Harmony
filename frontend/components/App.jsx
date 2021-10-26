@@ -9,10 +9,9 @@ import SplashPage from "./splash/splash_container"
 import LoginFormContainer from "./session_forms/loginFormContainer"
 import SignupFormContainer from "./session_forms/signupFormContainer"
 
-//home page
+//main pages
 import HomeContainer from "./home/home_container";
-
-//server page
+import GroupContainer from "./group/group_container"
 import ServerContainer from "./server/server_container"
 
 class App extends React.Component {
@@ -23,6 +22,7 @@ class App extends React.Component {
                 <Route exact path="/" component={SplashPage}/>
                 <ProtectedRoute exact path="/home" component={HomeContainer} />
                 <ProtectedRoute exact path="/servers/:serverId" component={ServerContainer} />
+                <ProtectedRoute exact path="/groups/:groupId" component={GroupContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <Route path="/" component={MissingRoute} />

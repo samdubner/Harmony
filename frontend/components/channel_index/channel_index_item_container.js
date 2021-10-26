@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 
-import { setCurrentChannel } from "../../../actions/ui_actions";
-import { deleteChannel } from "../../../actions/channel_actions";
+import { setCurrentChannel } from "../../actions/ui_actions";
+import { deleteChannel } from "../../actions/channel_actions";
 
-import GroupIndexItem from "./group_index_item";
+import ChannelIndexItem from "./channel_index_item";
 
 const mapStateToProps = (state) => {
   return {
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GroupIndexItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndexItem);

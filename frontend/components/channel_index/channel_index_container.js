@@ -1,11 +1,11 @@
 import { connect } from "react-redux"
 
-import { setModal, setCurrentInvite, setCurrentServer } from "../../../actions/ui_actions"
-import { deleteServer } from "../../../actions/server_actions"
+import { setModal, setCurrentInvite } from "../../actions/ui_actions"
+import { deleteServer } from "../../actions/server_actions"
 
-import { getServerChannels } from "../../../actions/channel_actions"
+import { getServerChannels } from "../../actions/channel_actions"
 
-import GroupIndex from "./group_index"
+import ChannelIndex from "./channel_index"
 
 const mapStateToProps = state => {
     return {
@@ -25,4 +25,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GroupIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex)

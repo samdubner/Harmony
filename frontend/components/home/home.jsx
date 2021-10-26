@@ -1,7 +1,7 @@
 import React from "react"
 
 import ServerIndexContainer from "../shared/server_index/server_index_container";
-import GroupIndexContainer from "../shared/group_index/group_index_container";
+import GroupIndexContainer from "../channel_index/channel_index_container";
 import MessageIndex from "../shared/message_index/message_index";
 
 class Home extends React.Component {

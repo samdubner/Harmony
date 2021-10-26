@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
     let servers = []
 
     for(let server in state.entities.servers) {
-        servers << server
+        servers.push(state.entities.servers[server])
     }
 
     return {
