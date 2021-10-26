@@ -1,7 +1,7 @@
 import React from "react"
 
 import ServerIndexContainer from "../shared/server_index/server_index_container";
-import GroupIndexContainer from "../channel_index/channel_index_container";
+import GroupIndexContainer from "../group_index/group_index_container"
 import MessageIndex from "../shared/message_index/message_index";
 
 class Home extends React.Component {
@@ -14,7 +14,7 @@ class Home extends React.Component {
                     logout={this.props.logout}
                 />
                 <div className="home-instructions">
-                    <h2>This is your home!</h2>
+                    <h2>Welcome Back, {this.props.currentUser.username}</h2>
                     <h5>Select a Server or Group to get started!</h5>
                 </div>
                 {/* <MessageIndex /> */}

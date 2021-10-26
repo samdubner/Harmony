@@ -1,5 +1,5 @@
 import React from "react";
-import GroupIndexItem from "./channel_index_item_container";
+import ChannelIndexItem from "./channel_index_item_container";
 
 class ChannelIndex extends React.Component {
   constructor(props) {
@@ -78,7 +78,7 @@ class ChannelIndex extends React.Component {
         for (let [key, channel] of Object.entries(this.props.channels)) {
             if (channel.server_id == this.props.server.id)
              { 
-                 channels.push(<GroupIndexItem name={channel.name} id={channel.id} key={key}/>)
+                 channels.push(<ChannelIndexItem name={channel.name} id={channel.id} key={key}/>)
              }
         }
     } else {
@@ -86,7 +86,7 @@ class ChannelIndex extends React.Component {
     }
 
     return (
-      <div className="group-index">
+      <div className="channel-index">
         <div className="server-info" onClick={this.toggleInviteDropDown}>
           {serverInfo}
         </div>

@@ -1,0 +1,117 @@
+.group-index {
+  background-color: #2f3136;
+  display: grid;
+  grid-template-rows: 3em 1fr 3em;
+
+  .group-index-header {
+    padding: 1em;
+    color: white;
+    display: flex;
+    box-shadow: 0 1px rgba(4, 4, 5, 0.2);
+    display: block;
+  }
+
+  .user-box {
+    background-color: #292b2f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .user-pfp {
+      width: 2em;
+      height: 2em;
+      background-color: lightgray;
+      border-radius: 50%;
+      margin-right: 0.5em;
+    }
+
+    .user-options {
+      display: flex;
+      align-items: center;
+    }
+
+    h3 {
+      color: white;
+      font-size: 0.8em;
+      font-weight: bold;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    i {
+      padding: 0.5em;
+      border-radius: 5px;
+      color: white;
+    }
+
+    i:hover {
+      background-color: #34383d;
+    }
+  }
+}
+
+.groups-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+// .channel {
+//   width: 95%;
+//   height: 35px;
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: space-between;
+//   border-radius: 10px;
+//   padding: 5px;
+//   padding-right: 15px;
+
+//   .channel-name {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+
+//     .text-indicator {
+//       font-size: 24px;
+//       color: #8e9297;
+//       margin-right: 10px;
+//     }
+
+//     p {
+//       color: #8e9297;
+//       font-size: 16px;
+//     }
+//   }
+
+//   .channel-options {
+//     i {
+//       color: #2f3136;
+//     }
+//   }
+// }
+
+// .channel:hover {
+//   background-color: #393d42;
+//   cursor: pointer;
+// }
+
+// .channel:hover > .channel-name > p {
+//   color: white;
+// }
+
+// .channel:hover > .channel-options > i {
+//   color: #8e9297;
+// }
+
+// .channel-options:hover > i {
+//   color: white !important;
+// }
