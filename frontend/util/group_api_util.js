@@ -1,6 +1,6 @@
 export const getUserGroupsReq = (user) => {
   return $.ajax({
-    url: `/api/users/${user.id}/groups`,
+    url: `/api/users/${user}/groups`,
     method: "GET",
   });
 };

@@ -17,6 +17,8 @@ class Api::GroupsController < ApplicationController
         group_id: @group.id,
         user_id: @group.owner_id
       )
+    
+      render :show
     else
       render json: @group.errors.full_messages, status: 422
     end

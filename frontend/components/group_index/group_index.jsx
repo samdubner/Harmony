@@ -1,6 +1,26 @@
 import React from "react";
 
+import GroupIndexItem from "./group_index_item";
+
 class GroupIndex extends React.Component {
+    constructor(props) {
+        super(props)
+        this.promptClick = this.promptClick.bind(this)
+    }
+
+    promptClick() {
+        let group = {
+            name: "test group",
+            owner_id: this.props.currentUser
+        }
+
+        this.props.createGroup(group)
+    }
+
+    componentDidMount() {
+        this.props.getUserGroups(this.props.currentUser)
+    }
+
     render() {
         return (
             <div className="group-index">
@@ -10,7 +30,14 @@ class GroupIndex extends React.Component {
                 <div className="groups-container">
                     <div className="groups-prompt">
                         <p className="prompt-title">Private Groups</p>
-                        <p className="prompt-button">+</p>
+                        <p className="prompt-button" onClick={this.promptClick}>+</p>
+                    </div>
+                    <div className="groups-list">
+                        {
+                            this.props.groups.map((group, idx) => {
+                                return <GroupIndexItem key={idx} group={group} />
+                            })
+                        }
                     </div>
                 </div>
 
