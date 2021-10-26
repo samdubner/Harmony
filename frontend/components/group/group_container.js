@@ -14,9 +14,9 @@ const mapStateToProps = (state) => {
 
   return {
     currentUser: state.entities.users[state.session.id],
-    currentServer: state.ui.server.currentServer,
     servers,
     users: state.entities.users,
+    currentGroup: state.ui.server.currentGroup
   };
 };
 

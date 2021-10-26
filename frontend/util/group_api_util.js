@@ -14,3 +14,10 @@ export const createGroupReq = group => {
         }
     })
 }
+
+export const groupInfoReq = group => {
+  return $.ajax({
+    url: `/api/groups/${group.id}`,
+    method: "GET"
+  })
+}

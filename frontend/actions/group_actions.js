@@ -30,3 +30,9 @@ export const createGroup = (groupData) => dispatch => {
     return createGroupReq(groupData)
         .then(group => dispatch(receiveGroup(group)))
 }
+
+
+export const groupInfo = (groupData) => dispatch => {
+  return groupInfoReq(groupData)
+    .then(group => dispatch(receiveGroup(group)))
+}

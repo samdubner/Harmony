@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 
 import { getUserGroups, createGroup } from "../../actions/group_actions"
+import { setCurrentGroup } from "../../actions/ui_actions";
 
 import GroupIndex from "./group_index";
 
@@ -21,7 +22,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createGroup: (group) => dispatch(createGroup(group)),
-    getUserGroups: (user) => dispatch(getUserGroups(user))
+    getUserGroups: (user) => dispatch(getUserGroups(user)),
+    setCurrentGroup: (group) => dispatch(setCurrentGroup(group))
   };
 };
 
