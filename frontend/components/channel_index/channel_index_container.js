@@ -9,7 +9,6 @@ import ChannelIndex from "./channel_index"
 
 const mapStateToProps = state => {
     return {
-        display: "channels",
         channels: state.entities.channels,
         currentServer: state.ui.server.currentServer
     }
