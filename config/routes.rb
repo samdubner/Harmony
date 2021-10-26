@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :update] do
       resources :servers, only: [:index]
+      resources :groups, only: [:index]
     end
 
     resources :servers, except: [:index, :new, :edit] do
