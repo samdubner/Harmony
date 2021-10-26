@@ -8,8 +8,12 @@ class GroupIndex extends React.Component {
 
                 </div>
                 <div className="groups-container">
-
+                    <div className="groups-prompt">
+                        <p className="prompt-title">Private Groups</p>
+                        <p className="prompt-button">+</p>
+                    </div>
                 </div>
+
                 <div className="user-box">
                     <div className="user-info">
                         <div className="user-pfp"></div>
