@@ -16,8 +16,8 @@ class Server extends React.Component {
                     logout={this.props.logout}
                 />
                 <MessageIndexContainer />
-                <UserIndex 
-                    server={this.props.servers.find(obj => obj.id == this.props.match.params.serverId)}
+                <UserIndex
+                    hasUsers={!!this.props.currentServer}
                     users={this.props.users}
                 />
             </div>
