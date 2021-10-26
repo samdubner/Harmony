@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     resources :servers, except: [:index, :new, :edit] do
       resources :channels, only: [:index]
     end
+
+    resources :groups, except: [:index, :new, :edit, :update] do
+    end
     
     resources :channels, only: [:create, :destroy] do 
       resources :messages, only: [:index]

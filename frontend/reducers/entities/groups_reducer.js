@@ -1,15 +1,19 @@
 import {
-    RECEIVE_GROUPS
-} from "../../actions/server_actions"
-import serversReducer from "./servers_reducer"
+    RECEIVE_GROUPS,
+    RECEIVE_GROUP
+} from "../../actions/group_actions"
 
 const groupsReducer = (prevState={}, action) => {
     Object.freeze(prevState)
 
     switch(action.type) {
+        case RECEIVE_GROUPS:
+            return prevState;
+        case RECEIVE_GROUP:
+            return prevState;
         default:
             return prevState;
     }
 }
 
-export default serversReducer;
+export default groupsReducer;

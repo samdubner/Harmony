@@ -4,3 +4,13 @@ export const getUserGroupsReq = (user) => {
     method: "GET",
   });
 };
+
+export const createGroupReq = group => {
+    return $.ajax({
+        url: "/api/groups",
+        method: "POST",
+        data: {
+            group
+        }
+    })
+}
