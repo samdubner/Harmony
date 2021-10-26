@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
 
   return {
     groups,
-    currentUser: state.session.id
+    currentUser: state.session.id,
+    users: state.entities.users
   };
 };
 

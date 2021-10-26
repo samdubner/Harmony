@@ -44,7 +44,7 @@ class GroupIndex extends React.Component {
                 <div className="user-box">
                     <div className="user-info">
                         <div className="user-pfp"></div>
-                        <h3>{this.props.currentUser.username}</h3>
+                        <h3>{this.props.users[this.props.currentUser].username}</h3>
                     </div>
                     <div className="user-options">
                         <i className="fas fa-sign-out-alt" onClick={this.props.logout}></i>

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 class GroupIndexItem extends React.Component {
     constructor(props) {
@@ -7,13 +8,15 @@ class GroupIndexItem extends React.Component {
 
     render() {
         return (
-            <div className="group-item">
-                <div className="group-info">
-                    <div className="group-icon"></div>
-                    <p className="group-name">{this.props.group.name}</p>
-                </div>
+          <NavLink to={`/groups/${this.props.group.id}`}>
+            <div className="group">
+              <div className="group-info">
+                <div className="group-icon"></div>
+                <p className="group-name">{this.props.group.name}</p>
+              </div>
             </div>
-        )
+          </NavLink>
+        );
     }
 }
 
