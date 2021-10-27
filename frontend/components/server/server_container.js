@@ -19,7 +19,8 @@ const mapStateToProps = (state) => {
     currentChannel: state.ui.server.currentChannel,
     servers,
     channels: state.entities.channels,
-    users: state.entities.users
+    users: state.entities.users,
+    messages: state.entities.messages
   };
 };
 

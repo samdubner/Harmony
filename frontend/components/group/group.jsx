@@ -18,6 +18,7 @@ class Group extends React.Component {
           currentChannel={this.props.currentGroup}
           getChannelMessages={this.props.getChannelMessages}
           channel="PrivateChannel"
+          messages={this.props.messages}
         >
             
         </MessageIndexContainer>

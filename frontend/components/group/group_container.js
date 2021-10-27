@@ -17,7 +17,8 @@ const mapStateToProps = (state) => {
     currentUser: state.entities.users[state.session.id],
     servers,
     users: state.entities.users,
-    currentGroup: state.ui.server.currentGroup
+    currentGroup: state.ui.server.currentGroup,
+    messages: state.entities.privateMessages
   };
 };
 

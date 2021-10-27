@@ -31,6 +31,7 @@ class Server extends React.Component {
           currentChannel={this.props.currentChannel}
           getChannelMessages={this.props.getChannelMessages}
           channel="TextChannel"
+          messages={this.props.messages}
         >
           {channelName}
         </MessageIndexContainer>
