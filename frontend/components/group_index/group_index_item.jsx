@@ -9,6 +9,7 @@ class GroupIndexItem extends React.Component {
 
   handleClick() {
     this.props.setCurrentGroup(this.props.group)
+    this.props.getGroupInfo(this.props.group)
   }
 
   render() {

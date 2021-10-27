@@ -6,7 +6,13 @@ class Api::GroupsController < ApplicationController
   end
 
   def show
+    @group = Group.find_by_id(params[:id])
 
+    if @group
+      render :show
+    else
+      render json: ["Group was not found"], status: 404
+    end
   end
 
   def create
