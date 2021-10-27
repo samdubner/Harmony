@@ -6,7 +6,6 @@ import MessageIndex from "./message_index"
 
 const mapStateToProps = state => {
     return {
-        currentChannel: state.ui.server.currentChannel,
         currentUser: state.session.id,
         messages: state.entities.messages,
         users: state.entities.users,

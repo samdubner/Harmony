@@ -15,7 +15,10 @@ class Group extends React.Component {
                     currentUser={this.props.currentUser}
                     logout={this.props.logout}
                 />
-                <MessageIndexContainer />
+                <MessageIndexContainer 
+                    currentChannel={this.props.currentGroup}
+                    channel="TextChannel"
+                />
                 <UserIndex
                     hasUsers={!!this.props.currentGroup}
                     users={this.props.users}

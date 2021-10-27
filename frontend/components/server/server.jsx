@@ -15,7 +15,10 @@ class Server extends React.Component {
                     currentUser={this.props.currentUser} 
                     logout={this.props.logout}
                 />
-                <MessageIndexContainer />
+                <MessageIndexContainer 
+                    currentChannel={this.props.currentChannel}
+                    channel="TextChannel"
+                />
                 <UserIndex
                     hasUsers={!!this.props.currentServer}
                     users={this.props.users}
