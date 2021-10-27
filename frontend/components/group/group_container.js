@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { logout } from "../../actions/session_actions";
+import { getGroupMessages } from "../../actions/private_message_actions"
 
 import Group from "./group";
 
@@ -23,6 +24,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
+    getChannelMessages: (group) => dispatch(getGroupMessages(group))
   };
 };
 

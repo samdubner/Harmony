@@ -22,4 +22,9 @@ class Group < ApplicationRecord
     has_many :users,
         through: :user_groups,
         source: :user
+
+    has_many :messages,
+        primary_key: :id,
+        foreign_key: :group_id,
+        class_name: :PrivateMessage
 end

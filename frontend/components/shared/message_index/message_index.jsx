@@ -80,15 +80,7 @@ class MessageIndex extends React.Component {
       );
     }
 
-    let channelName = null;
-    if (this.props.currentChannel) {
-      channelName = (
-        <>
-          <h1>#</h1>
-          <p>{this.props.channels[this.props.currentChannel].name}</p>
-        </>
-      );
-    }
+    let channelName = this.props.children;
 
     return (
       <div className="message-index">

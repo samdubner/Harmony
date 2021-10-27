@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
 import { logout } from "../../actions/session_actions"
+import { getChannelMessages } from "../../actions/message_actions"
 
 import Server from "./server"
 
@@ -17,6 +18,7 @@ const mapStateToProps = (state) => {
     currentServer: state.ui.server.currentServer,
     currentChannel: state.ui.server.currentChannel,
     servers,
+    channels: state.entities.channels,
     users: state.entities.users
   };
 };
@@ -24,6 +26,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
+    getChannelMessages: (channel) => dispatch(getChannelMessages(channel)),
   };
 };
 
