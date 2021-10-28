@@ -12,12 +12,14 @@ const usersReducer = (prevState={}, action) => {
             const user = {[action.user.id]: action.user}
             return Object.assign({}, prevState, user)
         case RECEIVE_SERVERS:
-            let nextState = Object.assign({}, prevState)
-            action.servers.forEach(server => {
-                nextState = Object.assign(nextState, server.users)
-            })
-            return nextState;
+            // let nextState = Object.assign({}, prevState)
+            // action.servers.forEach(server => {
+            //     console.log(server.users)
+            //     nextState = Object.assign(nextState, server.users)
+            // })
+            return prevState;
         case RECEIVE_SERVER:
+            // console.log(action.server.users)
             return Object.assign({}, prevState, action.server.users)
         default:
             return prevState;

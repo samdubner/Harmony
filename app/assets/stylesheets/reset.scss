@@ -5,6 +5,7 @@
 
 * {
 	font-family: 'Roboto', sans-serif;
+	cursor: inherit;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -49,4 +50,7 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+a {
+	text-decoration: none;
 }

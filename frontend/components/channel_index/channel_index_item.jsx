@@ -1,6 +1,6 @@
 import React from "react";
 
-class GroupIndexItem extends React.Component {
+class ChannelIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -38,4 +38,4 @@ class GroupIndexItem extends React.Component {
   }
 }
 
-export default GroupIndexItem;
+export default ChannelIndexItem;
