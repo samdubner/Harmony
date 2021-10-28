@@ -9,8 +9,10 @@ class GroupIndex extends React.Component {
   }
 
   promptClick() {
+    let name = this.props.users[this.props.currentUser].username
+
     let group = {
-      name: "test group",
+      name: `${name}'s Group`,
       owner_id: this.props.currentUser,
     };
 

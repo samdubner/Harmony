@@ -8,7 +8,7 @@ class PrivateChannel < ApplicationCable::Channel
   end
 
   def sendMessage(data)
-    newMessage = Message.new(
+    newMessage = PrivateMessage.new(
       content: data['content'],
       owner_id: data['user_id'],
       group_id: data['channel_id']

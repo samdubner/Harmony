@@ -12,7 +12,7 @@ const receivePrivateMessages = messages => {
     }
 } 
 
-const receivePrivateMessage = message => {
+export const receivePrivateMessage = message => {
     return {
         type: RECEIVE_PRIVATE_MESSAGE,
         message
