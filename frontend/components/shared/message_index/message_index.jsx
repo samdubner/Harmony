@@ -26,10 +26,11 @@ class MessageIndex extends React.Component {
   }
 
   createConsumer() {
+    //change to work for heroku when hosting
     this.cable = ActionCable.createConsumer("ws://localhost:3000/cable");
     this.channel = this.cable.subscriptions.create(
       {
-        channel: "TextChannel",
+        channel: this.props.channel,
         channel_id: `${this.props.currentChannel}`,
       },
       {
@@ -79,15 +80,7 @@ class MessageIndex extends React.Component {
       );
     }
 
-    let channelName = null;
-    if (this.props.currentChannel) {
-      channelName = (
-        <>
-          <h1>#</h1>
-          <p>{this.props.channels[this.props.currentChannel].name}</p>
-        </>
-      );
-    }
+    let channelName = this.props.children;
 
     return (
       <div className="message-index">

@@ -22,6 +22,7 @@ class App extends React.Component {
                 <Route exact path="/" component={SplashPage}/>
                 <ProtectedRoute exact path="/home" component={HomeContainer} />
                 <ProtectedRoute exact path="/servers/:serverId" component={ServerContainer} />
+                <ProtectedRoute exact path="/groups/:groupId" component={GroupContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <Route path="/" component={MissingRoute} />

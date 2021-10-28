@@ -1,7 +1,7 @@
 import React from "react";
-import GroupIndexItem from "./group_index_item_container";
+import ChannelIndexItem from "./channel_index_item_container";
 
-class GroupIndex extends React.Component {
+class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -78,7 +78,7 @@ class GroupIndex extends React.Component {
         for (let [key, channel] of Object.entries(this.props.channels)) {
             if (channel.server_id == this.props.server.id)
              { 
-                 channels.push(<GroupIndexItem name={channel.name} id={channel.id} key={key}/>)
+                 channels.push(<ChannelIndexItem name={channel.name} id={channel.id} key={key}/>)
              }
         }
     } else {
@@ -86,7 +86,7 @@ class GroupIndex extends React.Component {
     }
 
     return (
-      <div className="group-index">
+      <div className="channel-index">
         <div className="server-info" onClick={this.toggleInviteDropDown}>
           {serverInfo}
         </div>
@@ -98,7 +98,6 @@ class GroupIndex extends React.Component {
           </div>
           <div className="user-options">
             <i className="fas fa-sign-out-alt" onClick={this.props.logout}></i>
-            {/* <i className="fas fa-cog"></i> */}
           </div>
         </div>
       </div>
@@ -106,4 +105,4 @@ class GroupIndex extends React.Component {
   }
 }
 
-export default GroupIndex;
+export default ChannelIndex;

@@ -6,7 +6,7 @@ import {
   deleteServerReq,
 } from "../util/server_api_util";
 
-//Action Typess
+//Action Types
 export const RECEIVE_SERVER = "RECEIVE_SERVER"
 export const RECEIVE_SERVERS = "RECEIVE_SERVERS"
 export const DELETE_SERVER = "DELETE_SERVER"

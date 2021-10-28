@@ -23,15 +23,30 @@ class ServerIndexItem extends React.Component {
     }
 
     initializedServerName = initializedServerName.toUpperCase();
-    return (
-      <NavLink
-        onClick={this.handleClick}
-        to={`/servers/${this.props.server.id}`}
-      >
+
+    let serverItem;
+    if (this.props.currentServer == this.props.server.id) {
+      serverItem = (
         <div className="server-index-item">
           <h2>{initializedServerName}</h2>
         </div>
-      </NavLink>
+      );
+    } else {
+      serverItem = (
+        <NavLink
+          onClick={this.handleClick}
+          to={`/servers/${this.props.server.id}`}
+        >
+          <div className="server-index-item">
+            <h2>{initializedServerName}</h2>
+          </div>
+        </NavLink>
+      );
+    }
+    return (
+      <>
+        { serverItem }
+      </>
     );
   }
 }

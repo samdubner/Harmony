@@ -6,12 +6,12 @@ class UserIndex extends React.Component {
     render() {
         let div;
 
-        if(this.props.server != undefined && this.props.server.user_ids != undefined) {
+        if(this.props.hasUsers) {
             div = (
                 <div className="users-container">
-                    {this.props.server.user_ids.map(user => {
+                    {Object.values(this.props.users).map((user, idx) => {
                         return (
-                            <UserIndexItem key={user} user={this.props.users[user]}/>
+                            <UserIndexItem key={idx} user={user}/>
                         )
                     })}
                 </div>

@@ -11,6 +11,11 @@ import CreateChannelModal from "./server_modal/create_channel_modal_container"
 class ServerIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.setServerHome = this.setServerHome.bind(this)
+    }
+
+    setServerHome() {
+        this.props.setCurrentServer({id: null})
     }
 
     componentDidMount() {
@@ -45,7 +50,7 @@ class ServerIndex extends React.Component {
 
         return (
             <div className="server-index">
-                <NavLink to="/home">
+                <NavLink to="/home" onClick={this.setServerHome}>
                     <div className="server-index-item">
                         <h2>H</h2>
                     </div>
@@ -61,6 +66,7 @@ class ServerIndex extends React.Component {
                             serverInfo={this.props.serverInfo}
                             setCurrentServer={this.props.setCurrentServer}
                             getServerChannels={this.props.getServerChannels}
+                            currentServer={this.props.currentServer}
                         />
                     )
                 })}
