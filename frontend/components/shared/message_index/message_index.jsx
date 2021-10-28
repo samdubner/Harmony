@@ -12,7 +12,9 @@ class MessageIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.currentChannel != prevProps.currentChannel) {
+    if (this.props.currentChannel == undefined && Object.keys(this.props.messages).length) {
+      this.props.clearMessages()
+    } else if (this.props.currentChannel != prevProps.currentChannel) {
       this.props.getChannelMessages(this.props.currentChannel);
       this.createConsumer();
     }

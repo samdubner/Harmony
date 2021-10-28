@@ -67,6 +67,7 @@ class ServerIndex extends React.Component {
                             setCurrentServer={this.props.setCurrentServer}
                             getServerChannels={this.props.getServerChannels}
                             currentServer={this.props.currentServer}
+                            setCurrentChannel={this.props.setCurrentChannel}
                         />
                     )
                 })}
