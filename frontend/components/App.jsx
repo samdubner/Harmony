@@ -9,11 +9,10 @@ import SplashPage from "./splash/splash_container"
 import LoginFormContainer from "./session_forms/loginFormContainer"
 import SignupFormContainer from "./session_forms/signupFormContainer"
 
-//home page
-import HomeContainer from "./home/home_container";
-
-//server page
-import ServerContainer from "./server/server_container"
+//main pages
+import HomeContainer from "./pages/home/home_container";
+import GroupContainer from "./pages/group/group_container"
+import ServerContainer from "./pages/server/server_container"
 
 class App extends React.Component {
 
