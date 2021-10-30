@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
     servers,
     users: state.entities.users,
     currentGroup: state.ui.server.currentGroup,
+    groups: state.entities.groups,
     messages: state.entities.privateMessages
   };
 };
