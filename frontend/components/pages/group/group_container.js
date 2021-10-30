@@ -2,7 +2,9 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { logout } from "../../../actions/session_actions";
+import { getGroupInfo } from "../../../actions/group_actions";
 import { getGroupMessages, receivePrivateMessage } from "../../../actions/private_message_actions"
+import { setCurrentGroup } from "../../../actions/ui_actions";
 
 import Group from "./group";
 
@@ -27,7 +29,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     getChannelMessages: (group) => dispatch(getGroupMessages(group)),
-    receiveMessage: (message) => dispatch(receivePrivateMessage(message))
+    receiveMessage: (message) => dispatch(receivePrivateMessage(message)),
+    getGroupInfo: (group) => dispatch(getGroupInfo(group)),
+    setCurrentGroup: (group) => dispatch(setCurrentGroup(group))
   };
 };
 

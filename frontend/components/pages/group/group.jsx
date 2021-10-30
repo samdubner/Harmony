@@ -6,9 +6,15 @@ import MessageIndexContainer from "../../shared/message_index/message_index_cont
 import UserIndex from "../../shared/user_index/user_index";
 
 class Group extends React.Component {
+
+  componentDidMount() {
+    this.props.setCurrentGroup({id: this.props.match.params.groupId});
+    this.props.getGroupInfo({id: this.props.match.params.groupId});
+  }
+
   render() {
     let users = [];
-    if(this.props.currentGroup) {
+    if(this.props.currentGroup && Object.keys(this.props.groups).length) {
       let group = this.props.groups[this.props.currentGroup]
       for (let user of Object.values(group.users)) {
         users.push(user)
@@ -32,7 +38,6 @@ class Group extends React.Component {
             
         </MessageIndexContainer>
         <UserIndex
-          hasUsers={!!this.props.currentGroup}
           users={users}
         />
       </div>

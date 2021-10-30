@@ -59,7 +59,6 @@ class Server extends React.Component {
           {channelName}
         </MessageIndexContainer>
         <UserIndex
-          hasUsers={this.props.currentServer}
           users={users}
         />
       </div>
