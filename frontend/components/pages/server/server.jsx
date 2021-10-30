@@ -6,6 +6,18 @@ import MessageIndexContainer from "../../shared/message_index/message_index_cont
 import UserIndex from "../../shared/user_index/user_index";
 
 class Server extends React.Component {
+  componentDidMount() {
+    this.props.getServerChannels({ id: this.props.match.params.serverId });
+    this.props.serverInfo({ id: this.props.match.params.serverId });
+    this.props.setCurrentServer({ id: this.props.match.params.serverId });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentServer != this.props.currentServer) {
+      this.props.getServerChannels({ id: this.props.match.params.serverId });
+    }
+  }
+
   render() {
     let channelName = null;
     if (this.props.currentChannel) {
@@ -15,6 +27,16 @@ class Server extends React.Component {
           <p>{this.props.channels[this.props.currentChannel].name}</p>
         </>
       );
+    }
+
+    let users = []
+    if (this.props.currentServer) {
+      for (let server of this.props.servers) {
+        if (server.id == this.props.currentServer) {
+          users = server.users
+          break
+        }
+      }
     }
 
     return (
@@ -37,8 +59,8 @@ class Server extends React.Component {
           {channelName}
         </MessageIndexContainer>
         <UserIndex
-          hasUsers={!!this.props.currentServer}
-          users={this.props.users}
+          hasUsers={this.props.currentServer}
+          users={users}
         />
       </div>
     );
