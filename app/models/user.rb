@@ -48,6 +48,34 @@ class User < ApplicationRecord
         self.session_token ||= SecureRandom::urlsafe_base64
     end
 
+    has_many :outbound_requests,
+        primary_key: :id,
+        foreign_key: :sender_id,
+        class_name: :FriendRequest
+
+    has_many :incoming_requests,
+        primary_key: :id,
+        foreign_key: :recipient_id,
+        class_name: :FriendRequest
+
+    has_many :primary_friendships,
+        primary_key: :id,
+        foreign_key: :primary_id,
+        class_name: :Friendship
+
+    has_many :primary_friends,
+        through: :primary_friendships,
+        source: :primary_friend
+
+    has_many :secondary_friendships,
+        primary_key: :id,
+        foreign_key: :secondary_id,
+        class_name: :Friendship
+
+    has_many :secondary_friends,
+        through: :secondary_friendships,
+        source: :secondary_friend
+
     has_many :user_servers,
         primary_key: :id,
         foreign_key: :user_id,

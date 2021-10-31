@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_035853) do
+ActiveRecord::Schema.define(version: 2021_10_31_034522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 2021_10_27_035853) do
     t.datetime "updated_at", null: false
     t.string "topic"
     t.index ["server_id", "name"], name: "index_channels_on_server_id_and_name", unique: true
+  end
+
+  create_table "friend_requests", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
+    t.index ["recipient_id"], name: "index_friend_requests_on_recipient_id"
+    t.index ["sender_id"], name: "index_friend_requests_on_sender_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "primary_id", null: false
+    t.integer "secondary_id", null: false
+    t.index ["primary_id"], name: "index_friendships_on_primary_id"
+    t.index ["secondary_id"], name: "index_friendships_on_secondary_id"
   end
 
   create_table "groups", force: :cascade do |t|
