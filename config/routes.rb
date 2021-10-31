@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'friend_requests/index'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount ActionCable.server => "/cable"
 
@@ -6,6 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update] do
       resources :servers, only: [:index]
       resources :groups, only: [:index]
+      resources :friend_requests, only: [:index]
     end
 
     resources :servers, except: [:index, :new, :edit] do
@@ -23,6 +27,7 @@ Rails.application.routes.draw do
 
     resources :user_servers, only: [:create, :destroy]
     resources :user_groups, only: [:create, :destroy]
+    resources :friendships, only: [:create]
     
     resource :session, only: [:create, :destroy]
   end
