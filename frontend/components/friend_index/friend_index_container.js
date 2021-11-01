@@ -1,13 +1,19 @@
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 
-import FriendIndex from "./friend_index"
+import { getUserRequests } from "../../actions/friend_request_actions";
+
+import FriendIndex from "./friend_index";
 
 const mapStateToProps = (state) => {
-   return {}
-}
+  return {
+      currentUser: state.session.id
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
-    return {}
-}
+  return {
+    getUserRequests: (user) => dispatch(getUserRequests(user)),
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(FriendIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(FriendIndex);
