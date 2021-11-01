@@ -28,6 +28,12 @@ class GroupIndex extends React.Component {
       <div className="group-index">
         <div className="group-index-header"></div>
         <div className="groups-container">
+
+          <div className="friend-selected">
+            <i className="fas fa-user-friends"></i>
+            <p className="friends-text">Friends</p>
+          </div>
+
           <div className="groups-prompt">
             <p className="prompt-title">Private Groups</p>
             <p className="prompt-button" onClick={this.promptClick}>

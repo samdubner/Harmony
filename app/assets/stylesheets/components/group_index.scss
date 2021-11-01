@@ -59,31 +59,54 @@
 .groups-container {
   padding: 10px;
 
+  .friend-selected {
+    display: flex;
+    background-color: rgba(79, 84, 92, 0.32);
+    margin-bottom: 1em;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    height: 35px;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 5px;
+
+    i {
+      font-size: 1.25em;
+      margin-right: 10px;
+    }
+
+    .friends-text {
+      font-size: 1em;
+    }
+  }
+
   .groups-prompt {
-      padding: 0px;
-      margin-bottom: 10px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+    padding: 0px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
     p {
-        color: #8e9297;
+      color: #8e9297;
     }
-    
+
     .prompt-title {
-        cursor: default;
+      cursor: default;
     }
 
     .prompt-button {
-        cursor: pointer;
-        font-size: 22px;
+      cursor: pointer;
+      font-size: 22px;
     }
   }
 }
 
 .groups-prompt:hover .prompt-title {
-    color: #dcdddd;
+  color: #dcdddd;
 }
 
 .group {
@@ -124,7 +147,7 @@
 
 .group:hover {
   background-color: #33363c;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .group:hover .group-name {

@@ -7,6 +7,8 @@ import userServersReducer from "./entities/user_servers_reducer";
 import channelsReudcer from "./entities/channels_reducer";
 import messagesReducer from "./entities/messages_reducer";
 import privateMessagesReducer from "./entities/private_messages_reducer";
+import friendshipsReducer from "./entities/friendships_reducer";
+import friendRequestsReducer from "./entities/friend_requests_reducer";
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -15,7 +17,9 @@ const entitiesReducer = combineReducers({
   groups: groupsReducer,
   channels: channelsReudcer,
   messages: messagesReducer,
-  privateMessages: privateMessagesReducer
+  privateMessages: privateMessagesReducer,
+  friendships: friendshipsReducer,
+  friendRequests: friendRequestsReducer
 });
 
 export default entitiesReducer;
