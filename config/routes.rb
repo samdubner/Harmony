@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :servers, only: [:index]
       resources :groups, only: [:index]
       resources :friend_requests, only: [:index]
+      resources :friendships, only: [:index]
     end
 
     resources :servers, except: [:index, :new, :edit] do

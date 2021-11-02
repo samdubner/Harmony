@@ -1,4 +1,8 @@
-import { getUserGroupsReq, createGroupReq, groupInfoReq } from "../util/group_api_util";
+import {
+  getUserGroupsReq,
+  createGroupReq,
+  groupInfoReq,
+} from "../util/group_api_util";
 
 //Action Types
 export const RECEIVE_GROUPS = "RECEIVE_GROUPS";
@@ -26,13 +30,12 @@ export const getUserGroups = (user) => (dispatch) => {
   );
 };
 
-export const createGroup = (groupData) => dispatch => {
-    return createGroupReq(groupData)
-        .then(group => dispatch(receiveGroup(group)))
-}
+export const createGroup = (groupData) => (dispatch) => {
+  return createGroupReq(groupData).then((group) =>
+    dispatch(receiveGroup(group))
+  );
+};
 
-
-export const getGroupInfo = (groupData) => dispatch => {
-  return groupInfoReq(groupData)
-    .then(group => dispatch(receiveGroup(group)))
-}
+export const getGroupInfo = (groupData) => (dispatch) => {
+  return groupInfoReq(groupData).then((group) => dispatch(receiveGroup(group)));
+};

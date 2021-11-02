@@ -20,7 +20,7 @@ class FriendIndex extends React.Component {
     let viewOption = document.getElementById(this.state.viewOption);
     viewOption.classList.add("selected-friend-view");
     this.props.getUserRequests(this.props.currentUser)
-    // this.props.fetchUserFriends()
+    this.props.getUserFriends(this.props.currentUser);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -64,42 +64,6 @@ class FriendIndex extends React.Component {
               {this.state.viewOption.toUpperCase()} — 0
             </p>
           </div>
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
-          <RequestItem />
         </div>
       </div>
     );
