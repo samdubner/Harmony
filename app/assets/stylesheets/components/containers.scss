@@ -2,16 +2,19 @@
     display: grid;
     height: 100vh;
     grid-template-columns: 5em 15em 1fr;
+    cursor: default;
 }
 
 .server-container {
     display: grid;
     height: 100vh;
     grid-template-columns: 5em 15em 1fr 15em;
+    cursor: default;
 }
 
 .group-container {
     display: grid;
     height: 100vh;
     grid-template-columns: 5em 15em 1fr 15em;
+    cursor: default;
 }

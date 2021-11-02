@@ -29,12 +29,31 @@ class FriendIndex extends React.Component {
       all.classList.remove("selected-friend-view");
       pending.classList.remove("selected-friend-view");
 
-      let viewOption = document.getElementById(this.state.viewOption)
-      viewOption.classList.add("selected-friend-view")
+      let viewOption = document.getElementById(this.state.viewOption);
+      viewOption.classList.add("selected-friend-view");
     }
   }
 
   render() {
+    let entities = [];
+
+    if (this.state.viewOption == "all") {
+      entities = Object.values(this.props.friends).map((friend, idx) => {
+        return <FriendItem key={idx} friend={friend} />;
+      });
+    } else {
+      entities = Object.values(this.props.friendRequests).map((req, idx) => {
+        return (
+          <RequestItem
+            key={idx}
+            req={req}
+            currentUser={this.props.currentUser}
+            users={this.props.users}
+          />
+        );
+      });
+    }
+
     return (
       <div className="friends-index">
         <div className="friends-header">
@@ -59,9 +78,10 @@ class FriendIndex extends React.Component {
         <div className="friends-container">
           <div className="friends-list-info">
             <p className="display-type">
-              {this.state.viewOption.toUpperCase()} — 0
+              {this.state.viewOption.toUpperCase()} — {entities.length}
             </p>
           </div>
+          {entities}
         </div>
       </div>
     );

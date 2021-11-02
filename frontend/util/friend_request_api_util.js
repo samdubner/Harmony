@@ -14,3 +14,10 @@ export const createRequestReq = friend_request => {
         }
     })
 }
+
+export const deleteRequestReq = request => {
+    return $.ajax({
+        url: `/api/friend_requests/${request}`,
+        method: "DELETE"
+    })
+}

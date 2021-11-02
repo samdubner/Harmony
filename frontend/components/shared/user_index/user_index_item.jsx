@@ -15,11 +15,15 @@ class UserIndexItem extends React.Component {
   }
 
   render() {
-    
-    let classes = "user-actions"
+    let hasReq = Object.values(this.props.friendRequests).some(
+      (request) =>
+        request.sender_id == this.props.user.id ||
+        request.recipient_id == this.props.user.id
+    );
 
-    if (this.props.user.id == this.props.currentUser) {
-        classes = "user-actions hidden"
+    let classes = "user-actions";
+    if (this.props.user.id == this.props.currentUser || hasReq) {
+      classes = "user-actions hidden";
     }
 
     return (

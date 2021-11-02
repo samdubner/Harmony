@@ -14,6 +14,7 @@ class UserIndex extends React.Component {
                 key={idx}
                 user={user}
                 currentUser={this.props.currentUser}
+                friendRequests={this.props.friendRequests}
                 createFriendRequest={this.props.createFriendRequest}
               />
             );

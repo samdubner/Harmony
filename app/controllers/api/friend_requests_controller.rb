@@ -6,7 +6,9 @@ class Api::FriendRequestsController < ApplicationController
       outbound = user.outbound_requests
       inbound = user.incoming_requests
 
-      @requests = outbound.concat(inbound)
+      request_list = [].concat(outbound).concat(inbound)
+
+      @requests = request_list
       render :index
     else
       render json: ["User was not found"], status: 404
@@ -20,6 +22,17 @@ class Api::FriendRequestsController < ApplicationController
       render :show
     else
       render json: @request.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy 
+    @request = FriendRequest.find_by_id(params[:id])
+
+    if @request
+      @request.delete
+      render :show
+    else
+      render json: ["Friend request couldn't be found"], status: 404
     end
   end
 

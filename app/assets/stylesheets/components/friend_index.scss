@@ -114,9 +114,21 @@
     justify-content: flex-start;
     align-items: center;
 
-    .request-name {
-      color: white;
-      font-weight: 700;
+    .request-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+      .request-name {
+        color: white;
+        font-weight: 700;
+      }
+
+      .request-direction {
+        color: #b9bbbe;
+        font-weight: 400;
+        font-size: 12px;
+      }
     }
   }
 
@@ -134,4 +146,25 @@
 
 .request-item:hover {
   background-color: rgba(79, 84, 92, 0.16);
+}
+
+.friend-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #2f3136;
+  border-radius: 50%;
+  color: #b9bbbe;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+#accept-request:hover {
+  color: #3aa55d;
+}
+
+#deny-request:hover {
+  color: #ed4245;
 }
