@@ -9,7 +9,7 @@ class Api::FriendshipsController < ApplicationController
             @friends = primary.concat(secondary)
             render :index
         else
-            render json: ["User was not found"], statusL 404
+            render json: ["User was not found"], status: 404
         end
     end
 

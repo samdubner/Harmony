@@ -19,8 +19,6 @@ class FriendIndex extends React.Component {
   componentDidMount() {
     let viewOption = document.getElementById(this.state.viewOption);
     viewOption.classList.add("selected-friend-view");
-    this.props.getUserRequests(this.props.currentUser)
-    this.props.getUserFriends(this.props.currentUser);
   }
 
   componentDidUpdate(prevProps, prevState) {

@@ -9,6 +9,8 @@ import {
 import { getUserServers, serverInfo } from "../../../actions/server_actions";
 import { getServerChannels } from "../../../actions/channel_actions";
 import ServerIndex from "./server_index";
+import { getUserRequests } from "../../../actions/friend_request_actions";
+import { getUserFriends } from "../../../actions/friendship_actions";
 
 const mapStateToProps = (state) => {
   let servers = [];
@@ -34,6 +36,9 @@ const mapDispatchToProps = (dispatch) => {
     setCurrentServer: (server) => dispatch(setCurrentServer(server)),
     getServerChannels: (server) => dispatch(getServerChannels(server)),
     setCurrentChannel: (channel) => dispatch(setCurrentChannel(channel)),
+
+    getUserRequests: (user) => dispatch(getUserRequests(user)),
+    getUserFriends: (user) => dispatch(getUserFriends(user)),
   };
 };
 

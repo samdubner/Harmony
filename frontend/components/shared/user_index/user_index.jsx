@@ -9,7 +9,14 @@ class UserIndex extends React.Component {
         <div className="user-header"></div>
         <div className="users-container">
           {Object.values(this.props.users).map((user, idx) => {
-            return <UserIndexItem key={idx} user={user} />;
+            return (
+              <UserIndexItem
+                key={idx}
+                user={user}
+                currentUser={this.props.currentUser}
+                createFriendRequest={this.props.createFriendRequest}
+              />
+            );
           })}
         </div>
       </div>

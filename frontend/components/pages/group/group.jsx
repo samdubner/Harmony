@@ -3,7 +3,7 @@ import React from "react";
 import ServerIndexContainer from "../../shared/server_index/server_index_container";
 import GroupIndexContainer from "../../group_index/group_index_container";
 import MessageIndexContainer from "../../shared/message_index/message_index_container";
-import UserIndex from "../../shared/user_index/user_index";
+import UserIndexContainer from "../../shared/user_index/user_index_container";
 
 class Group extends React.Component {
 
@@ -37,7 +37,7 @@ class Group extends React.Component {
         >
             
         </MessageIndexContainer>
-        <UserIndex
+        <UserIndexContainer
           users={users}
         />
       </div>

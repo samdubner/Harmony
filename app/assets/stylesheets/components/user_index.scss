@@ -1,36 +1,65 @@
 .user-index {
-    display: grid;
-    background-color: #2f3136;
-    grid-template-rows: 3em 1fr;
+  display: grid;
+  background-color: #2f3136;
+  grid-template-rows: 3em 1fr;
 
-    .user-header {
-        box-shadow: 0 1px rgba(4, 4, 5, 0.2);
-        background-color: #36393f;
-    }
+  .user-header {
+    box-shadow: 0 1px rgba(4, 4, 5, 0.2);
+    background-color: #36393f;
+  }
 
-    .users-container {
-        display: flex;
-        flex-direction: column;
-    }
+  .users-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .user-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  border-radius: 3px;
+
+  .user-info {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
-    // margin: 15px 1em;
-    padding: 1em;
-    border-radius: 3px;
 
-    div {
-
+    .user-pfp {
+      height: 2em;
+      width: 2em;
+      background-color: lightgray;
+      margin-right: 10px;
+      border-radius: 50%;
     }
 
     h1 {
-        color: white;
+      color: white;
     }
+  }
+
+  .user-actions {
+    i {
+      color: #8e9297;
+    }
+  }
 }
 
 .user-container:hover {
+  cursor: pointer;
+  background-color: #33363c;
+}
 
-    background-color: #33363c;
+.user-actions:hover {
+  cursor: pointer;
+
+  i {
+    color: white;
+  }
+}
+
+.hidden {
+  display: none !important;
 }

@@ -3,7 +3,7 @@ import React from "react";
 import ServerIndexContainer from "../../shared/server_index/server_index_container";
 import ChannelIndexContainer from "../../channel_index/channel_index_container";
 import MessageIndexContainer from "../../shared/message_index/message_index_container";
-import UserIndex from "../../shared/user_index/user_index";
+import UserIndexContainer from "../../shared/user_index/user_index_container";
 
 class Server extends React.Component {
   componentDidMount() {
@@ -58,7 +58,7 @@ class Server extends React.Component {
         >
           {channelName}
         </MessageIndexContainer>
-        <UserIndex
+        <UserIndexContainer
           users={users}
         />
       </div>
