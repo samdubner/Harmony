@@ -23,6 +23,14 @@ class ServerIndex extends React.Component {
 
     this.props.getUserRequests(this.props.currentUser.id);
     this.props.getUserFriends(this.props.currentUser.id);
+    this.interval = setInterval(() => {
+      this.props.getUserRequests(this.props.currentUser.id);
+      this.props.getUserFriends(this.props.currentUser.id);
+    }, 10000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {

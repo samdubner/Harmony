@@ -3,10 +3,15 @@ class Api::FriendshipsController < ApplicationController
         user = User.find_by_id(params[:user_id])
 
         if user
-            primary = user.primary_friends
-            secondary = user.secondary_friends
-
-            @friends = primary.concat(secondary)
+            @friends = user.friends
+            # for friend in user.primary_friends do
+            #     @friends.push(friend)
+            # end
+            # for friend in user.secondary_friends do
+            #     @friends.push(friend)
+            # end
+            # @friends.push(user.primary_friends)
+            # @friends.push(user.secondary_friends)
             render :index
         else
             render json: ["User was not found"], status: 404
@@ -14,19 +19,23 @@ class Api::FriendshipsController < ApplicationController
     end
 
     def create
-        friendship = Friendship.new(friendship_params)
+        primary_friendship = Friendship.new({
+            primary_id: params[:friendship][:primary_id],
+            secondary_id: params[:friendship][:secondary_id]
+        })
 
-        if friendship.save
-            @friend = friendship.primary_friend
+        secondary_friendship = Friendship.new({
+            primary_id: params[:friendship][:secondary_id],
+            secondary_id: params[:friendship][:primary_id]
+        })
+
+        if primary_friendship.save && secondary_friendship.save
+            @friend = User.find_by_id(params[:friendship][:primary_id])
             render :show
         else
-            render json: friendship.errors.full_messages, status: 422
+            puts primary_friendship.errors.full_messages
+            puts secondary_friendship.errors.full_messages
+            render json: ["there was an error creating this friendship"], status: 422
         end
-    end
-
-    private
-
-    def friendship_params
-        params.require(:friendship).permit(:primary_id, :secondary_id)
     end
 end

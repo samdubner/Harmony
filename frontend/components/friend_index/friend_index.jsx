@@ -49,6 +49,8 @@ class FriendIndex extends React.Component {
             req={req}
             currentUser={this.props.currentUser}
             users={this.props.users}
+            deleteReq={this.props.deleteFriendRequest}
+            createFriend={this.props.createFriendship}
           />
         );
       });

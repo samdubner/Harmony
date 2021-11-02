@@ -1,3 +1,3 @@
 json.array! @friends do |friend|
-    json.partial "friend", friend: friend
+    json.extract! friend, :id, :username
 end
