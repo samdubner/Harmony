@@ -3,7 +3,8 @@ class Api::UserGroupsController < ApplicationController
         @user_group = UserGroup.new(user_groups_params)
 
         if @user_group.save
-            render :show
+            # render :show
+            render json: ["UserGroup was created"], status: 200
         else
             render json: ["An error occured"], status: 422
         end

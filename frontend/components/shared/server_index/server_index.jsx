@@ -20,10 +20,10 @@ class ServerIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchServers(this.props.currentUser);
-
     this.props.getUserRequests(this.props.currentUser.id);
     this.props.getUserFriends(this.props.currentUser.id);
     this.interval = setInterval(() => {
+      this.props.fetchServers(this.props.currentUser);
       this.props.getUserRequests(this.props.currentUser.id);
       this.props.getUserFriends(this.props.currentUser.id);
     }, 10000);

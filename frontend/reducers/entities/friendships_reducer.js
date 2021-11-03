@@ -12,7 +12,6 @@ const friendshipsReducer = (prevState = {}, action) => {
       return Object.assign({}, prevState, {
         [action.friend.id]: action.friend,
       });
-      return prevState;
     case RECEIVE_FRIENDS:
       let nextState = {}
       for (let friend of action.friends) {

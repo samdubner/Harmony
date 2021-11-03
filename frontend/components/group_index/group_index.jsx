@@ -9,7 +9,7 @@ class GroupIndex extends React.Component {
   }
 
   promptClick() {
-    let name = this.props.users[this.props.currentUser].username
+    let name = this.props.users[this.props.currentUser].username;
 
     let group = {
       name: `${name}'s Group`,
@@ -21,6 +21,13 @@ class GroupIndex extends React.Component {
 
   componentDidMount() {
     this.props.getUserGroups(this.props.currentUser);
+    this.timer = setInterval(() => {
+      this.props.getUserGroups(this.props.currentUser);
+    }, 10000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {
@@ -28,7 +35,6 @@ class GroupIndex extends React.Component {
       <div className="group-index">
         <div className="group-index-header"></div>
         <div className="groups-container">
-
           <div className="friend-selected">
             <i className="fas fa-user-friends"></i>
             <p className="friends-text">Friends</p>

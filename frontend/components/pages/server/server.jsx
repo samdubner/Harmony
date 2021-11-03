@@ -59,6 +59,7 @@ class Server extends React.Component {
           {channelName}
         </MessageIndexContainer>
         <UserIndexContainer
+          channelType="server"
           users={users}
         />
       </div>

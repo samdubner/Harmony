@@ -38,6 +38,7 @@ class Group extends React.Component {
             
         </MessageIndexContainer>
         <UserIndexContainer
+          channelType="group"
           users={users}
         />
       </div>

@@ -2,7 +2,6 @@ class Api::UserServersController < ApplicationController
     def create
         user_id = params[:join_info][:user_id]
         invite = params[:join_info][:invite]
-        # debugger
 
         @user_server = UserServer.new(
             user_id: user_id,

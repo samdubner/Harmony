@@ -22,7 +22,11 @@ class UserIndexItem extends React.Component {
     );
 
     let classes = "user-actions";
-    if (this.props.user.id == this.props.currentUser || hasReq) {
+    if (
+      this.props.user.id == this.props.currentUser ||
+      hasReq ||
+      this.props.user.id in this.props.friends
+    ) {
       classes = "user-actions hidden";
     }
 
