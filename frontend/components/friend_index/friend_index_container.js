@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { deleteFriendRequest } from "../../actions/friend_request_actions";
-import { createFriendship } from "../../actions/friendship_actions";
+import { createFriendship, deleteFriendship } from "../../actions/friendship_actions";
 
 import FriendIndex from "./friend_index";
 
@@ -17,7 +17,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteFriendRequest: (request) => dispatch(deleteFriendRequest(request)),
-    createFriendship: (data) => dispatch(createFriendship(data))
+    createFriendship: (data) => dispatch(createFriendship(data)),
+    deleteFriendship: (friend) => dispatch(deleteFriendship(friend))
   };
 };
 

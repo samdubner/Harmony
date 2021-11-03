@@ -39,7 +39,13 @@ class FriendIndex extends React.Component {
 
     if (this.state.viewOption == "all") {
       entities = Object.values(this.props.friends).map((friend, idx) => {
-        return <FriendItem key={idx} friend={friend} />;
+        return (
+          <FriendItem
+            key={idx}
+            friend={friend}
+            deleteFriend={this.props.deleteFriendship}
+          />
+        );
       });
     } else {
       entities = Object.values(this.props.friendRequests).map((req, idx) => {

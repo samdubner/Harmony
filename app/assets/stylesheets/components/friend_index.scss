@@ -87,15 +87,27 @@
 .friend-item {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 95%;
   padding: 1em 10px;
   border-top: solid 1px hsla(0, 0%, 100%, 0.06);
 
-  .friend-name {
-    color: white;
-    font-weight: 700;
+  .friend-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .friend-name {
+      color: white;
+      font-weight: 700;
+    }
+  }
+
+  .friend-options {
+    .friend-button:hover {
+      color: white;
+    }
   }
 }
 

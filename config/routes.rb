@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
     resources :user_servers, only: [:create, :destroy]
     resources :user_groups, only: [:create, :destroy]
-    resources :friendships, only: [:create]
+    resources :friendships, only: [:create, :destroy]
     
     resource :session, only: [:create, :destroy]
   end

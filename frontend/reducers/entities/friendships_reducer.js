@@ -1,6 +1,7 @@
 import {
   RECEIVE_FRIENDS,
   RECEIVE_FRIEND,
+  REMOVE_FRIEND
 } from "../../actions/friendship_actions";
 
 const friendshipsReducer = (prevState = {}, action) => {
@@ -18,6 +19,10 @@ const friendshipsReducer = (prevState = {}, action) => {
         nextState = Object.assign(nextState, {[friend.id]: friend})
       }
       return nextState;
+    case REMOVE_FRIEND:
+      let newState = Object.assign({}, prevState)
+      delete newState[action.friend.id]
+      return newState;
     default:
       return prevState;
   }

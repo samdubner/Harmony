@@ -4,14 +4,6 @@ class Api::FriendshipsController < ApplicationController
 
         if user
             @friends = user.friends
-            # for friend in user.primary_friends do
-            #     @friends.push(friend)
-            # end
-            # for friend in user.secondary_friends do
-            #     @friends.push(friend)
-            # end
-            # @friends.push(user.primary_friends)
-            # @friends.push(user.secondary_friends)
             render :index
         else
             render json: ["User was not found"], status: 404
@@ -33,9 +25,22 @@ class Api::FriendshipsController < ApplicationController
             @friend = User.find_by_id(params[:friendship][:primary_id])
             render :show
         else
-            puts primary_friendship.errors.full_messages
-            puts secondary_friendship.errors.full_messages
             render json: ["there was an error creating this friendship"], status: 422
         end
+    end
+
+    def destroy
+        primary_friendship = Friendship.where(primary_id: current_user.id, secondary_id: params[:id]).first()
+        secondary_friendship = Friendship.where(secondary_id: current_user.id, primary_id: params[:id]).first()
+
+        if primary_friendship && secondary_friendship
+            primary_friendship.delete
+            secondary_friendship.delete
+
+            @friend = User.find_by_id(params[:id])
+            render :show
+        else
+            render json: {}, status: 404
+        end 
     end
 end

@@ -14,3 +14,10 @@ export const createFriendshipReq = friendship => {
         }
     })
 }
+
+export const deleteFriendshipReq = friendship => {
+    return $.ajax({
+        url: `/api/friendships/${friendship}`,
+        method: "DELETE"
+    })
+}
