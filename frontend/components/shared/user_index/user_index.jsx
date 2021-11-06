@@ -22,9 +22,10 @@ class UserIndex extends React.Component {
   }
 
   render() {
-    let friendDisplay = Object.values(this.props.friends).map((friend, idx) => {
-      if (Object.values(this.props.users).some((user) => user.id == friend.id))
-        return;
+    let users = Object.values(this.props.users)
+    let friends = Object.values(this.props.friends)
+    let addableFriends = friends.filter(friend => !users.some(user => user.id == friend.id))
+    let friendDisplay = Object.values(addableFriends).map((friend, idx) => {
       return (
         <FriendItem
           key={idx}
