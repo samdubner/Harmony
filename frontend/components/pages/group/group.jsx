@@ -25,6 +25,8 @@ class Group extends React.Component {
       <div className="group-container">
         <ServerIndexContainer servers={this.props.servers} />
         <GroupIndexContainer
+          inGroup={true}
+          groupId={this.props.match.params.groupId}
           currentUser={this.props.currentUser}
           logout={this.props.logout}
         />
@@ -34,9 +36,7 @@ class Group extends React.Component {
           channel="PrivateChannel"
           messages={this.props.messages}
           receiveMessage={this.props.receiveMessage}
-        >
-            
-        </MessageIndexContainer>
+        ></MessageIndexContainer>
         <UserIndexContainer
           channelType="group"
           users={users}

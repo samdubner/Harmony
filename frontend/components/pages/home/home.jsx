@@ -10,6 +10,7 @@ class Home extends React.Component {
             <div className="home-container">
                 <ServerIndexContainer servers={this.props.servers}/>
                 <GroupIndexContainer 
+                    inGroup={false}
                     currentUser={this.props.currentUser} 
                     logout={this.props.logout}
                 />

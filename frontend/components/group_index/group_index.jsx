@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import GroupIndexItem from "./group_index_item";
 
@@ -31,14 +32,24 @@ class GroupIndex extends React.Component {
   }
 
   render() {
+    let currentGroup;
     return (
       <div className="group-index">
         <div className="group-index-header"></div>
         <div className="groups-container">
-          <div className="friend-selected">
-            <i className="fas fa-user-friends"></i>
-            <p className="friends-text">Friends</p>
-          </div>
+          {this.props.inGroup ? (
+            <NavLink to="/home">
+              <div className="friend">
+                <i className="fas fa-user-friends"></i>
+                <p className="friends-text">Friends</p>
+              </div>
+            </NavLink>
+          ) : (
+            <div className="friend selected">
+              <i className="fas fa-user-friends"></i>
+              <p className="friends-text">Friends</p>
+            </div>
+          )}
 
           <div className="groups-prompt">
             <p className="prompt-title">Private Groups</p>
@@ -48,10 +59,17 @@ class GroupIndex extends React.Component {
           </div>
           <div className="groups-list">
             {this.props.groups.map((group, idx) => {
+              if (this.props.inGroup && group.id == this.props.groupId) {
+                currentGroup = true;
+              } else {
+                currentGroup = false;
+              }
+
               return (
                 <GroupIndexItem
                   key={idx}
                   group={group}
+                  currentGroup={currentGroup}
                   setCurrentGroup={this.props.setCurrentGroup}
                   getGroupInfo={this.props.getGroupInfo}
                 />
