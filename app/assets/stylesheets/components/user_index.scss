@@ -37,16 +37,77 @@
     }
 
     .friend-list {
-      width: 20em;
+      width: 16em;
       height: 12em;
       border-radius: 5px;
-      background-color: #292b2f;
+      background-color: #2f3136;
       box-shadow: 1px 1px 2px #2b2d33;
       position: absolute;
       top: 4em;
       right: 16em;
       z-index: 2;
       cursor: default;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .inner-list {
+        width: 96%;
+        height: 92%;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: scroll;
+        text-align: center;
+
+        .friend-list-item {
+          margin-bottom: 5px;
+          min-height: 3em;
+          width: 100%;
+          background-color: #33363c;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .friend-item-info {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+
+            .friend-item-pfp {
+              height: 1.5em;
+              width: 1.5em;
+              border-radius: 50%;
+              background-color: lightgray;
+            }
+
+            p {
+              margin-left: 10px;
+              color: #bdbebe;
+            }
+          }
+
+          .add-group-button {
+            margin: 0 20px;
+            color: #8e9297;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+          }
+
+          .add-group-button:hover {
+            color: white;
+          }
+        }
+
+        .no-items-text {
+          color: white;
+          margin-top: 10px;
+        }
+      }
     }
   }
 }
@@ -80,21 +141,17 @@
   .user-actions {
     i {
       color: #8e9297;
+      cursor: pointer;
     }
   }
 }
 
 .user-container:hover {
-  cursor: pointer;
   background-color: #33363c;
 }
 
-.user-actions:hover {
-  cursor: pointer;
-
-  i {
+.user-actions:hover i {
     color: white;
-  }
 }
 
 .hidden {

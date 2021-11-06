@@ -16,6 +16,6 @@ class Api::UserGroupsController < ApplicationController
     private
 
     def user_groups_params
-        params.permit(:join_info).require(:user_id, :group_id)
+        params.require(:join_info).permit(:user_id, :group_id)
     end
 end

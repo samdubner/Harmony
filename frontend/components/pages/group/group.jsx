@@ -40,6 +40,7 @@ class Group extends React.Component {
         <UserIndexContainer
           channelType="group"
           users={users}
+          groupId={this.props.match.params.groupId}
         />
       </div>
     );
