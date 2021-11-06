@@ -4,6 +4,7 @@ import { getChannelMessagesReq, deleteMessageReq } from "../util/messages_api_ut
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const DELETE_MESSAGE = "DELETE_MESSAGE";
+export const CLEAR_MESSAGES = "CLEAR_MESSAGES";
 
 //Action Creators
 export const receiveMessage = message => {
@@ -24,6 +25,12 @@ const removeMessage = message => {
     return {
         type: DELETE_MESSAGE,
         message
+    }
+}
+
+export const clearMessages = () => {
+    return {
+        type: CLEAR_MESSAGES
     }
 }
 

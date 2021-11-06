@@ -10,9 +10,9 @@ import LoginFormContainer from "./session_forms/loginFormContainer"
 import SignupFormContainer from "./session_forms/signupFormContainer"
 
 //main pages
-import HomeContainer from "./home/home_container";
-import GroupContainer from "./group/group_container"
-import ServerContainer from "./server/server_container"
+import HomeContainer from "./pages/home/home_container";
+import GroupContainer from "./pages/group/group_container"
+import ServerContainer from "./pages/server/server_container"
 
 class App extends React.Component {
 

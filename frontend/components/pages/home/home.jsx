@@ -1,7 +1,8 @@
 import React from "react"
 
-import ServerIndexContainer from "../shared/server_index/server_index_container";
-import GroupIndexContainer from "../group_index/group_index_container"
+import ServerIndexContainer from "../../shared/server_index/server_index_container";
+import GroupIndexContainer from "../../group_index/group_index_container"
+import FriendIndexContainer from "../../friend_index/friend_index_container"
 
 class Home extends React.Component {
     render() {
@@ -12,10 +13,7 @@ class Home extends React.Component {
                     currentUser={this.props.currentUser} 
                     logout={this.props.logout}
                 />
-                <div className="home-instructions">
-                    <h2>Welcome Back, {this.props.currentUser.username}</h2>
-                    <h5>Select a Server or Group to get started!</h5>
-                </div>
+                <FriendIndexContainer />
             </div>
         )
     }

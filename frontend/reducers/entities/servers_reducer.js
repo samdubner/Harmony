@@ -16,7 +16,8 @@ const serversReducer = (prevState={}, action) => {
                     id: server.id,
                     name: server.name,
                     owner_id: server.owner_id,
-                    invite: server.invite
+                    invite: server.invite,
+                    users: server.users
                 }
                 newState = Object.assign(newState, { [server.id]: server });
             })
@@ -26,7 +27,7 @@ const serversReducer = (prevState={}, action) => {
                 id: action.server.id,
                 name: action.server.name,
                 owner_id: action.server.owner_id,
-                user_ids: action.server.user_ids,
+                users: action.server.users,
                 invite: action.server.invite,
                 channels: action.server.channels
             };

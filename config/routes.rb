@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update] do
       resources :servers, only: [:index]
       resources :groups, only: [:index]
+      resources :friend_requests, only: [:index]
+      resources :friendships, only: [:index]
     end
 
     resources :servers, except: [:index, :new, :edit] do
@@ -21,8 +23,11 @@ Rails.application.routes.draw do
     end
     resources :messages, only: [:destroy]
 
+    resources :friend_requests, only: [:create, :destroy]
+
     resources :user_servers, only: [:create, :destroy]
     resources :user_groups, only: [:create, :destroy]
+    resources :friendships, only: [:create, :destroy]
     
     resource :session, only: [:create, :destroy]
   end

@@ -1,6 +1,6 @@
 import {connect} from "react-redux"
 
-import { deleteMessage } from "../../../actions/message_actions"
+import { deleteMessage, clearMessages } from "../../../actions/message_actions"
 
 import MessageIndex from "./message_index"
 
@@ -13,7 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        deleteMessage: (message) => dispatch(deleteMessage(message))
+        deleteMessage: (message) => dispatch(deleteMessage(message)),
+        clearMessages: () => dispatch(clearMessages())
     }
 }
 

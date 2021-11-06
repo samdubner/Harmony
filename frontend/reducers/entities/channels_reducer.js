@@ -10,7 +10,7 @@ const channelsReducer = (prevState={}, action) => {
     switch(action.type) {
         case RECEIVE_CHANNELS:
             let newState = {}
-            for (let [key, channel] of Object.entries(action.channels)) {
+            for (let channel of Object.values(action.channels)) {
                 newState = Object.assign({}, newState, channel)
             }
             return newState;

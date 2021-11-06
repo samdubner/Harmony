@@ -11,6 +11,7 @@ const groupsReducer = (prevState = {}, action) => {
           id: group.id,
           name: group.name,
           owner_id: group.owner_id,
+          users: group.users
         };
         nextState = Object.assign(nextState, { [group.id]: group });
       });
