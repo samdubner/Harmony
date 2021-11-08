@@ -10,8 +10,8 @@ class ChannelIndexItem extends React.Component {
   }
 
   setCurrentChannel() {
-    if (this.props.currentChannel != this.props.id) {
-      this.props.setCurrentChannel(this.props.id);
+    if (this.props.currentChannel != this.props.channel.id) {
+      this.props.setCurrentChannel(this.props.channel.id);
     }
 
     let textArea = document.getElementById("message-content");
@@ -19,16 +19,18 @@ class ChannelIndexItem extends React.Component {
   }
 
   deleteChannel(e) {
-    this.props.deleteChannel(this.props.id);
+    this.props.deleteChannel(this.props.channel.id);
     e.stopPropogation;
   }
 
   render() {
+    let classes = this.props.isCurrent ? "channel selected-channel" : "channel";
+
     return (
-      <div className="channel" onClick={this.setCurrentChannel}>
+      <div className={classes} onClick={this.setCurrentChannel}>
         <div className="channel-name">
           <h1 className="text-indicator">#</h1>
-          <p>{this.props.name}</p>
+          <p>{this.props.channel.name}</p>
         </div>
         <div className="channel-options" onClick={this.deleteChannel}>
           <i className="channel-delete fas fa-trash-alt"></i>

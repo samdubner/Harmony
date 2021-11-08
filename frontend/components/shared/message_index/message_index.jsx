@@ -97,7 +97,11 @@ class MessageIndex extends React.Component {
         <div className="message-header">{channelName}</div>
         <div className="messages-container">{messages}</div>
         <div className="message-form">
-          <textarea onKeyPress={this.checkSendMessage} id="message-content" />
+          <textarea
+            onKeyPress={this.checkSendMessage}
+            id="message-content"
+            placeholder="test"
+          />
         </div>
       </div>
     );

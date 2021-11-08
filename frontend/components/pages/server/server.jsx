@@ -47,6 +47,7 @@ class Server extends React.Component {
             (obj) => obj.id == this.props.match.params.serverId
           )}
           currentUser={this.props.currentUser}
+          currentChannel={this.props.currentChannel}
           logout={this.props.logout}
         />
         <MessageIndexContainer

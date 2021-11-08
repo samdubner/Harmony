@@ -72,15 +72,20 @@ class ChannelIndex extends React.Component {
       serverInfo = null;
     }
 
-    if (this.props.server != undefined && Object.keys(this.props.channels).length != 0) {
-        channels = []
+    if (
+      this.props.server != undefined &&
+      Object.keys(this.props.channels).length != 0
+    ) {
+      let filtered = Object.values(this.props.channels).filter(
+        (channel) => channel.server_id == this.props.server.id
+      );
 
-        for (let [key, channel] of Object.entries(this.props.channels)) {
-            if (channel.server_id == this.props.server.id)
-             { 
-                 channels.push(<ChannelIndexItem name={channel.name} id={channel.id} key={key}/>)
-             }
-        }
+      channels = filtered.map((channel, idx) => {
+        let isCurrent = channel.id == this.props.currentChannel;
+        return (
+          <ChannelIndexItem key={idx} channel={channel} isCurrent={isCurrent} />
+        );
+      });
     } else {
       channels = null;
     }
