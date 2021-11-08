@@ -21,3 +21,10 @@ export const groupInfoReq = group => {
     method: "GET"
   })
 }
+
+export const deleteGroupReq = group => {
+  return $.ajax({
+    url: `/api/groups/${group}`,
+    method: "DELETE"
+  })
+}

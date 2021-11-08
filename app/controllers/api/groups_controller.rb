@@ -31,6 +31,14 @@ class Api::GroupsController < ApplicationController
   end
 
   def destroy
+    @group = Group.find_by_id(params[:id])
+
+    if @group
+      @group.delete
+      render :show
+    else 
+      render json: ["Group not found"], status: 404
+    end
   end
 
   private

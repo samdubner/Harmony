@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
 import { logout } from "../../../actions/session_actions";
 import { getGroupInfo } from "../../../actions/group_actions";
@@ -36,4 +35,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Group));
+export default connect(mapStateToProps, mapDispatchToProps)(Group);

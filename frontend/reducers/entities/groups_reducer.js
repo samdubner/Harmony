@@ -1,4 +1,4 @@
-import { RECEIVE_GROUPS, RECEIVE_GROUP } from "../../actions/group_actions";
+import { RECEIVE_GROUPS, RECEIVE_GROUP, REMOVE_GROUP } from "../../actions/group_actions";
 
 const groupsReducer = (prevState = {}, action) => {
   Object.freeze(prevState);
@@ -6,6 +6,7 @@ const groupsReducer = (prevState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_GROUPS:
+      let blank = {}
       action.groups.forEach((group) => {
         group = {
           id: group.id,
@@ -13,7 +14,7 @@ const groupsReducer = (prevState = {}, action) => {
           owner_id: group.owner_id,
           users: group.users
         };
-        nextState = Object.assign(nextState, { [group.id]: group });
+        blank = Object.assign(blank, { [group.id]: group });
       });
       return nextState;
     case RECEIVE_GROUP:
@@ -24,6 +25,9 @@ const groupsReducer = (prevState = {}, action) => {
           users: action.group.users
       }
       return Object.assign(nextState, {[group.id]: group});
+    case REMOVE_GROUP:
+      delete nextState[action.group.id]
+      return nextState
     default:
       return prevState;
   }

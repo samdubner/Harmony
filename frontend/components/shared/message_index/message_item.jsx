@@ -25,7 +25,7 @@ class MessageItem extends React.Component {
           </div>
         </div>
         <div className="message-options" onClick={this.removeMessage}>
-          <i className="channel-delete fas fa-trash-alt"></i>
+          <i className="fas fa-trash-alt"></i>
         </div>
       </div>
     );

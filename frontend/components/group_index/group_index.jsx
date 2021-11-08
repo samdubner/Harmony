@@ -72,6 +72,8 @@ class GroupIndex extends React.Component {
                   currentGroup={currentGroup}
                   setCurrentGroup={this.props.setCurrentGroup}
                   getGroupInfo={this.props.getGroupInfo}
+                  deleteGroup={this.props.deleteGroup}
+                  history={this.props.history}
                 />
               );
             })}

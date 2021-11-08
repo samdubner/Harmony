@@ -152,26 +152,28 @@
     }
   }
 
-  // .channel-options {
-  //   i {
-  //     color: #2f3136;
-  //   }
-  // }
+  .group-options {
+    visibility: hidden;
+  }
 }
 
 .group:hover {
   background-color: #33363c;
   cursor: pointer;
+
+  .group-name {
+    color: white;
+  }
+
+  .group-options {
+    visibility: visible;
+
+    i {
+      color: #8e9297;
+    }
+  }
 }
 
-.group:hover .group-name {
-  color: white;
+.group-options:hover > i {
+  color: white !important;
 }
-
-// .channel:hover > .channel-options > i {
-//   color: #8e9297;
-// }
-
-// .channel-options:hover > i {
-//   color: white !important;
-// }
