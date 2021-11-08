@@ -29,19 +29,19 @@ class Server extends React.Component {
       );
     }
 
-    let users = []
+    let users = [];
     if (this.props.currentServer) {
       for (let server of this.props.servers) {
         if (server.id == this.props.currentServer) {
-          users = server.users
-          break
+          users = server.users;
+          break;
         }
       }
     }
 
     return (
       <div className="server-container">
-        <ServerIndexContainer servers={this.props.servers} />
+        <ServerIndexContainer servers={this.props.servers} inServer={true} />
         <ChannelIndexContainer
           server={this.props.servers.find(
             (obj) => obj.id == this.props.match.params.serverId
@@ -58,10 +58,7 @@ class Server extends React.Component {
         >
           {channelName}
         </MessageIndexContainer>
-        <UserIndexContainer
-          channelType="server"
-          users={users}
-        />
+        <UserIndexContainer channelType="server" users={users} />
       </div>
     );
   }

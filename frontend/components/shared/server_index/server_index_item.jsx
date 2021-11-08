@@ -26,7 +26,7 @@ class ServerIndexItem extends React.Component {
     let serverItem;
     if (this.props.currentServer == this.props.server.id) {
       serverItem = (
-        <div className="server-index-item">
+        <div className="server-index-item selected-server">
           <h2>{initializedServerName}</h2>
         </div>
       );

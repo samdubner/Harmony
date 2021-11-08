@@ -64,20 +64,25 @@ class ServerIndex extends React.Component {
         modal = null;
     }
 
+    let homeItemClasses = "server-index-item selected-server";
+    if (this.props.inServer) {
+      homeItemClasses = "server-index-item";
+    }
+
     return (
       <div className="server-index">
         <NavLink to="/home" onClick={this.setServerHome}>
-          <div className="server-index-item">
+          <div className={homeItemClasses}>
             <h2>H</h2>
           </div>
         </NavLink>
 
         <div className="index-separator"></div>
 
-        {this.props.servers.map((server) => {
+        {this.props.servers.map((server, idx) => {
           return (
             <ServerIndexItem
-              key={server.id}
+              key={idx}
               server={server}
               serverInfo={this.props.serverInfo}
               setCurrentServer={this.props.setCurrentServer}
