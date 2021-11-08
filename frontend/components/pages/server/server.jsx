@@ -56,6 +56,7 @@ class Server extends React.Component {
           channel="TextChannel"
           messages={this.props.messages}
           receiveMessage={this.props.receiveMessage}
+          deleteMessage={this.props.deleteMessage}
         >
           {channelName}
         </MessageIndexContainer>

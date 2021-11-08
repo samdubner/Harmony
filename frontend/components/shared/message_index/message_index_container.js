@@ -13,7 +13,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        deleteMessage: (message) => dispatch(deleteMessage(message)),
         clearMessages: () => dispatch(clearMessages())
     }
 }

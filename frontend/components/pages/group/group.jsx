@@ -35,6 +35,7 @@ class Group extends React.Component {
           channel="PrivateChannel"
           messages={this.props.messages}
           receiveMessage={this.props.receiveMessage}
+          deleteMessage={this.props.deleteMessage}
         ></MessageIndexContainer>
         <UserIndexContainer
           channelType="group"

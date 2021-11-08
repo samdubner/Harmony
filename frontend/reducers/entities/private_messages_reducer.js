@@ -1,12 +1,7 @@
 import {
-  RECEIVE_MESSAGES,
-  RECEIVE_MESSAGE,
-  DELETE_MESSAGE,
-} from "../../actions/message_actions";
-
-import {
   RECEIVE_PRIVATE_MESSAGE,
   RECEIVE_PRIVATE_MESSAGES,
+  DELETE_PRIVATE_MESSAGE
 } from "../../actions/private_message_actions";
 
 const privateMessagesReducer = (prevState = {}, action) => {
@@ -33,10 +28,10 @@ const privateMessagesReducer = (prevState = {}, action) => {
         createdAt: action.message.created_at,
       };
       return Object.assign({}, prevState, { [message.id]: message });
-    // case DELETE_MESSAGE:
-    //   let newState = Object.assign({}, prevState);
-    //   delete newState[action.message.id];
-    //   return newState;
+    case DELETE_PRIVATE_MESSAGE:
+      let newState = Object.assign({}, prevState);
+      delete newState[action.message.id];
+      return newState;
     default:
       return prevState;
   }
