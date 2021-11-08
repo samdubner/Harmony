@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom"
 
-import { setCurrentChannel } from "../../actions/ui_actions";
+import { setCurrentChannel, setCurrentServer } from "../../actions/ui_actions";
 import { deleteChannel } from "../../actions/channel_actions";
 
 import ChannelIndexItem from "./channel_index_item";
@@ -14,8 +15,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentChannel: (channel) => dispatch(setCurrentChannel(channel)),
-    deleteChannel: (channel) => dispatch(deleteChannel(channel))
+    setCurrentServer: (server) => dispatch(setCurrentServer(server)),
+    deleteChannel: (channel) => dispatch(deleteChannel(channel)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndexItem);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelIndexItem));

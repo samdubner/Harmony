@@ -15,7 +15,7 @@ class ServerIndex extends React.Component {
   }
 
   setServerHome() {
-    this.props.setCurrentServer({ id: null });
+    this.props.setCurrentServer(null);
   }
 
   componentDidMount() {

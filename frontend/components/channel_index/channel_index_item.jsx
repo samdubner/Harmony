@@ -20,7 +20,12 @@ class ChannelIndexItem extends React.Component {
 
   deleteChannel(e) {
     this.props.deleteChannel(this.props.channel.id);
-    e.stopPropogation;
+    e.stopPropagation();
+    e.preventDefault();
+    if(this.props.currentChannel == this.props.channel.id) {
+      this.props.history.push("/home")
+      this.props.setCurrentServer(null)
+    }
   }
 
   render() {

@@ -9,7 +9,7 @@ class Server extends React.Component {
   componentDidMount() {
     this.props.getServerChannels({ id: this.props.match.params.serverId });
     this.props.serverInfo({ id: this.props.match.params.serverId });
-    this.props.setCurrentServer({ id: this.props.match.params.serverId });
+    this.props.setCurrentServer(this.props.match.params.serverId);
   }
 
   componentDidUpdate(prevProps) {

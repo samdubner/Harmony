@@ -8,7 +8,7 @@ class ServerIndexItem extends React.Component {
   }
 
   handleClick() {
-    this.props.setCurrentServer(this.props.server);
+    this.props.setCurrentServer(this.props.server.id);
     this.props.setCurrentChannel(undefined)
   }
 
