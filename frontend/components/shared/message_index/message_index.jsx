@@ -86,6 +86,7 @@ class MessageIndex extends React.Component {
           id={message.id}
           key={key}
           deleteMessage={this.props.deleteMessage}
+          currentUser={this.props.currentUser}
         />
       );
     }

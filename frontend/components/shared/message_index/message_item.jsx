@@ -3,11 +3,11 @@ import React from "react";
 class MessageItem extends React.Component {
   constructor(props) {
     super(props);
-    this.removeMessage = this.removeMessage.bind(this)
+    this.removeMessage = this.removeMessage.bind(this);
   }
 
   removeMessage() {
-    this.props.deleteMessage(this.props.id)
+    this.props.deleteMessage(this.props.id);
   }
 
   render() {
@@ -24,9 +24,11 @@ class MessageItem extends React.Component {
             </div>
           </div>
         </div>
-        <div className="message-options" onClick={this.removeMessage}>
-          <i className="fas fa-trash-alt"></i>
-        </div>
+        {this.props.author.id == this.props.currentUser ? (
+          <div className="message-options" onClick={this.removeMessage}>
+            <i className="fas fa-trash-alt"></i>
+          </div>
+        ) : null}
       </div>
     );
   }

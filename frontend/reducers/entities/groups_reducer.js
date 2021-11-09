@@ -16,7 +16,7 @@ const groupsReducer = (prevState = {}, action) => {
         };
         blank = Object.assign(blank, { [group.id]: group });
       });
-      return nextState;
+      return blank;
     case RECEIVE_GROUP:
       let group = {
           id: action.group.id,
