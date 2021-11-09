@@ -30,8 +30,6 @@ class ChannelIndexItem extends React.Component {
 
   render() {
     let classes = this.props.isCurrent ? "channel selected-channel" : "channel";
-    console.log(this.props.currentServer)
-    console.log(this.props.currentUser)
 
     return (
       <div className={classes} onClick={this.setCurrentChannel}>

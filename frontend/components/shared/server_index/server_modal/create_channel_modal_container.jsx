@@ -35,7 +35,6 @@ class CreateChannelModal extends React.Component {
 
     handleSubmit(e) {
         this.props.createChannel(this.state)
-        // console.log(this.props)
         this.props.closeModal()
     }
 

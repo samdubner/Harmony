@@ -91,16 +91,8 @@ class MessageIndex extends React.Component {
       );
     }
 
-    // if (this.props.channel && this.props.channel == "TextChannel") {
-    //   channel = this.props.channels[this.props.currentChannel];
-    //   placeholder = `Message #${channel.name}`
-    // } else if (this.props.channel && this.props.channel == "PrivateChannel") {
-    //   channel = this.props.groups[this.props.currentChannel];
-    //   placeholder = `Message in ${channel.name}`
-    // }
     let channel;
     let placeholder;
-    console.log(this.props.channel);
     if (this.props.currentChannel && this.props.channel == "TextChannel") {
       channel = this.props.channels[this.props.currentChannel];
       placeholder = `Message #${channel.name}`;
