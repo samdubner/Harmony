@@ -23,6 +23,10 @@ class Api::ServersController < ApplicationController
                 server_id: @server.id,
                 user_id: @server.owner_id
             )
+            Channel.create(
+                server_id: @server.id,
+                name: "general"
+            )
             render :show
         else
             render json: @server.errors.full_messages, status: 422
