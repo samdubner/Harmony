@@ -36,8 +36,7 @@ class MessageIndex extends React.Component {
   }
 
   createConsumer() {
-    //change to work for heroku when hosting
-    this.cable = ActionCable.createConsumer("ws://localhost:3000/cable");
+    this.cable = ActionCable.createConsumer(`ws://${window.location.host}/cable`);
     this.channel = this.cable.subscriptions.create(
       {
         channel: this.props.channel,
