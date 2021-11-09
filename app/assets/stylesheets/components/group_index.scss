@@ -132,11 +132,13 @@
   padding: 5px;
   padding-right: 15px;
   margin-bottom: 3px;
+  width: 90%;
 
   .group-info {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
 
     .group-icon {
       width: 2em;
@@ -149,6 +151,11 @@
     .group-name {
       color: #8e9297;
       font-size: 16px;
+      height: 1em;
+      width: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
