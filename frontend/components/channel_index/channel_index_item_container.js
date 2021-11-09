@@ -8,7 +8,9 @@ import ChannelIndexItem from "./channel_index_item";
 
 const mapStateToProps = (state) => {
   return {
-    currentChannel: state.ui.server.currentChannel
+    currentChannel: state.ui.server.currentChannel,
+    currentServer: state.entities.servers[state.ui.server.currentServer],
+    currentUser: state.session.id
   };
 };
 

@@ -22,14 +22,16 @@ class ChannelIndexItem extends React.Component {
     this.props.deleteChannel(this.props.channel.id);
     e.stopPropagation();
     e.preventDefault();
-    if(this.props.currentChannel == this.props.channel.id) {
-      this.props.history.push("/home")
-      this.props.setCurrentServer(null)
+    if (this.props.currentChannel == this.props.channel.id) {
+      this.props.history.push("/home");
+      this.props.setCurrentServer(null);
     }
   }
 
   render() {
     let classes = this.props.isCurrent ? "channel selected-channel" : "channel";
+    console.log(this.props.currentServer)
+    console.log(this.props.currentUser)
 
     return (
       <div className={classes} onClick={this.setCurrentChannel}>
@@ -37,9 +39,11 @@ class ChannelIndexItem extends React.Component {
           <h1 className="text-indicator">#</h1>
           <p>{this.props.channel.name}</p>
         </div>
-        <div className="channel-options" onClick={this.deleteChannel}>
-          <i className="channel-delete fas fa-trash-alt"></i>
-        </div>
+        {this.props.currentServer.owner_id == this.props.currentUser ? (
+          <div className="channel-options" onClick={this.deleteChannel}>
+            <i className="channel-delete fas fa-trash-alt"></i>
+          </div>
+        ) : null}
       </div>
     );
   }
