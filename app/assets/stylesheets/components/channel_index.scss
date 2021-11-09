@@ -9,13 +9,12 @@
     justify-content: center;
     color: white;
     box-shadow: 0 1px #04040533;
-    width: 100%;
+    width: 15em;
 
     .server-name {
       display: flex;
-      justify-content: space-between;
-      width: 95%;
-      // max-width: 100%;
+      justify-content: flex-start;
+      width: 100%;
 
       h2 {
         white-space: nowrap;
@@ -26,52 +25,52 @@
       }
 
       i {
-        margin-right: 1em;
-      }
-    }
-
-    .dropdown {
-      position: relative;
-      top: 150%;
-      z-index: 1;
-      background-color: #18191c;
-      border-radius: 3px;
-      width: 11em;
-      padding: 10px 10px;
-
-      ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        li {
-          display: flex;
-          align-content: center;
-          justify-content: space-between;
-          border-radius: 3px;
-          padding: 5px 10px;
-          color: #d2d4d6;
-          padding: 5px 5px;
-          margin: 5px 0;
-        }
-
-        li:hover {
-          background-color: #4e5d94;
-          color: #d2d4d6;
-          cursor: pointer;
-        }
-
-        .invite-li {
-          color: #677bc4;
-        }
-
-        .delete-li {
-          color: rgb(219, 18, 0);
-        }
+        margin-left: 1em;
       }
     }
   }
 
+  .dropdown {
+    position: absolute;
+    top: 3.5em;
+    left: 6em;
+    z-index: 1;
+    background-color: #18191c;
+    border-radius: 3px;
+    width: 13em;
+    
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 10px;
+
+      li {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        border-radius: 3px;
+        padding: 5px 10px;
+        color: #d2d4d6;
+        padding: 5px 5px;
+        margin: 5px 0;
+      }
+
+      li:hover {
+        background-color: #4e5d94;
+        color: #d2d4d6;
+        cursor: pointer;
+      }
+
+      .invite-li {
+        color: #677bc4;
+      }
+
+      .delete-li {
+        color: rgb(219, 18, 0);
+      }
+    }
+  }
   .user-box {
     background-color: #292b2f;
     display: flex;

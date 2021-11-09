@@ -65,7 +65,7 @@ class ChannelIndex extends React.Component {
               <i className="fas fa-chevron-down"></i>
             )}
           </div>
-          {dropdown}
+          {/* {dropdown} */}
         </>
       );
     } else {
@@ -94,6 +94,7 @@ class ChannelIndex extends React.Component {
       <div className="channel-index">
         <div className="server-info" onClick={this.toggleInviteDropDown}>
           {serverInfo}
+          {dropdown}
         </div>
         <div className="channels-container">{channels}</div>
         <div className="user-box">
