@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom"
 
-import { getUserGroups, createGroup, getGroupInfo } from "../../actions/group_actions"
+import { getUserGroups, createGroup, getGroupInfo, deleteGroup } from "../../actions/group_actions"
 import { setCurrentGroup } from "../../actions/ui_actions";
 
 import GroupIndex from "./group_index";
@@ -24,8 +25,9 @@ const mapDispatchToProps = (dispatch) => {
     createGroup: (group) => dispatch(createGroup(group)),
     getUserGroups: (user) => dispatch(getUserGroups(user)),
     setCurrentGroup: (group) => dispatch(setCurrentGroup(group)),
-    getGroupInfo: (group) => dispatch(getGroupInfo(group))
+    getGroupInfo: (group) => dispatch(getGroupInfo(group)),
+    deleteGroup: (group) => dispatch(deleteGroup(group))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GroupIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GroupIndex));

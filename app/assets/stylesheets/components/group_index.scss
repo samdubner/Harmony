@@ -59,18 +59,19 @@
 .groups-container {
   padding: 10px;
 
-  .friend-selected {
+  .friend {
     display: flex;
-    background-color: rgba(79, 84, 92, 0.32);
+    background-color: #2f3136;
     margin-bottom: 1em;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    color: white;
+    color: #8e9297;
     height: 35px;
     padding: 5px;
     padding-left: 10px;
     border-radius: 5px;
+    cursor: pointer;
 
     i {
       font-size: 1.25em;
@@ -79,6 +80,22 @@
 
     .friends-text {
       font-size: 1em;
+    }
+  }
+
+  .friend:hover {
+    background-color: #33363c;
+    color: white;
+  }
+
+  .selected {
+    background-color: rgba(79, 84, 92, 0.32) !important;
+    color: white !important;
+
+    .group-info {
+      .group-name {
+        color: white;
+      }
     }
   }
 
@@ -92,9 +109,6 @@
 
     p {
       color: #8e9297;
-    }
-
-    .prompt-title {
     }
 
     .prompt-button {
@@ -117,11 +131,14 @@
   border-radius: 5px;
   padding: 5px;
   padding-right: 15px;
+  margin-bottom: 3px;
+  width: 90%;
 
   .group-info {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
 
     .group-icon {
       width: 2em;
@@ -134,29 +151,36 @@
     .group-name {
       color: #8e9297;
       font-size: 16px;
+      height: 1em;
+      width: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
-  // .channel-options {
-  //   i {
-  //     color: #2f3136;
-  //   }
-  // }
+  .group-options {
+    visibility: hidden;
+  }
 }
 
 .group:hover {
   background-color: #33363c;
   cursor: pointer;
+
+  .group-name {
+    color: white;
+  }
+
+  .group-options {
+    visibility: visible;
+
+    i {
+      color: #8e9297;
+    }
+  }
 }
 
-.group:hover .group-name {
-  color: white;
+.group-options:hover > i {
+  color: white !important;
 }
-
-// .channel:hover > .channel-options > i {
-//   color: #8e9297;
-// }
-
-// .channel-options:hover > i {
-//   color: white !important;
-// }

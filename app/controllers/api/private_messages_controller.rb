@@ -10,5 +10,13 @@ class Api::PrivateMessagesController < ApplicationController
     end
 
     def destroy
+        @message = PrivateMessage.find_by_id(params[:id])
+
+        if @message
+            @message.delete
+            render :show
+        else
+            render json: ["Private Message not found"], status: 404
+        end
     end
 end

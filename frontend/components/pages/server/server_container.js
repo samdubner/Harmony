@@ -1,13 +1,17 @@
-import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import { logout } from "../../../actions/session_actions"
-import { getChannelMessages, receiveMessage } from "../../../actions/message_actions"
-import { getServerChannels } from "../../../actions/channel_actions"
-import { serverInfo } from "../../../actions/server_actions"
-import { setCurrentServer } from "../../../actions/ui_actions"
+import { logout } from "../../../actions/session_actions";
+import {
+  getChannelMessages,
+  receiveMessage,
+  deleteMessage,
+} from "../../../actions/message_actions";
+import { getServerChannels } from "../../../actions/channel_actions";
+import { serverInfo } from "../../../actions/server_actions";
+import { setCurrentServer } from "../../../actions/ui_actions";
 
-import Server from "./server"
+import Server from "./server";
 
 const mapStateToProps = (state) => {
   let servers = [];
@@ -23,7 +27,7 @@ const mapStateToProps = (state) => {
     servers,
     channels: state.entities.channels,
     users: state.entities.users, //userArr,
-    messages: state.entities.messages
+    messages: state.entities.messages,
   };
 };
 
@@ -34,8 +38,9 @@ const mapDispatchToProps = (dispatch) => {
     receiveMessage: (message) => dispatch(receiveMessage(message)),
     getServerChannels: (server) => dispatch(getServerChannels(server)),
     serverInfo: (server) => dispatch(serverInfo(server)),
-    setCurrentServer: (server) => dispatch(setCurrentServer(server))
+    setCurrentServer: (server) => dispatch(setCurrentServer(server)),
+    deleteMessage: (message) => dispatch(deleteMessage(message)),
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Server))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Server));

@@ -13,7 +13,7 @@ const uiReducer = (prevState=_closed, action) => {
     case SET_CURRENT_INVITE:
         return Object.assign({}, prevState, {serverInvite: action.invite})
     case SET_CURRENT_SERVER:
-        return Object.assign({}, prevState, {currentServer: action.server.id})
+        return Object.assign({}, prevState, {currentServer: action.server})
     case SET_CURRENT_CHANNEL:
         return Object.assign({}, prevState, {currentChannel: action.channel})
     case SET_CURRENT_GROUP:

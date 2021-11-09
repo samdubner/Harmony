@@ -36,15 +36,19 @@ class ChannelIndex extends React.Component {
               <i className="fas fa-user-plus"></i>
             </li>
 
-            <li className="channel-li" onClick={this.props.createChannel}>
-              <h2>Add Channel</h2>
-              <i className="fas fa-plus"></i>
-            </li>
+            {this.props.server.owner_id == this.props.currentUser.id ? (
+              <>
+                <li className="channel-li" onClick={this.props.createChannel}>
+                  <h2>Add Channel</h2>
+                  <i className="fas fa-plus"></i>
+                </li>
 
-            <li className="delete-li" onClick={this.handleDeleteServer}>
-              <h2>Delete Server</h2>
-              <i className="fas fa-trash"></i>
-            </li>
+                <li className="delete-li" onClick={this.handleDeleteServer}>
+                  <h2>Delete Server</h2>
+                  <i className="fas fa-trash"></i>
+                </li>
+              </>
+            ) : null}
           </ul>
         </div>
       );
@@ -65,22 +69,27 @@ class ChannelIndex extends React.Component {
               <i className="fas fa-chevron-down"></i>
             )}
           </div>
-          {dropdown}
+          {/* {dropdown} */}
         </>
       );
     } else {
       serverInfo = null;
     }
 
-    if (this.props.server != undefined && Object.keys(this.props.channels).length != 0) {
-        channels = []
+    if (
+      this.props.server != undefined &&
+      Object.keys(this.props.channels).length != 0
+    ) {
+      let filtered = Object.values(this.props.channels).filter(
+        (channel) => channel.server_id == this.props.server.id
+      );
 
-        for (let [key, channel] of Object.entries(this.props.channels)) {
-            if (channel.server_id == this.props.server.id)
-             { 
-                 channels.push(<ChannelIndexItem name={channel.name} id={channel.id} key={key}/>)
-             }
-        }
+      channels = filtered.map((channel, idx) => {
+        let isCurrent = channel.id == this.props.currentChannel;
+        return (
+          <ChannelIndexItem key={idx} channel={channel} isCurrent={isCurrent} />
+        );
+      });
     } else {
       channels = null;
     }
@@ -89,6 +98,7 @@ class ChannelIndex extends React.Component {
       <div className="channel-index">
         <div className="server-info" onClick={this.toggleInviteDropDown}>
           {serverInfo}
+          {dropdown}
         </div>
         <div className="channels-container">{channels}</div>
         <div className="user-box">

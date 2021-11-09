@@ -26,7 +26,7 @@ class Api::ChannelsController < ApplicationController
             @channel.delete
             render :show
         else
-            render json: {}, status: 404
+            render json: ["Channel not found"], status: 404
         end
     end
 

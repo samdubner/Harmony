@@ -16,7 +16,7 @@ class Api::MessagesController < ApplicationController
       @message.delete
       render :show
     else
-      render json: {}, status: 404
+      render json: ["Message not found"], status: 404
     end
   end
 end

@@ -4,3 +4,10 @@ export const getGroupMessagesReq = group => {
         method: "GET"
     })
 }
+
+export const deletePrivateMessageReq = message => {
+    return $.ajax({
+        url: `/api/private_messages/${message}`,
+        method: "DELETE"
+    })
+}

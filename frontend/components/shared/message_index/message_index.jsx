@@ -86,18 +86,37 @@ class MessageIndex extends React.Component {
           id={message.id}
           key={key}
           deleteMessage={this.props.deleteMessage}
+          currentUser={this.props.currentUser}
         />
       );
     }
 
-    let channelName = this.props.children;
+    let channel;
+    let placeholder;
+    if (this.props.currentChannel && this.props.channel == "TextChannel") {
+      channel = this.props.channels[this.props.currentChannel];
+      placeholder = `Message #${channel.name}`;
+    } else if (
+      this.props.currentChannel &&
+      Object.keys(this.props.groups).length &&
+      this.props.channel == "PrivateChannel"
+    ) {
+      channel = this.props.groups[this.props.currentChannel];
+      placeholder = `Message #${channel.name}`;
+    } else {
+      placeholder = `Please select a channel to send messages...`;
+    }
 
     return (
       <div className="message-index">
-        <div className="message-header">{channelName}</div>
+        <div className="message-header">{this.props.children}</div>
         <div className="messages-container">{messages}</div>
         <div className="message-form">
-          <textarea onKeyPress={this.checkSendMessage} id="message-content" />
+          <textarea
+            onKeyPress={this.checkSendMessage}
+            id="message-content"
+            placeholder={placeholder}
+          />
         </div>
       </div>
     );

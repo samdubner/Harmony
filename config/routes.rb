@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :groups, except: [:index, :new, :edit, :update] do
       resources :private_messages, only: [:index]
     end
+    resources :private_messages, only: [:destroy]
     
     resources :channels, only: [:create, :destroy] do 
       resources :messages, only: [:index]
