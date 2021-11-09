@@ -102,7 +102,7 @@ class MessageIndex extends React.Component {
       this.props.channel == "PrivateChannel"
     ) {
       channel = this.props.groups[this.props.currentChannel];
-      placeholder = `Message #${channel.name}`;
+      placeholder = `Message ${channel.name}`;
     } else {
       placeholder = `Please select a channel to send messages...`;
     }
