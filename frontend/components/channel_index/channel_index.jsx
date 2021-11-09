@@ -36,15 +36,19 @@ class ChannelIndex extends React.Component {
               <i className="fas fa-user-plus"></i>
             </li>
 
-            <li className="channel-li" onClick={this.props.createChannel}>
-              <h2>Add Channel</h2>
-              <i className="fas fa-plus"></i>
-            </li>
+            {this.props.server.owner_id == this.props.currentUser.id ? (
+              <>
+                <li className="channel-li" onClick={this.props.createChannel}>
+                  <h2>Add Channel</h2>
+                  <i className="fas fa-plus"></i>
+                </li>
 
-            <li className="delete-li" onClick={this.handleDeleteServer}>
-              <h2>Delete Server</h2>
-              <i className="fas fa-trash"></i>
-            </li>
+                <li className="delete-li" onClick={this.handleDeleteServer}>
+                  <h2>Delete Server</h2>
+                  <i className="fas fa-trash"></i>
+                </li>
+              </>
+            ) : null}
           </ul>
         </div>
       );
