@@ -38,7 +38,6 @@ class MessageIndex extends React.Component {
   }
 
   createConsumer() {
-    console.log("created consumer")
     this.cable = ActionCable.createConsumer(
       `wss://${window.location.host}/cable`
     );
