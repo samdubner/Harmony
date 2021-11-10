@@ -36,7 +36,9 @@ class MessageIndex extends React.Component {
   }
 
   createConsumer() {
-    this.cable = ActionCable.createConsumer(`ws://${window.location.host}/cable`);
+    this.cable = ActionCable.createConsumer(
+      `wss://${window.location.host}/cable`
+    );
     this.channel = this.cable.subscriptions.create(
       {
         channel: this.props.channel,
