@@ -12,8 +12,10 @@ class MessageIndex extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.currentChannel)
+    if (this.props.currentChannel) {
       this.props.getChannelMessages(this.props.currentChannel);
+      this.createConsumer()
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -36,6 +38,7 @@ class MessageIndex extends React.Component {
   }
 
   createConsumer() {
+    console.log("created consumer")
     this.cable = ActionCable.createConsumer(
       `wss://${window.location.host}/cable`
     );
