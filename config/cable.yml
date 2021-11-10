@@ -7,6 +7,4 @@ test:
 production:
   adapter: redis
   url: redis://redistogo:1b5560a1af9f409d094d72fcceaa47c0@crestfish.redistogo.com:11554/
-  host: crestfish.redistogo.com
-  port: 11554
   channel_prefix: Harmony_production
