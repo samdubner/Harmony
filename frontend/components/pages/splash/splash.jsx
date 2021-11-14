@@ -30,10 +30,10 @@ class SplashPage extends React.Component {
         <div className="splash-body">
           <h1 className="harmony-title">Harmony</h1>
           <p className="harmony-desc">
-            ...where you can belong to a school club, a gaming group, or a
-            worldwide art community. Where just you and a handful of friends can
-            spend time together. A place that makes it easy to talk every day
-            and hang out more often.
+            ...where you can easily talk to all your friends about
+            anything going on. Stay connected to everyone that matters any time
+            of day. Harmony keeps all your friends together in one place so you
+            can focus on just chatting and having fun!
           </p>
           <NavLink to={route}>
             <div className="harmony-button">{text}</div>
