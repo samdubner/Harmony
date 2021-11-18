@@ -20,7 +20,7 @@ class SplashPage extends React.Component {
           <a href="https://github.com/samdubner" target="_blank">
             Github
           </a>
-          <a href=" www.linkedin.com/in/samuel-dubner" target="_blank">
+          <a href="https://www.linkedin.com/in/samuel-dubner" target="_blank">
             Linkedin
           </a>
           <a href="https://angel.co/u/samuel-dubner" target="_blank">
