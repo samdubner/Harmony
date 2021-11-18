@@ -7,40 +7,46 @@
     box-shadow: 0 1px rgba(4, 4, 5, 0.2);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding-left: 1em;
 
-    i {
-      color: #72767d;
-      font-size: 1.25em;
-      margin-right: 10px;
-    }
+    .friends-selection {
+      display: flex;
+      align-items: center;
+      height: 100%;
 
-    .friends-header-title {
-      color: white;
-      font-size: 1.1em;
-      font-weight: 700;
-      margin-right: 1em;
-    }
+      i {
+        color: #72767d;
+        font-size: 1.25em;
+        margin-right: 10px;
+      }
 
-    .divider {
-      width: 1px;
-      height: 50%;
-      background-color: hsla(0, 0%, 100%, 0.06);
-      margin-right: 1em;
-    }
+      .friends-header-title {
+        color: white;
+        font-size: 1.1em;
+        font-weight: 700;
+        margin-right: 1em;
+      }
 
-    .friends-view {
-      margin-right: 1.5em;
-      color: #b9bbbe;
-      padding: 6px;
-      border-radius: 5px;
-    }
+      .divider {
+        width: 1px;
+        height: 50%;
+        background-color: hsla(0, 0%, 100%, 0.1);
+        margin-right: 1em;
+      }
 
-    .friends-view:hover {
-      cursor: pointer;
-      color: #dcddde;
-      background-color: rgba(79, 84, 92, 0.36);
+      .friends-view {
+        margin-right: 1.5em;
+        color: #b9bbbe;
+        padding: 6px;
+        border-radius: 5px;
+      }
+
+      .friends-view:hover {
+        cursor: pointer;
+        color: #dcddde;
+        background-color: rgba(79, 84, 92, 0.36);
+      }
     }
   }
 

@@ -3,6 +3,8 @@ import React from "react";
 import RequestItem from "./request_item";
 import FriendItem from "./friend_item";
 
+import PersonalLinks from "../shared/personal_links/personal_links";
+
 class FriendIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -65,23 +67,26 @@ class FriendIndex extends React.Component {
     return (
       <div className="friends-index">
         <div className="friends-header">
-          <i className="fas fa-user-friends"></i>
-          <p className="friends-header-title">Friends</p>
-          <div className="divider" />
-          <div
-            className="friends-view"
-            id="all"
-            onClick={this.changeViewOption}
-          >
-            <p>All</p>
+          <div className="friends-selection">
+            <i className="fas fa-user-friends"></i>
+            <p className="friends-header-title">Friends</p>
+            <div className="divider" />
+            <div
+              className="friends-view"
+              id="all"
+              onClick={this.changeViewOption}
+            >
+              <p>All</p>
+            </div>
+            <div
+              className="friends-view"
+              id="pending"
+              onClick={this.changeViewOption}
+            >
+              <p>Pending</p>
+            </div>
           </div>
-          <div
-            className="friends-view"
-            id="pending"
-            onClick={this.changeViewOption}
-          >
-            <p>Pending</p>
-          </div>
+          <PersonalLinks />
         </div>
         <div className="friends-container">
           <div className="friends-list-info">
