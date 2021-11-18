@@ -3,6 +3,8 @@ import React from "react";
 import UserIndexItem from "./user_index_item";
 import FriendItem from "./friend_item";
 
+import PersonalLinks from "../personal_links/personal_links";
+
 class UserIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -45,7 +47,9 @@ class UserIndex extends React.Component {
 
     return (
       <div className="user-index">
-        <div className="user-header"></div>
+        <div className="user-header">
+          <PersonalLinks />
+        </div>
         <div className="users-container">
           {this.state.display ? (
             <div className="friend-list">

@@ -4,9 +4,15 @@
   grid-template-rows: 3em 1fr;
 
   .user-header {
-    // grid-template-rows: 1 2;
     box-shadow: 0 1px rgba(4, 4, 5, 0.2);
     background-color: #36393f;
+    display: flex;
+    position: relative;
+
+    .personal-links {
+      position: relative;
+      right: 40px;
+    }
   }
 
   .users-container {

@@ -17,23 +17,23 @@ class SplashPage extends React.Component {
     return (
       <div className="splash-container">
         <div className="splash-header">
-          <a href="https://www.google.com" target="_blank">
+          <a href="https://github.com/samdubner" target="_blank">
             Github
           </a>
-          <a href="https://www.google.com" target="_blank">
+          <a href="https://www.linkedin.com/in/samuel-dubner" target="_blank">
             Linkedin
           </a>
-          <a href="https://www.google.com" target="_blank">
+          <a href="https://angel.co/u/samuel-dubner" target="_blank">
             AngelList
           </a>
         </div>
         <div className="splash-body">
           <h1 className="harmony-title">Harmony</h1>
           <p className="harmony-desc">
-            ...where you can easily talk to all your friends about
-            anything going on. Stay connected to everyone that matters any time
-            of day. Harmony keeps all your friends together in one place so you
-            can focus on just chatting and having fun!
+            ...where you can easily talk to all your friends about anything
+            going on. Stay connected to everyone that matters any time of day.
+            Harmony keeps all your friends together in one place so you can
+            focus on just chatting and having fun!
           </p>
           <NavLink to={route}>
             <div className="harmony-button">{text}</div>
