@@ -26,6 +26,16 @@ class ChannelIndex extends React.Component {
   }
 
   render() {
+    if (
+      !this.props.currentChannel &&
+      this.props.server &&
+      Object.values(this.props.channels).length
+    ) {
+      console.log("CURRENTCHANNELSHOULDBECHANGED");
+      console.log(Object.values(this.props.channels)[0].id);
+      // this.props.setCurrentChannel(Object.values(this.props.channels)[0].id)
+    }
+
     let dropdown;
     if (this.state.dropdown) {
       dropdown = (
@@ -69,7 +79,6 @@ class ChannelIndex extends React.Component {
               <i className="fas fa-chevron-down"></i>
             )}
           </div>
-          {/* {dropdown} */}
         </>
       );
     } else {
@@ -80,6 +89,8 @@ class ChannelIndex extends React.Component {
       this.props.server != undefined &&
       Object.keys(this.props.channels).length != 0
     ) {
+      let isSingleChannel = Object.keys(this.props.channels).length == 1;
+
       let filtered = Object.values(this.props.channels).filter(
         (channel) => channel.server_id == this.props.server.id
       );
@@ -87,7 +98,12 @@ class ChannelIndex extends React.Component {
       channels = filtered.map((channel, idx) => {
         let isCurrent = channel.id == this.props.currentChannel;
         return (
-          <ChannelIndexItem key={idx} channel={channel} isCurrent={isCurrent} />
+          <ChannelIndexItem
+            key={idx}
+            channel={channel}
+            isCurrent={isCurrent}
+            isSingleChannel={isSingleChannel}
+          />
         );
       });
     } else {

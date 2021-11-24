@@ -37,7 +37,8 @@ class ChannelIndexItem extends React.Component {
           <h1 className="text-indicator">#</h1>
           <p>{this.props.channel.name}</p>
         </div>
-        {this.props.currentServer.owner_id == this.props.currentUser ? (
+        {this.props.currentServer.owner_id == this.props.currentUser &&
+        !this.props.isSingleChannel ? (
           <div className="channel-options" onClick={this.deleteChannel}>
             <i className="channel-delete fas fa-trash-alt"></i>
           </div>
