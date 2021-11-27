@@ -26,7 +26,6 @@ class Server extends React.Component {
         this.props.currentChannel.toString()
       )
     ) {
-      console.log(this.props.currentChannel);
       channelName = (
         <>
           <h1>#</h1>

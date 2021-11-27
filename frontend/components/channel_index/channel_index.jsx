@@ -6,19 +6,23 @@ class ChannelIndex extends React.Component {
     super(props);
     this.state = {
       dropdown: false,
-      channelSelected: false
+      channelSelected: false,
     };
     this.toggleInviteDropDown = this.toggleInviteDropDown.bind(this);
     this.handleDeleteServer = this.handleDeleteServer.bind(this);
   }
 
   componentDidUpdate() {
-    if(
-      Object.values(this.props.channels).length &&
-      !this.state.channelSelected
+    if (
+      (Object.values(this.props.channels).length &&
+        !this.props.currentChannel) ||
+      (this.props.currentChannel &&
+        !Object.keys(this.props.channels).includes(
+          this.props.currentChannel.toString()
+        ))
     ) {
       this.props.setCurrentChannel(Object.values(this.props.channels)[0].id);
-      this.setState({channelSelected: true})
+      this.setState({ channelSelected: true });
     }
   }
 
