@@ -20,7 +20,13 @@ class Server extends React.Component {
 
   render() {
     let channelName = null;
-    if (this.props.currentChannel) {
+    if (
+      this.props.currentChannel &&
+      Object.keys(this.props.channels).includes(
+        this.props.currentChannel.toString()
+      )
+    ) {
+      console.log(this.props.currentChannel);
       channelName = (
         <>
           <h1>#</h1>
