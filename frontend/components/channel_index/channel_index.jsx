@@ -6,9 +6,24 @@ class ChannelIndex extends React.Component {
     super(props);
     this.state = {
       dropdown: false,
+      channelSelected: false,
     };
     this.toggleInviteDropDown = this.toggleInviteDropDown.bind(this);
     this.handleDeleteServer = this.handleDeleteServer.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (
+      (Object.values(this.props.channels).length &&
+        !this.props.currentChannel) ||
+      (this.props.currentChannel &&
+        !Object.keys(this.props.channels).includes(
+          this.props.currentChannel.toString()
+        ))
+    ) {
+      this.props.setCurrentChannel(Object.values(this.props.channels)[0].id);
+      this.setState({ channelSelected: true });
+    }
   }
 
   toggleInviteDropDown(e) {
@@ -69,7 +84,6 @@ class ChannelIndex extends React.Component {
               <i className="fas fa-chevron-down"></i>
             )}
           </div>
-          {/* {dropdown} */}
         </>
       );
     } else {
@@ -80,6 +94,8 @@ class ChannelIndex extends React.Component {
       this.props.server != undefined &&
       Object.keys(this.props.channels).length != 0
     ) {
+      let isSingleChannel = Object.keys(this.props.channels).length == 1;
+
       let filtered = Object.values(this.props.channels).filter(
         (channel) => channel.server_id == this.props.server.id
       );
@@ -87,7 +103,12 @@ class ChannelIndex extends React.Component {
       channels = filtered.map((channel, idx) => {
         let isCurrent = channel.id == this.props.currentChannel;
         return (
-          <ChannelIndexItem key={idx} channel={channel} isCurrent={isCurrent} />
+          <ChannelIndexItem
+            key={idx}
+            channel={channel}
+            isCurrent={isCurrent}
+            isSingleChannel={isSingleChannel}
+          />
         );
       });
     } else {

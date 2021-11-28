@@ -14,7 +14,7 @@ class MessageIndex extends React.Component {
   componentDidMount() {
     if (this.props.currentChannel) {
       this.props.getChannelMessages(this.props.currentChannel);
-      this.createConsumer()
+      this.createConsumer();
     }
   }
 
@@ -96,7 +96,12 @@ class MessageIndex extends React.Component {
 
     let channel;
     let placeholder;
-    if (this.props.currentChannel && this.props.channel == "TextChannel") {
+    // console.log(Object.keys(this.props.channels).includes(this.props.currentChannel.toString()))
+    if (
+      this.props.currentChannel &&
+      this.props.channel == "TextChannel" &&
+      Object.keys(this.props.channels).includes(this.props.currentChannel.toString())
+    ) {
       channel = this.props.channels[this.props.currentChannel];
       placeholder = `Message #${channel.name}`;
     } else if (
