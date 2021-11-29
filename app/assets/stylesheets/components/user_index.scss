@@ -8,10 +8,16 @@
     background-color: #36393f;
     display: flex;
     position: relative;
+    width: 15em;
 
     .personal-links {
       position: relative;
-      right: 40px;
+      right: 50px;
+      gap: 0;
+
+      a {
+        margin-left: 1em;
+      }
     }
   }
 
