@@ -30,7 +30,7 @@ class Discovery extends React.Component {
 
     return (
       <div className="discovery-container">
-        <ServerIndexContainer inServer={false} />
+        <ServerIndexContainer inDiscovery={true}/>
         <div className="discovery-body">
           <div className="search-box">
             <p>Filter Harmony Servers</p>
