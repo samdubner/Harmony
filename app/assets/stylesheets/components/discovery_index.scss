@@ -1,0 +1,52 @@
+.discovery-index {
+  background-color: #36393f;
+  display: grid;
+  // grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 25% 75%;
+  justify-items: center;
+  align-items: center;
+}
+
+.search-box {
+  width: 95%;
+  height: 90%;
+  background-color: #5729f8;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: white;
+    font-size: 45px;
+  }
+  div {
+    height: 3.5em;
+    width: 60%;
+    
+    input {
+      border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      border-bottom-style: hidden;
+      width: 100%;
+      height: 3em;
+      padding-left: 1em;
+      border-radius: 5px;
+      box-shadow: #3a1ba8 1px 1px 20px;
+    }
+
+    input:focus {
+      border: solid 1px #5729f8;
+      outline: solid 3px #aa9ef2;
+    }
+  }
+}
+
+.servers-list {
+  width: 95%;
+  height: 100%;
+  // background-color: blue;
+}

@@ -49,7 +49,7 @@ export const getUserServers = user => dispatch => {
         .then(servers => dispatch(receiveServers(servers)))
 }
 
-export const receiveAllServers = () => dispatch => {
+export const getAllServers = () => dispatch => {
     return getAllServersReq()
         .then(servers => dispatch(receiveAllServers(servers)))
 }
