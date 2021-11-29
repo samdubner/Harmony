@@ -1,4 +1,4 @@
-.discovery-index {
+.discovery-body {
   background-color: #36393f;
   display: grid;
   // grid-template-columns: repeat(4, 1fr);
@@ -25,7 +25,7 @@
   div {
     height: 3.5em;
     width: 60%;
-    
+
     input {
       border-top-style: hidden;
       border-right-style: hidden;
@@ -48,5 +48,32 @@
 .servers-list {
   width: 95%;
   height: 100%;
+
+  .discovery-text {
+    p {
+      color: white;
+      font-size: 25px;
+      font-weight: 700;
+      height: 2em;
+    }
+  }
+
+  .discovery-index {
+    height: calc(100% - 4em);
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    align-content: flex-start;
+    gap: 1em;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+  }
   // background-color: blue;
+}
+
+.discovery-item {
+  width: 20%;
+  height: 2em;
+  background-color: #292b2f;
+  border-radius: 5px;
 }

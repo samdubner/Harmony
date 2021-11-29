@@ -1,6 +1,7 @@
 import React from "react";
 
 import ServerIndexContainer from "../../shared/server_index/server_index_container";
+import DiscoveryItem from "./discovery_item";
 
 class Discovery extends React.Component {
   constructor(props) {
@@ -8,18 +9,29 @@ class Discovery extends React.Component {
     this.state = {
       filter: "",
     };
-    this.updateFilter = this.updateFilter.bind(this)
+    this.updateFilter = this.updateFilter.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getAllServers();
   }
 
   updateFilter(e) {
-    this.setState({filter: e.target.value})
+    console.log(this.props.servers);
+    this.setState({ filter: e.target.value });
   }
 
   render() {
+    let servers = Object.values(this.props.servers).filter(
+      (server) =>
+        server.name.includes(this.state.filter) &&
+        !this.props.userServers[server.id]
+    );
+
     return (
       <div className="discovery-container">
-        <ServerIndexContainer servers={this.props.servers} inServer={false} />
-        <div className="discovery-index">
+        <ServerIndexContainer inServer={false} />
+        <div className="discovery-body">
           <div className="search-box">
             <p>Filter Harmony Servers</p>
             <div>
@@ -31,7 +43,24 @@ class Discovery extends React.Component {
               />
             </div>
           </div>
-          <div className="servers-list"></div>
+          <div className="servers-list">
+            <div className="discovery-text">
+              <p>All Harmony Servers</p>
+            </div>
+
+            <div className="discovery-index">
+              {servers.map((server, idx) => {
+                return (
+                  <DiscoveryItem
+                    key={idx}
+                    server={server}
+                    joinServer={this.props.joinServer}
+                    currentUser={this.props.currentUser}
+                  />
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     );

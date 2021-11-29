@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         promptModal: () => dispatch(setModal("prompt")),
-        joinServer: (user, invite) => dispatch(joinServer(user, invite)),
+        joinServer: (joinInfo) => dispatch(joinServer(joinInfo)),
         getUserServers: (user) => dispatch(getUserServers(user))
     }
 }
