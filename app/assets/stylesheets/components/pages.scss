@@ -1,27 +1,35 @@
 .home-container {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 5em 15em 1fr;
-    cursor: default;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 5em 15em 1fr;
+  cursor: default;
 }
 
 .server-container {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 5em 15em 1fr 15em;
-    cursor: default;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 5em 15em 1fr 15em;
+  cursor: default;
 }
 
 .group-container {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 5em 15em 1fr 15em;
-    cursor: default;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 5em 15em 1fr 15em;
+  cursor: default;
 }
 
 .splash-container {
-    display: grid;
-    height: 100vh;
-    grid-template-rows: 5em 1fr;
-    background-color: #4650e8;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 5em 1fr;
+  background-color: #4650e8;
+  cursor: default;
+}
+
+.discovery-container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 5em 1fr;
+  cursor: default;
 }

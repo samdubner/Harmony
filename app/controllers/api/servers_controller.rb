@@ -1,7 +1,6 @@
 class Api::ServersController < ApplicationController
     def index
         @servers = User.find_by_id(params[:user_id]).joined_servers
-        
         render :index
     end
 

@@ -42,7 +42,7 @@
   outline: 1px solid lightgray;
 }
 
-.add-server-index-item {
+.extra-server-index-item {
   width: 3.5em;
   height: 3.5em;
   margin: 0 auto;
@@ -60,12 +60,21 @@
     font-size: 25pt;
     font-weight: 300;
   }
+
+  i {
+    margin: auto;
+    color: #43b581;
+    font-size: 13pt;
+  }
 }
 
-.add-server-index-item:hover {
+.extra-server-index-item:hover {
   border-radius: 15px;
   background-color: #43b581;
   p {
+    color: white;
+  }
+  i {
     color: white;
   }
 }

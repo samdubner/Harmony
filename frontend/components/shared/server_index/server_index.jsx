@@ -11,10 +11,10 @@ import CreateChannelModal from "./server_modal/create_channel_modal_container";
 class ServerIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.setServerHome = this.setServerHome.bind(this);
+    this.setServerNull = this.setServerNull.bind(this);
   }
 
-  setServerHome() {
+  setServerNull() {
     this.props.setCurrentServer(null);
   }
 
@@ -64,14 +64,17 @@ class ServerIndex extends React.Component {
         modal = null;
     }
 
-    let homeItemClasses = "server-index-item selected-server";
-    if (this.props.inServer) {
-      homeItemClasses = "server-index-item";
+    let homeItemClasses = "server-index-item";
+    let discoveryItemClasses = "extra-server-index-item"
+    if (!this.props.inServer && !this.props.inDiscovery) {
+      homeItemClasses = "server-index-item selected-server";
+    } else if (this.props.inDiscovery) {
+      discoveryItemClasses = "extra-server-index-item selected-server"
     }
 
     return (
       <div className="server-index">
-        <NavLink to="/home" onClick={this.setServerHome}>
+        <NavLink to="/home" onClick={this.setServerNull}>
           <div className={homeItemClasses}>
             <h2>H</h2>
           </div>
@@ -93,9 +96,18 @@ class ServerIndex extends React.Component {
           );
         })}
 
-        <div className="add-server-index-item" onClick={this.props.promptModal}>
+        <div
+          className="extra-server-index-item"
+          onClick={this.props.promptModal}
+        >
           <p>+</p>
         </div>
+
+        <NavLink to="/discovery" onClick={this.setServerNull}>
+          <div className={discoveryItemClasses}>
+            <i className="fas fa-search"></i>
+          </div>
+        </NavLink>
 
         {modal}
       </div>

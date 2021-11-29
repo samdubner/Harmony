@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :servers, except: [:index, :new, :edit] do
       resources :channels, only: [:index]
     end
+    resources :all_servers, only: [:index]
 
     resources :groups, except: [:index, :new, :edit, :update] do
       resources :private_messages, only: [:index]
