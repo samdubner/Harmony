@@ -4,12 +4,15 @@ import {
   serverInfoReq,
   updateServerReq,
   deleteServerReq,
+  getAllServersReq
 } from "../util/server_api_util";
 
 //Action Types
 export const RECEIVE_SERVER = "RECEIVE_SERVER"
 export const RECEIVE_SERVERS = "RECEIVE_SERVERS"
 export const DELETE_SERVER = "DELETE_SERVER"
+
+export const RECEIVE_ALL_SERVERS = "RECEIVE_ALL_SERVERS"
 
 //Regular Action Creators
 const receiveServer = server => {
@@ -33,10 +36,22 @@ const removeServer = server => {
     }
 }
 
+const receiveAllServers = servers => {
+    return {
+        type: RECEIVE_ALL_SERVERS,
+        servers
+    }
+}
+
 //Thunk Action Creators
 export const getUserServers = user => dispatch => {
     return getUserServersReq(user)
         .then(servers => dispatch(receiveServers(servers)))
+}
+
+export const receiveAllServers = () => dispatch => {
+    return getAllServersReq()
+        .then(servers => dispatch(receiveAllServers(servers)))
 }
 
 export const createServer = (serverData) => (dispatch) => {

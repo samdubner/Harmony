@@ -5,7 +5,7 @@ export const getUserServersReq = user => {
     })
 }
 
-export const getAllServers = () => {
+export const getAllServersReq = () => {
     return $.ajax({
         url: `/api/all_servers`,
         method: "GET",
