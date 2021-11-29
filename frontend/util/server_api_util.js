@@ -1,7 +1,14 @@
 export const getUserServersReq = user => {
     return $.ajax({
         url: `/api/users/${user.id}/servers`,
-        method: "GET"
+        method: "GET",
+    })
+}
+
+export const getAllServers = () => {
+    return $.ajax({
+        url: `/api/all_servers`,
+        method: "GET",
     })
 }
 
