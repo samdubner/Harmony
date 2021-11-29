@@ -7,7 +7,7 @@ class DiscoveryItem extends React.Component {
   }
 
   joinServer() {
-      console.log(this.props.currentUser)
+    console.log(this.props.currentUser);
     this.props.joinServer({
       user_id: this.props.currentUser,
       invite: this.props.server.invite,
@@ -27,9 +27,13 @@ class DiscoveryItem extends React.Component {
 
     return (
       <div className="discovery-item">
-        <div className="server-icon">{initializedServerName}</div>
-        <p>{this.props.server.name}</p>
-        <div onClick={this.joinServer}>Join Server</div>
+        <div className="server-content">
+          <div className="server-icon">{initializedServerName}</div>
+          <p className="server-name">{this.props.server.name}</p>
+        </div>
+        <div className="server-actions">
+          <div onClick={this.joinServer}>Join Server</div>
+        </div>
       </div>
     );
   }

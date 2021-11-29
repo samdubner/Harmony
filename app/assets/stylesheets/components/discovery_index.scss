@@ -71,8 +71,58 @@
 }
 
 .discovery-item {
-  width: 20%;
-  height: 2em;
+  width: 25%;
+  height: 12em;
   background-color: #292b2f;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .server-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .server-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3em;
+      width: 3em;
+      background-color: lightgray;
+      border-radius: 50%;
+    }
+
+    .server-name {
+      color: white;
+    }
+  }
+
+  .server-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      height: 2em;
+      background-color: #5729f8;
+      color: white;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color .2s;
+    }
+
+    div:hover {
+        background-color: #4923d1;
+    }
+  }
 }

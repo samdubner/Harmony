@@ -24,7 +24,7 @@ class Discovery extends React.Component {
   render() {
     let servers = Object.values(this.props.servers).filter(
       (server) =>
-        server.name.includes(this.state.filter) &&
+        server.name.toLowerCase().includes(this.state.filter.toLowerCase()) &&
         !this.props.userServers[server.id]
     );
 
