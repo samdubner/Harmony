@@ -30,10 +30,11 @@ class UserIndexItem extends React.Component {
       classes = "user-actions hidden";
     }
 
+    console.log(this.props.user)
     return (
       <div className="user-container">
         <div className="user-info">
-          <div className="user-pfp"></div>
+          <div className="user-pfp" style={{backgroundColor: this.props.user.color}}></div>
           <h1>{this.props.user.username}</h1>
         </div>
         <div className={classes} onClick={this.handleClick}>

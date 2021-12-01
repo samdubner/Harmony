@@ -41,7 +41,7 @@ class ChannelIndex extends React.Component {
   }
 
   toggleColors() {
-    this.props.openColorModal()
+    this.props.openColorModal();
   }
 
   handleDeleteServer(e) {
@@ -123,7 +123,9 @@ class ChannelIndex extends React.Component {
       channels = null;
     }
 
-    let colorModal = this.props.colorModalState ? <ColorModalContainer /> : null;
+    let colorModal = this.props.colorModalState ? (
+      <ColorModalContainer />
+    ) : null;
 
     return (
       <div className="channel-index">
@@ -131,11 +133,14 @@ class ChannelIndex extends React.Component {
           {serverInfo}
           {dropdown}
         </div>
-          {colorModal}
+        {colorModal}
         <div className="channels-container">{channels}</div>
         <div className="user-box">
           <div className="user-info">
-            <div className="user-pfp"></div>
+            <div
+              className="user-pfp"
+              style={{ backgroundColor: this.props.currentUser.color }}
+            ></div>
             <h3>{this.props.currentUser.username}</h3>
           </div>
           <div className="user-options">
