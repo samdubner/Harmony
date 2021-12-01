@@ -26,7 +26,6 @@
     .user-pfp {
       width: 2em;
       height: 2em;
-      background-color: lightgray;
       border-radius: 50%;
       margin-right: 0.5em;
     }
@@ -34,6 +33,10 @@
     .user-options {
       display: flex;
       align-items: center;
+
+      i {
+        cursor: pointer;
+      }
     }
 
     h3 {

@@ -96,7 +96,6 @@ class MessageIndex extends React.Component {
 
     let channel;
     let placeholder;
-    // console.log(Object.keys(this.props.channels).includes(this.props.currentChannel.toString()))
     if (
       this.props.currentChannel &&
       this.props.channel == "TextChannel" &&

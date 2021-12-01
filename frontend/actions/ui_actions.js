@@ -1,4 +1,5 @@
 export const SET_MODAL = "SET_SERVER_MODAL";
+export const SET_COLOR_MODAL = "SET_COLOR_MODAL";
 export const SET_CURRENT_INVITE = "SET_CURRENT_INVITE";
 export const SET_CURRENT_SERVER = "SET_CURRENT_SERVER";
 export const SET_CURRENT_CHANNEL = "SET_CURRENT_CHANNEL";
@@ -10,6 +11,13 @@ export const setModal = (state) => {
     state,
   };
 };
+
+export const setColorModal = (state) => {
+  return {
+    type: SET_COLOR_MODAL,
+    state
+  }
+}
 
 export const setCurrentInvite = (invite) => {
   return {

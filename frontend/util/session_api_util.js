@@ -24,3 +24,13 @@ export const logoutReq = () => {
         method: "DELETE"
     })
 }
+
+export const updateColorReq = user => {
+    return $.ajax({
+        url: `/api/users/${user.id}`,
+        method: "PUT",
+        data: {
+            user
+        }
+    })
+}

@@ -94,6 +94,10 @@
     .user-options {
       display: flex;
       align-items: center;
+
+      i {
+        cursor: pointer;
+      }
     }
 
     h3 {

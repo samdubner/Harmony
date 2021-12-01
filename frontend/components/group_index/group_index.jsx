@@ -82,7 +82,12 @@ class GroupIndex extends React.Component {
 
         <div className="user-box">
           <div className="user-info">
-            <div className="user-pfp"></div>
+            <div
+              className="user-pfp"
+              style={{
+                backgroundColor: this.props.users[this.props.currentUser].color,
+              }}
+            ></div>
             <h3>{this.props.users[this.props.currentUser].username}</h3>
           </div>
           <div className="user-options">

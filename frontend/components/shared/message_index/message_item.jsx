@@ -14,7 +14,10 @@ class MessageItem extends React.Component {
     return (
       <div className="message-item">
         <div className="message-info">
-          <div className="message-pfp" />
+          <div
+            className="message-pfp"
+            style={{ backgroundColor: this.props.author.color }}
+          />
           <div className="message-details">
             <div className="message-author">
               <p>{this.props.author.username}</p>

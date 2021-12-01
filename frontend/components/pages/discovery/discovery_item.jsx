@@ -7,7 +7,6 @@ class DiscoveryItem extends React.Component {
   }
 
   joinServer() {
-    console.log(this.props.currentUser);
     this.props.joinServer({
       user_id: this.props.currentUser,
       invite: this.props.server.invite,
