@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 
-import { setModal, setCurrentInvite, setCurrentChannel } from "../../actions/ui_actions"
+import { setModal, setColorModal, setCurrentInvite, setCurrentChannel } from "../../actions/ui_actions"
 import { deleteServer } from "../../actions/server_actions"
 
 import { getServerChannels } from "../../actions/channel_actions"
@@ -19,6 +19,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         openInvite: () => dispatch(setModal("invite")),
+        openColorModal: () => dispatch(setColorModal(true)),
         createChannel: () => dispatch(setModal("createChannel")),
         setCurrentChannel: (channel) => dispatch(setCurrentChannel(channel)),
         setCurrentInvite: (invite) => dispatch(setCurrentInvite(invite)),

@@ -1,4 +1,4 @@
-import { SET_MODAL, SET_CURRENT_INVITE, SET_CURRENT_SERVER, SET_CURRENT_CHANNEL, SET_CURRENT_GROUP } from "../../actions/ui_actions"
+import { SET_MODAL, SET_COLOR_MODAL, SET_CURRENT_INVITE, SET_CURRENT_SERVER, SET_CURRENT_CHANNEL, SET_CURRENT_GROUP } from "../../actions/ui_actions"
 
 const _closed = {
     modalState: "closed"

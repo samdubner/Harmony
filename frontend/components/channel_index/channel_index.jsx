@@ -41,7 +41,7 @@ class ChannelIndex extends React.Component {
   }
 
   toggleColors() {
-    this.setState({ modalOpen: !this.state.modalOpen });
+    this.props.openColorModal()
   }
 
   handleDeleteServer(e) {
@@ -130,8 +130,8 @@ class ChannelIndex extends React.Component {
         <div className="server-info" onClick={this.toggleInviteDropDown}>
           {serverInfo}
           {dropdown}
-          {colorModal}
         </div>
+          {colorModal}
         <div className="channels-container">{channels}</div>
         <div className="user-box">
           <div className="user-info">
