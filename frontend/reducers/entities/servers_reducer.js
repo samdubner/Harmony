@@ -4,6 +4,8 @@ import {
         DELETE_SERVER
     } from "../../actions/server_actions"
 
+import { REMOVE_USER_SERVER } from "../../actions/user_server_actions";
+
 const serversReducer = (prevState={}, action) => {
     Object.freeze(prevState)
     let nextState = Object.assign({}, prevState);
@@ -34,6 +36,9 @@ const serversReducer = (prevState={}, action) => {
             return Object.assign(nextState, {[server.id]: server});
         case DELETE_SERVER:
             delete nextState[action.server.id];
+            return nextState;
+        case REMOVE_USER_SERVER:
+            delete nextState[action.server.id]
             return nextState;
         default: 
             return prevState;

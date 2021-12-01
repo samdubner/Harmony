@@ -16,6 +16,17 @@ class Api::UserServersController < ApplicationController
     end
 
     def destroy
-
+        @server = Server.find_by_id(params[:leaveInfo][:server_id])
+        user_server = UserServer.find_by(
+            server_id: params[:leaveInfo][:server_id],
+            user_id: params[:leaveInfo][:user_id]
+        )
+        
+        if user_server
+            user_server.delete
+            render :delete
+        else
+            render json: {}, status: 404
+        end
     end
 end

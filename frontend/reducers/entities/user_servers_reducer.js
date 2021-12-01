@@ -1,4 +1,4 @@
-import { RECEIVE_USER_SERVER } from "../../actions/user_server"
+import { RECEIVE_USER_SERVER } from "../../actions/user_server_actions"
 
 const userServersReducer = (prevState={}, action) => {
     Object.freeze(prevState)

@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import ServerModal from "./server_modal"
 
 import { setModal } from "../../../../actions/ui_actions"
-import { joinServer } from "../../../../actions/user_server"
+import { joinServer } from "../../../../actions/user_server_actions"
 import { getUserServers } from "../../../../actions/server_actions"
 
 const mapStateToProps = state => {
