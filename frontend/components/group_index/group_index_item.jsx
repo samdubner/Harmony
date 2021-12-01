@@ -9,6 +9,7 @@ class GroupIndexItem extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.deleteGroup = this.deleteGroup.bind(this);
+    this.leaveGroup = this.leaveGroup.bind(this)
   }
 
   handleClick() {
@@ -22,6 +23,17 @@ class GroupIndexItem extends React.Component {
 
     this.props.deleteGroup(this.props.group.id);
     if (this.props.currentGroup) this.props.history.push("/home");
+  }
+
+  leaveGroup(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    this.props.leaveGroup({
+      group_id: this.props.group.id,
+      user_id: this.props.currentUser
+    })
+    this.props.history.push("/home")
   }
 
   render() {
@@ -41,7 +53,7 @@ class GroupIndexItem extends React.Component {
               <i className="fas fa-trash-alt"></i>
             </div>
           ) : (
-            <div className="group-options" onClick={this.deleteGroup}>
+            <div className="group-options" onClick={this.leaveGroup}>
               <i className="fas fa-door-open"></i>
             </div>
           )}
