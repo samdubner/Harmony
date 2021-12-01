@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
   demoLogin(e) {
     e.preventDefault();
     const user = {
-      username: "test",
+      username: "Demo User",
       password: "123456",
     };
 
