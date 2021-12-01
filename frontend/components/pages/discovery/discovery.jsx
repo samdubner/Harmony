@@ -17,7 +17,6 @@ class Discovery extends React.Component {
   }
 
   updateFilter(e) {
-    console.log(this.props.servers);
     this.setState({ filter: e.target.value });
   }
 

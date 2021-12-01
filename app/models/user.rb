@@ -8,6 +8,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  color           :string
 #
 class User < ApplicationRecord
     validates :username, :session_token, presence: true
@@ -16,6 +17,8 @@ class User < ApplicationRecord
 
     attr_reader :password
     after_initialize :ensure_session_token
+
+    before_create :randomize_color
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
@@ -46,6 +49,10 @@ class User < ApplicationRecord
 
     def ensure_session_token
         self.session_token ||= SecureRandom::urlsafe_base64
+    end
+
+    def randomize_color
+        self.color = "#" + SecureRandom.hex(3)
     end
 
     has_many :outbound_requests,

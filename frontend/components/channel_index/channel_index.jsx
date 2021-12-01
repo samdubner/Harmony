@@ -1,15 +1,19 @@
 import React from "react";
 import ChannelIndexItem from "./channel_index_item_container";
 
+import ColorModal from "../shared/color_modal/color_modal";
+
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       dropdown: false,
       channelSelected: false,
+      modalOpen: false,
     };
     this.toggleInviteDropDown = this.toggleInviteDropDown.bind(this);
     this.handleDeleteServer = this.handleDeleteServer.bind(this);
+    this.toggleColors = this.toggleColors.bind(this);
   }
 
   componentDidUpdate() {
@@ -34,6 +38,10 @@ class ChannelIndex extends React.Component {
 
       this.setState({ dropdown: !this.state.dropdown });
     }
+  }
+
+  toggleColors() {
+    this.setState({ modalOpen: !this.state.modalOpen });
   }
 
   handleDeleteServer(e) {
@@ -115,11 +123,14 @@ class ChannelIndex extends React.Component {
       channels = null;
     }
 
+    let colorModal = this.state.modalOpen ? <ColorModal /> : null;
+
     return (
       <div className="channel-index">
         <div className="server-info" onClick={this.toggleInviteDropDown}>
           {serverInfo}
           {dropdown}
+          {colorModal}
         </div>
         <div className="channels-container">{channels}</div>
         <div className="user-box">
@@ -128,6 +139,7 @@ class ChannelIndex extends React.Component {
             <h3>{this.props.currentUser.username}</h3>
           </div>
           <div className="user-options">
+            <i className="fas fa-cog" onClick={this.toggleColors}></i>
             <i className="fas fa-sign-out-alt" onClick={this.props.logout}></i>
           </div>
         </div>
