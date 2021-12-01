@@ -1,4 +1,4 @@
-import { signupReq, loginReq, logoutReq } from "../util/session_api_util"
+import { signupReq, loginReq, logoutReq, updateColorReq } from "../util/session_api_util"
 
 //Action Types
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";

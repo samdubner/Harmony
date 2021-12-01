@@ -1,4 +1,4 @@
-import { connect } from "react-redux"
+    import { connect } from "react-redux"
 
 import { updateColor } from "../../../actions/session_actions"
 import { setColorModal } from "../../../actions/ui_actions"

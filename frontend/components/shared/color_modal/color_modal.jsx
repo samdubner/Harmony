@@ -6,10 +6,11 @@ class ColorModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: ``,
-    };
+        color: ""
+    }
     this.updateColor = this.updateColor.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.setNewColor = this.setNewColor.bind(this)
   }
 
   componentDidMount() {
@@ -22,6 +23,15 @@ class ColorModal extends React.Component {
 
   closeModal() {
     this.props.closeColorModal();
+  }
+
+  setNewColor() {
+    let colorPicker = document.getElementById("selected-color-picker")
+    this.props.updateColor({
+        id: this.props.currentUser,
+        color: colorPicker.value
+    })
+    
   }
 
   render() {
@@ -52,13 +62,18 @@ class ColorModal extends React.Component {
                 <p>New Color:</p>
                 <input
                   type="color"
+                  id="selected-color-picker"
                   value={this.state.color}
                   onChange={this.updateColor}
                 />
               </div>
             </div>
             <div className="color-submit">
-              <div className="color-buttons" id="update-button">
+              <div
+                className="color-buttons"
+                id="update-button"
+                onClick={this.setNewColor}
+              >
                 Update
               </div>
               <div
