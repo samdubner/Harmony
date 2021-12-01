@@ -59,6 +59,10 @@ class ChannelIndex extends React.Component {
               <h2>Invite People</h2>
               <i className="fas fa-user-plus"></i>
             </li>
+            <li className="leave-li" onClick={this.props.leaveServer}>
+              <h2>Leave Server</h2>
+              <i className="fas fa-door-open"></i>
+            </li>
 
             {this.props.server.owner_id == this.props.currentUser.id ? (
               <>
