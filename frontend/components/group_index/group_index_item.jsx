@@ -21,7 +21,7 @@ class GroupIndexItem extends React.Component {
     e.preventDefault();
 
     this.props.deleteGroup(this.props.group.id);
-    if (this.props.currentGroup)this.props.history.push("/home");
+    if (this.props.currentGroup) this.props.history.push("/home");
   }
 
   render() {
@@ -36,9 +36,15 @@ class GroupIndexItem extends React.Component {
             <p className="group-name">{this.props.group.name}</p>
           </div>
 
-          <div className="group-options" onClick={this.deleteGroup}>
-            <i className="fas fa-trash-alt"></i>
-          </div>
+          {this.props.currentUser == this.props.group.owner_id ? (
+            <div className="group-options" onClick={this.deleteGroup}>
+              <i className="fas fa-trash-alt"></i>
+            </div>
+          ) : (
+            <div className="group-options" onClick={this.deleteGroup}>
+              <i className="fas fa-door-open"></i>
+            </div>
+          )}
         </div>
       </NavLink>
     );
