@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import GroupIndexItem from "./group_index_item";
+import UserPfp from "../shared/user_pfp/user_pfp";
 
 class GroupIndex extends React.Component {
   constructor(props) {
@@ -82,12 +83,7 @@ class GroupIndex extends React.Component {
 
         <div className="user-box">
           <div className="user-info">
-            <div
-              className="user-pfp"
-              style={{
-                backgroundColor: this.props.users[this.props.currentUser].color,
-              }}
-            ></div>
+            <UserPfp user={this.props.users[this.props.currentUser]} />
             <h3>{this.props.users[this.props.currentUser].username}</h3>
           </div>
           <div className="user-options">
