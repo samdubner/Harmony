@@ -1,7 +1,7 @@
 import React from "react";
 import ChannelIndexItem from "./channel_index_item_container";
 
-import ColorModal from "../shared/color_modal/color_modal";
+import ColorModalContainer from "../shared/color_modal/color_modal_container";
 
 class ChannelIndex extends React.Component {
   constructor(props) {
@@ -123,7 +123,7 @@ class ChannelIndex extends React.Component {
       channels = null;
     }
 
-    let colorModal = this.state.modalOpen ? <ColorModal /> : null;
+    let colorModal = this.props.colorModalState ? <ColorModalContainer /> : null;
 
     return (
       <div className="channel-index">

@@ -51,3 +51,8 @@ export const signup = formUser => dispatch => {
         .then(user => dispatch(receiveCurrentUser(user)))
         .fail(err => dispatch(receiveErrors(err)))
 }
+
+export const updateColor = userInfo => dispatch => {
+    return updateColorReq(userInfo)
+        .then(user => dispatch(receiveCurrentUser(user)))
+}

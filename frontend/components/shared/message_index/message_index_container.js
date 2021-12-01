@@ -1,22 +1,22 @@
-import {connect} from "react-redux"
+import { connect } from "react-redux";
 
-import { deleteMessage, clearMessages } from "../../../actions/message_actions"
+import { clearMessages } from "../../../actions/message_actions";
 
-import MessageIndex from "./message_index"
+import MessageIndex from "./message_index";
 
-const mapStateToProps = state => {
-    return {
-        currentUser: state.session.id,
-        users: state.entities.users,
-        groups: state.entities.groups,
-        channels: state.entities.channels
-    }
-}
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.session.id,
+    users: state.entities.users,
+    groups: state.entities.groups,
+    channels: state.entities.channels,
+  };
+};
 
-const mapDispatchToProps = dispatch => {
-    return {
-        clearMessages: () => dispatch(clearMessages())
-    }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearMessages: () => dispatch(clearMessages()),
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MessageIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(MessageIndex);

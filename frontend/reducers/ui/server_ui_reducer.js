@@ -10,6 +10,8 @@ const uiReducer = (prevState=_closed, action) => {
   switch (action.type) {
     case SET_MODAL:
         return Object.assign({}, prevState, {modalState: action.state})
+    case SET_COLOR_MODAL:
+        return Object.assign({}, prevState, { showColorModal: action.state})
     case SET_CURRENT_INVITE:
         return Object.assign({}, prevState, {serverInvite: action.invite})
     case SET_CURRENT_SERVER:

@@ -11,7 +11,8 @@ const mapStateToProps = state => {
     return {
         channels: state.entities.channels,
         currentServer: state.ui.server.currentServer,
-        currentChanne: state.ui.server.currentChannel
+        currentChanne: state.ui.server.currentChannel,
+        colorModalState: state.ui.server.showColorModal
     }
 }
 
