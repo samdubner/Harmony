@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import ChannelIndexItem from "./channel_index_item_container";
 
 import ColorModalContainer from "../shared/color_modal/color_modal_container";
@@ -15,6 +16,7 @@ class ChannelIndex extends React.Component {
     this.toggleInviteDropDown = this.toggleInviteDropDown.bind(this);
     this.handleDeleteServer = this.handleDeleteServer.bind(this);
     this.toggleColors = this.toggleColors.bind(this);
+    this.handleLeaveServer = this.handleLeaveServer.bind(this)
   }
 
   componentDidUpdate() {
@@ -45,8 +47,16 @@ class ChannelIndex extends React.Component {
     this.props.openColorModal();
   }
 
-  handleDeleteServer(e) {
+  handleDeleteServer() {
     this.props.deleteServer(this.props.server);
+  }
+
+  handleLeaveServer() {
+    this.props.leaveServer({
+      server_id: this.props.server.id,
+      user_id: this.props.currentUser.id
+    })
+    this.props.history.push("/home")
   }
 
   render() {
@@ -59,7 +69,7 @@ class ChannelIndex extends React.Component {
               <h2>Invite People</h2>
               <i className="fas fa-user-plus"></i>
             </li>
-            <li className="leave-li" onClick={this.props.leaveServer}>
+            <li className="leave-li" onClick={this.handleLeaveServer}>
               <h2>Leave Server</h2>
               <i className="fas fa-door-open"></i>
             </li>

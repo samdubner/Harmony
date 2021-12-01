@@ -7,3 +7,13 @@ export const joinServerReq = (joinInfo) => {
         }
     })
 }
+
+export const leaveServerReq = (leaveInfo) => {
+    return $.ajax({
+        url: `/api/user_servers/${leaveInfo.server_id}`,
+        method: "DELETE",
+        data: {
+            leaveInfo 
+        }
+    })
+}

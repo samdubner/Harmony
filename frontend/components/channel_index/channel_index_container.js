@@ -1,6 +1,8 @@
 import { connect } from "react-redux"
+import { withRouter } from "react-router"
 
 import { setModal, setColorModal, setCurrentInvite, setCurrentChannel } from "../../actions/ui_actions"
+import { leaveServer } from "../../actions/user_server_actions"
 import { deleteServer } from "../../actions/server_actions"
 
 import { getServerChannels } from "../../actions/channel_actions"
@@ -24,8 +26,9 @@ const mapDispatchToProps = dispatch => {
         setCurrentChannel: (channel) => dispatch(setCurrentChannel(channel)),
         setCurrentInvite: (invite) => dispatch(setCurrentInvite(invite)),
         deleteServer: (server) => dispatch(deleteServer(server)),
-        getServerChannels: (server) => dispatch(getServerChannels(server))
+        getServerChannels: (server) => dispatch(getServerChannels(server)),
+        leaveServer: (serverId) => dispatch(leaveServer(serverId))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelIndex))
