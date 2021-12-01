@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 
 import { getAllServers } from "../../../actions/server_actions"
-import { joinServer } from "../../../actions/user_server"
+import { joinServer } from "../../../actions/user_server_actions"
 
 import Discovery from "./discovery"
 
