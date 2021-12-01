@@ -2,6 +2,7 @@ import React from "react";
 import ChannelIndexItem from "./channel_index_item_container";
 
 import ColorModalContainer from "../shared/color_modal/color_modal_container";
+import UserPfp from "../shared/user_pfp/user_pfp";
 
 class ChannelIndex extends React.Component {
   constructor(props) {
@@ -137,10 +138,7 @@ class ChannelIndex extends React.Component {
         <div className="channels-container">{channels}</div>
         <div className="user-box">
           <div className="user-info">
-            <div
-              className="user-pfp"
-              style={{ backgroundColor: this.props.currentUser.color }}
-            ></div>
+            <UserPfp user={this.props.currentUser} />
             <h3>{this.props.currentUser.username}</h3>
           </div>
           <div className="user-options">

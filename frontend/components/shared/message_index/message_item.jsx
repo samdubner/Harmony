@@ -1,5 +1,7 @@
 import React from "react";
 
+import UserPfp from "../user_pfp/user_pfp";
+
 class MessageItem extends React.Component {
   constructor(props) {
     super(props);
@@ -14,10 +16,7 @@ class MessageItem extends React.Component {
     return (
       <div className="message-item">
         <div className="message-info">
-          <div
-            className="message-pfp"
-            style={{ backgroundColor: this.props.author.color }}
-          />
+          <UserPfp user={this.props.author} />
           <div className="message-details">
             <div className="message-author">
               <p>{this.props.author.username}</p>

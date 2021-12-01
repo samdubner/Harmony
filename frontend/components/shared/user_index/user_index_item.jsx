@@ -1,5 +1,7 @@
 import React from "react";
 
+import UserPfp from "../user_pfp/user_pfp";
+
 class UserIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,8 @@ class UserIndexItem extends React.Component {
     return (
       <div className="user-container">
         <div className="user-info">
-          <div className="user-pfp" style={{backgroundColor: this.props.user.color}}></div>
+
+          <UserPfp user={this.props.user} />
           <h1>{this.props.user.username}</h1>
         </div>
         <div className={classes} onClick={this.handleClick}>
