@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom"
 
 import { getUserGroups, createGroup, getGroupInfo, deleteGroup } from "../../actions/group_actions"
 import { setCurrentGroup } from "../../actions/ui_actions";
+import { leaveGroup } from "../../actions/user_group_actions";
 
 import GroupIndex from "./group_index";
 
@@ -26,7 +27,8 @@ const mapDispatchToProps = (dispatch) => {
     getUserGroups: (user) => dispatch(getUserGroups(user)),
     setCurrentGroup: (group) => dispatch(setCurrentGroup(group)),
     getGroupInfo: (group) => dispatch(getGroupInfo(group)),
-    deleteGroup: (group) => dispatch(deleteGroup(group))
+    deleteGroup: (group) => dispatch(deleteGroup(group)),
+    leaveGroup: (leaveInfo) => dispatch(leaveGroup(leaveInfo))
   };
 };
 

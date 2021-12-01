@@ -11,6 +11,18 @@ class Api::UserGroupsController < ApplicationController
     end
 
     def destroy
+        @group = Group.find_by_id(params[:leaveInfo][:group_id])
+        user_group = UserGroup.find_by(
+            group_id: params[:leaveInfo][:group_id],
+            user_id: params[:leaveInfo][:user_id]
+        )
+
+        if user_group
+            user_group.delete
+            render :delete
+        else
+            render json: {}, status: 404
+        end
     end
 
     private

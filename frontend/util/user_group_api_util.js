@@ -7,3 +7,13 @@ export const addToGroupReq = (joinInfo) => {
         }
     })
 }
+
+export const leaveGroupReq = (leaveInfo) => {
+    return $.ajax({
+        url: `/api/user_groups/${leaveInfo.group_id}`,
+        method: "DELETE",
+        data: {
+            leaveInfo
+        }
+    })
+}
