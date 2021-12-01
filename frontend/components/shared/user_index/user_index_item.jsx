@@ -30,7 +30,6 @@ class UserIndexItem extends React.Component {
       classes = "user-actions hidden";
     }
 
-    console.log(this.props.user)
     return (
       <div className="user-container">
         <div className="user-info">
