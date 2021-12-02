@@ -1,5 +1,7 @@
 import React from "react";
 
+import UserPfp from "../shared/user_pfp/user_pfp";
+
 class FriendItem extends React.Component {
   constructor(props) {
     super(props)
@@ -14,7 +16,7 @@ class FriendItem extends React.Component {
     return (
       <div className="friend-item">
         <div className="friend-info">
-          <div className="friend-pfp" />
+          <UserPfp user={this.props.friend} />
           <p className="friend-name">{this.props.friend.username}</p>
         </div>
         <div className="friend-options">
