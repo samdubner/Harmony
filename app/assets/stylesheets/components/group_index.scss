@@ -22,7 +22,7 @@
       display: flex;
       align-items: center;
     }
-    
+
     .user-options {
       display: flex;
       align-items: center;
@@ -77,14 +77,6 @@
     .friends-text {
       font-size: 1em;
     }
-
-    .groups-prompt {
-      width: 93%;
-    }
-
-    .groups-list {
-      width: 95%;
-    }
   }
 
   .friend:hover {
@@ -110,6 +102,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 93%;
 
     p {
       color: #8e9297;
@@ -119,6 +112,10 @@
       cursor: pointer;
       font-size: 22px;
     }
+  }
+
+  .groups-list {
+    width: 95%;
   }
 }
 
