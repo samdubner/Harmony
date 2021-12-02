@@ -1,5 +1,7 @@
 import React from "react";
 
+import UserPfp from "../shared/user_pfp/user_pfp";
+
 class RequestItem extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +49,7 @@ class RequestItem extends React.Component {
     return (
       <div className="request-item">
         <div className="request-info">
-          <div className="friend-pfp" />
+          <UserPfp user={user} />
           <div className="request-text">
             <p className="request-name">{username}</p>
             <p className="request-direction">{direction}</p>
