@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import ChannelIndexItem from "./channel_index_item_container";
 
 import ColorModalContainer from "../shared/color_modal/color_modal_container";
@@ -16,7 +16,7 @@ class ChannelIndex extends React.Component {
     this.toggleInviteDropDown = this.toggleInviteDropDown.bind(this);
     this.handleDeleteServer = this.handleDeleteServer.bind(this);
     this.toggleColors = this.toggleColors.bind(this);
-    this.handleLeaveServer = this.handleLeaveServer.bind(this)
+    this.handleLeaveServer = this.handleLeaveServer.bind(this);
   }
 
   componentDidUpdate() {
@@ -54,9 +54,9 @@ class ChannelIndex extends React.Component {
   handleLeaveServer() {
     this.props.leaveServer({
       server_id: this.props.server.id,
-      user_id: this.props.currentUser.id
-    })
-    this.props.history.push("/home")
+      user_id: this.props.currentUser.id,
+    });
+    this.props.history.push("/home");
   }
 
   render() {
@@ -69,23 +69,24 @@ class ChannelIndex extends React.Component {
               <h2>Invite People</h2>
               <i className="fas fa-user-plus"></i>
             </li>
+
+            {this.props.server.owner_id == this.props.currentUser.id ? (
+              <li className="channel-li" onClick={this.props.createChannel}>
+                <h2>Add Channel</h2>
+                <i className="fas fa-plus"></i>
+              </li>
+            ) : null}
+
             <li className="leave-li" onClick={this.handleLeaveServer}>
               <h2>Leave Server</h2>
               <i className="fas fa-door-open"></i>
             </li>
-
+            
             {this.props.server.owner_id == this.props.currentUser.id ? (
-              <>
-                <li className="channel-li" onClick={this.props.createChannel}>
-                  <h2>Add Channel</h2>
-                  <i className="fas fa-plus"></i>
-                </li>
-
-                <li className="delete-li" onClick={this.handleDeleteServer}>
-                  <h2>Delete Server</h2>
-                  <i className="fas fa-trash"></i>
-                </li>
-              </>
+              <li className="delete-li" onClick={this.handleDeleteServer}>
+                <h2>Delete Server</h2>
+                <i className="fas fa-trash"></i>
+              </li>
             ) : null}
           </ul>
         </div>
