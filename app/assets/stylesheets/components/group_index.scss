@@ -4,6 +4,7 @@
   grid-template-rows: 3em 1fr 3em;
 
   .group-index-header {
+    width: 13em;
     padding: 1em;
     color: white;
     display: flex;
@@ -54,6 +55,7 @@
 
 .groups-container {
   padding: 10px;
+  width: calc(15em - 10px);
 
   .friend {
     display: flex;
@@ -98,12 +100,12 @@
 
   .groups-prompt {
     padding: 0px;
+    width: 95%;
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 91%;
 
     p {
       color: #8e9297;
@@ -113,10 +115,6 @@
       cursor: pointer;
       font-size: 22px;
     }
-  }
-
-  .groups-list {
-    width: 93%;
   }
 }
 
