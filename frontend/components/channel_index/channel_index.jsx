@@ -49,6 +49,7 @@ class ChannelIndex extends React.Component {
 
   handleDeleteServer() {
     this.props.deleteServer(this.props.server);
+    this.props.history.push("/home");
   }
 
   handleLeaveServer() {
