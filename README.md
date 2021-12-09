@@ -15,7 +15,7 @@ Harmony is a full-stack Discord clone using Ruby on Rails, postgreSQL, React, an
 
 ![Example of a Harmony server page](https://i.imgur.com/qxscVRW.png)
 
-```
+```js
 //server_index.js (example of reused modal component)
 
 switch (this.props.modalState) {
@@ -55,7 +55,7 @@ switch (this.props.modalState) {
 
 ![Example of a Harmony group page](https://i.imgur.com/bjcwIIk.png)
 
-```
+```js
 //message_index.js
 
 createConsumer() {
