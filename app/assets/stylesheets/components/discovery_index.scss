@@ -114,15 +114,22 @@
       justify-content: center;
       width: 80%;
       height: 2em;
-      background-color: #5729f8;
       color: white;
       border-radius: 3px;
       cursor: pointer;
-      transition: background-color .2s;
+      transition: background-color 0.2s;
     }
 
-    div:hover {
-        background-color: #4923d1;
+    #join-button {
+      background-color: #5729f8;
+    }
+
+    #join-button:hover {
+      background-color: #4923d1;
+    }
+
+    #progress-button {
+      background-color: #472ca8;
     }
   }
 }

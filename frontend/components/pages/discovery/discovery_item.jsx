@@ -3,6 +3,9 @@ import React from "react";
 class DiscoveryItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      joining: false
+    }
     this.joinServer = this.joinServer.bind(this);
   }
 
@@ -11,6 +14,7 @@ class DiscoveryItem extends React.Component {
       user_id: this.props.currentUser,
       invite: this.props.server.invite,
     });
+    this.setState({ joining: true })
   }
 
   render() {
@@ -31,7 +35,11 @@ class DiscoveryItem extends React.Component {
           <p className="server-name">{this.props.server.name}</p>
         </div>
         <div className="server-actions">
-          <div onClick={this.joinServer}>Join Server</div>
+          { this.state.joining ? (
+            <div id="progress-button">Joining Server...</div>
+            ) : (
+            <div id="join-button" onClick={this.joinServer}>Join Server</div>
+          )}
         </div>
       </div>
     );
